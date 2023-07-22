@@ -1,0 +1,5 @@
+{
+  "name": "@nestify/server/util/throttler",
+  "version": "0.0.1",
+  "type": "commonjs"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "@nestify/server/util/stripe",
+  "version": "0.0.1",
+  "type": "commonjs"
+}

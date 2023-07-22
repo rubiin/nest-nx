@@ -1,20 +1,72 @@
 {
-  "compileOnSave": false,
+  "extends": "@rubiin/tsconfig",
   "compilerOptions": {
     "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2021",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
+    "lib": [
+      "es2021",
+      "dom"
+    ],
     "baseUrl": ".",
-    "paths": {}
+    "types": [
+      "./libs/server/util/common/src/lib/global.d.ts",
+    ],
+    "paths": {
+      "@nestify/server/util/cache": [
+        "libs/server/util/cache/src/index.ts"
+      ],
+      "@nestify/server/util/cloudinary": [
+        "libs/server/util/cloudinary/src/index.ts"
+      ],
+      "@nestify/server/util/common": [
+        "libs/server/util/common/src/index.ts"
+      ],
+      "@nestify/server/util/config": [
+        "libs/server/util/config/src/index.ts"
+      ],
+      "@nestify/server/util/http": [
+        "libs/server/util/http/src/index.ts"
+      ],
+      "@nestify/server/util/i18n": [
+        "libs/server/util/i18n/src/index.ts"
+      ],
+      "@nestify/server/util/jwt": [
+        "libs/server/util/jwt/src/index.ts"
+      ],
+      "@nestify/server/util/mailer": [
+        "libs/server/util/mailer/src/index.ts"
+      ],
+      "@nestify/server/util/minio": [
+        "libs/server/util/minio/src/index.ts"
+      ],
+      "@nestify/server/util/orm": [
+        "libs/server/util/orm/src/index.ts"
+      ],
+      "@nestify/server/util/pino": [
+        "libs/server/util/pino/src/index.ts"
+      ],
+      "@nestify/server/util/rabbitmq": [
+        "libs/server/util/rabbitmq/src/index.ts"
+      ],
+      "@nestify/server/util/sentry": [
+        "libs/server/util/sentry/src/index.ts"
+      ],
+      "@nestify/server/util/stripe": [
+        "libs/server/util/stripe/src/index.ts"
+      ],
+      "@nestify/server/util/throttler": [
+        "libs/server/util/throttler/src/index.ts"
+      ],
+      "@nestify/server/util/twilio": [
+        "libs/server/util/twilio/src/index.ts"
+      ]
+    }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

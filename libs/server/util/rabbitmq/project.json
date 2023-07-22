@@ -1,0 +1,51 @@
+{
+  "name": "server-util-rabbitmq",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/server/util/rabbitmq/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/server/util/rabbitmq",
+        "tsConfig": "libs/server/util/rabbitmq/tsconfig.lib.json",
+        "packageJson": "libs/server/util/rabbitmq/package.json",
+        "main": "libs/server/util/rabbitmq/src/index.ts",
+        "assets": [
+          "libs/server/util/rabbitmq/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/util/rabbitmq/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "libs/server/util/rabbitmq/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
