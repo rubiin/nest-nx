@@ -1,13 +1,13 @@
 {
   "name": "@nestify/source",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build:all": "nx run-many -t build --all",
     "format": "",
     "build": "nx build -t",
+    "build:all": "nx run-many -t build --all",
     "lint": "nx lint -t",
-    "lint:all": "nx run-many --target=lint --all --fix --cache",
+    "lint:all": "nx run-many -t lint --all --fix --cache",
     "format:write": "nx format:write --libs-and-apps",
     "format:check": "nx format:check --libs-and-apps",
     "nx": "nx",
