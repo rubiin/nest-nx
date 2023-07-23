@@ -1,6 +1,7 @@
-import { Transform } from 'class-transformer';
-import DOMPurify from 'isomorphic-dompurify';
-import { HelperService } from '../../helpers';
+import { Transform } from "class-transformer";
+import DOMPurify from "isomorphic-dompurify";
+
+import { HelperService } from "../../helpers";
 
 /**
  * It trims the value of a property and replaces multiple spaces with a single space
@@ -11,10 +12,10 @@ export const Trim = () => {
     const value = parameters.value as string[] | string;
 
     if (HelperService.isArray(value)) {
-      return value.map((v: string) => v.trim().replaceAll(/\s\s+/g, ' '));
+      return value.map((v: string) => v.trim().replaceAll(/\s\s+/g, " "));
     }
 
-    return value.trim().replaceAll(/\s\s+/g, ' ');
+    return value.trim().replaceAll(/\s\s+/g, " ");
   });
 };
 
@@ -27,10 +28,10 @@ export const ToBoolean = () => {
   return Transform(
     (parameters) => {
       switch (parameters.value) {
-        case 'true': {
+        case "true": {
           return true;
         }
-        case 'false': {
+        case "false": {
           return false;
         }
         default: {
@@ -52,7 +53,7 @@ export const Sanitize = (): PropertyDecorator => {
     ({ value }) => {
       if (Array.isArray(value)) {
         return value.map((v) => {
-          if (typeof v === 'string') {
+          if (typeof v === "string") {
             return DOMPurify.sanitize(v);
           }
 

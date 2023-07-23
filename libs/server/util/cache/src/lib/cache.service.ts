@@ -1,7 +1,7 @@
-import { CACHE_MANAGER } from '@nestjs/cache-manager';
-import { Inject, Injectable } from '@nestjs/common';
-import { Cache } from 'cache-manager';
-import { concatMap, from, map, Observable, toArray } from 'rxjs';
+import { CACHE_MANAGER } from "@nestjs/cache-manager";
+import { Inject, Injectable } from "@nestjs/common";
+import { Cache } from "cache-manager";
+import { concatMap, from, map, Observable, toArray } from "rxjs";
 
 @Injectable()
 export class CacheService {
@@ -15,7 +15,7 @@ export class CacheService {
   deleteMatch(regexString: string): Observable<boolean> {
     return from(this.cacheManager.store.keys()).pipe(
       concatMap((keys: string[]) => {
-        const regex = new RegExp(regexString, 'i');
+        const regex = new RegExp(regexString, "i");
         const match = keys.filter((key: string) => regex.test(key));
 
         return from(match);

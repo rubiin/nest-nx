@@ -14,10 +14,11 @@ import {
 	Property,
 	wrap,
 } from "@mikro-orm/core";
-import { Conversation,Post } from ".";
-import { BaseEntity } from "../base.entity";
-import { Roles } from "../../enums";
+
 import { HelperService } from "../../../helpers";
+import { Roles } from "../../enums";
+import { BaseEntity } from "../base.entity";
+import { Conversation,Post } from ".";
 
 @Embeddable()
 export class Social {

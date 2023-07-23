@@ -1,4 +1,4 @@
-import { ConfigType } from '@nestjs/config';
+import { ConfigType } from "@nestjs/config";
 
 import {
   app,
@@ -13,7 +13,7 @@ import {
   stripe,
   throttle,
   twilio,
-} from './configs';
+} from "./configs";
 
 export interface Config {
   throttle: ConfigType<typeof throttle>;

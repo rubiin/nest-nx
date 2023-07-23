@@ -1,12 +1,12 @@
-import { EntityManager } from '@mikro-orm/core';
-import { Type } from '@nestjs/common';
+import { EntityManager } from "@mikro-orm/core";
+import { Type } from "@nestjs/common";
 import {
   registerDecorator,
   ValidationArguments as BaseValidationArguments,
   ValidationOptions,
   ValidatorConstraint,
   ValidatorConstraintInterface,
-} from 'class-validator';
+} from "class-validator";
 
 export interface ValidationArguments<
   Constraints extends unknown[] = [],

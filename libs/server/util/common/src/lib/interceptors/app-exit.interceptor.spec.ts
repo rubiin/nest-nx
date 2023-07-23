@@ -1,16 +1,16 @@
-import { mockContext, mockNext } from '@mocks';
+import { mockContext, mockNext } from "@mocks";
 
-import { ExitInterceptor } from './app-exit.interceptor';
+import { ExitInterceptor } from "./app-exit.interceptor";
 
-describe('ExitInterceptor', () => {
+describe("ExitInterceptor", () => {
   let interceptor: ExitInterceptor;
 
   beforeEach(() => {
     interceptor = new ExitInterceptor();
   });
 
-  describe('intercept', () => {
-    it('should pass', () => {
+  describe("intercept", () => {
+    it("should pass", () => {
       interceptor.intercept(mockContext, mockNext).subscribe((result) => {
         expect(result).toEqual({});
       });

@@ -1,9 +1,10 @@
-import { CacheModule, CacheStore } from '@nestjs/cache-manager';
-import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { redisStore } from 'cache-manager-redis-yet';
-import { CacheService } from './cache.service';
 import { Config, NestConfigModule } from "@nestify/server/util/config";
+import { CacheModule, CacheStore } from "@nestjs/cache-manager";
+import { Module } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+import { redisStore } from "cache-manager-redis-yet";
+
+import { CacheService } from "./cache.service";
 
 
 @Module({
@@ -13,7 +14,7 @@ import { Config, NestConfigModule } from "@nestify/server/util/config";
       isGlobal: true,
       useFactory: async (configService: ConfigService<Config, true>) => {
         const store = await redisStore({
-          url: configService.get('redis.url', { infer: true }),
+          url: configService.get("redis.url", { infer: true }),
           database: 0,
           isolationPoolOptions: {
             min: 1,
@@ -23,7 +24,7 @@ import { Config, NestConfigModule } from "@nestify/server/util/config";
 
         return {
           store: store as unknown as CacheStore,
-          ttl: configService.get('redis.ttl', { infer: true }), // 3 minutes (milliseconds)
+          ttl: configService.get("redis.ttl", { infer: true }), // 3 minutes (milliseconds)
         };
       },
       inject: [ConfigService],

@@ -1,5 +1,4 @@
-import { StringFieldOptions } from '../../@types';
-import { applyDecorators } from '@nestjs/common';
+import { applyDecorators } from "@nestjs/common";
 import {
   ArrayMaxSize,
   ArrayMinSize,
@@ -8,11 +7,12 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-} from 'class-validator';
-import { i18nValidationMessage } from 'nestjs-i18n';
+} from "class-validator";
+import { i18nValidationMessage } from "nestjs-i18n";
 
-import { MinMaxLength } from './min-max-length.decorator';
-import { Sanitize, Trim } from './transform.decorator';
+import { StringFieldOptions } from "../../@types";
+import { MinMaxLength } from "./min-max-length.decorator";
+import { Sanitize, Trim } from "./transform.decorator";
 
 /**
  * It's a decorator that validates a string field
@@ -35,9 +35,9 @@ export const IsStringField = (options_?: StringFieldOptions) => {
   const decoratorsToApply = [
     IsString({
       message: i18nValidationMessage<I18nTranslations>(
-        'validation.isDataType',
+        "validation.isDataType",
         {
-          type: 'string',
+          type: "string",
         }
       ),
       each: options.each,
@@ -61,7 +61,7 @@ export const IsStringField = (options_?: StringFieldOptions) => {
     decoratorsToApply.push(
       IsNotEmpty({
         message: i18nValidationMessage<I18nTranslations>(
-          'validation.isNotEmpty'
+          "validation.isNotEmpty"
         ),
         each: options.each,
       })
@@ -71,7 +71,7 @@ export const IsStringField = (options_?: StringFieldOptions) => {
       decoratorsToApply.push(
         ArrayNotEmpty({
           message: i18nValidationMessage<I18nTranslations>(
-            'validation.isNotEmpty'
+            "validation.isNotEmpty"
           ),
         })
       );
@@ -84,9 +84,9 @@ export const IsStringField = (options_?: StringFieldOptions) => {
     decoratorsToApply.push(
       IsArray({
         message: i18nValidationMessage<I18nTranslations>(
-          'validation.isDataType',
+          "validation.isDataType",
           {
-            type: 'array',
+            type: "array",
           }
         ),
       }),

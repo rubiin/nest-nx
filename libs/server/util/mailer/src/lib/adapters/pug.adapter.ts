@@ -1,6 +1,6 @@
-import pug from 'pug';
+import pug from "pug";
 
-import { Adapter } from './abstract.adapter';
+import { Adapter } from "./abstract.adapter";
 
 export class PugAdapter implements Adapter {
   constructor(private readonly options: Partial<pug.Options>) {}

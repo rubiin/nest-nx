@@ -4,9 +4,29 @@
   "license": "MIT",
   "scripts": {
     "build:all": "nx run-many -t build --all",
-    "format": "nx format:write --libs-and-apps",
+    "format": "",
     "build": "nx build -t",
-    "lint": "nx lint"
+    "lint": "nx lint -t",
+    "lint:all": "nx run-many --target=lint --all --fix --cache",
+    "format:write": "nx format:write --libs-and-apps",
+    "format:check": "nx format:check --libs-and-apps",
+    "nx": "nx",
+    "start": "nx serve",
+    "test": "nx test",
+    "e2e": "nx e2e",
+    "affected:apps": "nx affected:apps",
+    "affected:libs": "nx affected:libs",
+    "affected:build": "nx affected:build",
+    "affected:e2e": "nx affected:e2e",
+    "affected:test": "nx affected:test",
+    "affected:lint": "nx affected:lint",
+    "affected:dep-graph": "nx affected:dep-graph",
+    "affected": "nx affected",
+    "update": "nx migrate latest",
+    "workspace-generator": "nx workspace-generator",
+    "graph": "nx graph",
+    "help": "nx help",
+    "orm": "npx mikro-orm"
   },
   "private": true,
   "dependencies": {
@@ -191,5 +211,12 @@
     "vitest": "~0.33.0",
     "webpack": "^5.88.2",
     "webpack-node-externals": "^3.0.0"
-  }
+  },
+  "mikro-orm": {
+		"useTsNode": true,
+    "tsConfigPath": "./libs/server/util/orm/tsconfig.json",
+		"configPaths": [
+			"./libs/server/util/orm/src/lib/mikro-orm-cli.config.ts"
+		]
+	}
 }

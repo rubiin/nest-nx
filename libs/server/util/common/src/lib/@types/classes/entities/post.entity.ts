@@ -16,9 +16,9 @@ import {
 } from "@mikro-orm/core";
 import { slugify } from "helper-fns";
 
-import { Category, Comment, Tag, User } from "./index";
-import { BaseEntity } from "../base.entity";
 import { PostStateEnum } from "../../enums";
+import { BaseEntity } from "../base.entity";
+import { Category, Comment, Tag, User } from "./index";
 
 @Entity()
 export class Post extends BaseEntity {

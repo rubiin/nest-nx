@@ -3,8 +3,8 @@ import {
   ValidationError,
   ValidationPipe,
   ValidationPipeOptions,
-} from '@nestjs/common';
-import { WsException } from '@nestjs/websockets';
+} from "@nestjs/common";
+import { WsException } from "@nestjs/websockets";
 
 @Injectable()
 export class WsValidationPipe extends ValidationPipe {

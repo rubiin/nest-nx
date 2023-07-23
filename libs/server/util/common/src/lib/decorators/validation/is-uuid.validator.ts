@@ -1,13 +1,14 @@
-import { EnumFieldOptions as EmailFieldOptions } from '../../@types';
-import { applyDecorators } from '@nestjs/common';
+import { applyDecorators } from "@nestjs/common";
 import {
   ArrayNotEmpty,
   IsArray,
   IsNotEmpty,
   IsOptional,
   IsUUID,
-} from 'class-validator';
-import { i18nValidationMessage } from 'nestjs-i18n';
+} from "class-validator";
+import { i18nValidationMessage } from "nestjs-i18n";
+
+import { EnumFieldOptions as EmailFieldOptions } from "../../@types";
 
 export const IsUUIDField = (options_?: EmailFieldOptions) => {
   const options: EmailFieldOptions = {
@@ -16,11 +17,11 @@ export const IsUUIDField = (options_?: EmailFieldOptions) => {
     ...options_,
   };
   const decoratorsToApply = [
-    IsUUID('4', {
+    IsUUID("4", {
       message: i18nValidationMessage<I18nTranslations>(
-        'validation.isDataType',
+        "validation.isDataType",
         {
-          type: 'uuid',
+          type: "uuid",
         }
       ),
       each: options.each,
@@ -31,7 +32,7 @@ export const IsUUIDField = (options_?: EmailFieldOptions) => {
     decoratorsToApply.push(
       IsNotEmpty({
         message: i18nValidationMessage<I18nTranslations>(
-          'validation.isNotEmpty'
+          "validation.isNotEmpty"
         ),
         each: options.each,
       })
@@ -41,7 +42,7 @@ export const IsUUIDField = (options_?: EmailFieldOptions) => {
       decoratorsToApply.push(
         ArrayNotEmpty({
           message: i18nValidationMessage<I18nTranslations>(
-            'validation.isNotEmpty'
+            "validation.isNotEmpty"
           ),
         })
       );
@@ -54,9 +55,9 @@ export const IsUUIDField = (options_?: EmailFieldOptions) => {
     decoratorsToApply.push(
       IsArray({
         message: i18nValidationMessage<I18nTranslations>(
-          'validation.isDataType',
+          "validation.isDataType",
           {
-            type: 'array',
+            type: "array",
           }
         ),
       })

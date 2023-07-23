@@ -1,7 +1,7 @@
 
-import { BaseEntity } from "../base.entity";
 import { Collection, Entity, ManyToMany, OneToMany, Property } from "@mikro-orm/core";
 
+import { BaseEntity } from "../base.entity";
 import { Message, User } from "./index";
 
 @Entity()

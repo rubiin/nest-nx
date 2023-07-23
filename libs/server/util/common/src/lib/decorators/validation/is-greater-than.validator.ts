@@ -4,7 +4,7 @@ import {
   ValidationOptions,
   ValidatorConstraint,
   ValidatorConstraintInterface,
-} from 'class-validator';
+} from "class-validator";
 
 @ValidatorConstraint({ async: true })
 class IsGreaterThanConstraint implements ValidatorConstraintInterface {

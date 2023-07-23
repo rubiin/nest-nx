@@ -18,6 +18,9 @@
       "@nestify/server/util/cache": [
         "libs/server/util/cache/src/index.ts"
       ],
+      "@nestify/server/util/entities": [
+        "libs/server/util/common/src/lib/@types/classes/entities/index.ts"
+      ],
       "@nestify/server/util/cloudinary": [
         "libs/server/util/cloudinary/src/index.ts"
       ],

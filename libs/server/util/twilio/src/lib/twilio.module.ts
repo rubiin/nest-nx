@@ -1,7 +1,7 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
 
-import { ConfigurableModuleClass } from './twilio.module-definition';
-import { TwilioService } from './twilio.service';
+import { ConfigurableModuleClass } from "./twilio.module-definition";
+import { TwilioService } from "./twilio.service";
 
 @Module({
   providers: [TwilioService],

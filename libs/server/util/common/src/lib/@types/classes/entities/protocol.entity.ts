@@ -1,5 +1,6 @@
-import { BaseEntity } from "../base.entity";
 import { Entity, Property } from "@mikro-orm/core";
+
+import { BaseEntity } from "../base.entity";
 
 // use this model to store the protocol
 

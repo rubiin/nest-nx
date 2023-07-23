@@ -1,11 +1,11 @@
-import { RabbitMQModule } from '@golevelup/nestjs-rabbitmq';
-import { Global, Logger, Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { RabbitMQModule } from "@golevelup/nestjs-rabbitmq";
+import { Config,NestConfigModule } from "@nestify/server/util/config";
+import { Global, Logger, Module } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
 
-import { RabbitService } from './rabbit.service';
-import { NestConfigModule, Config } from '@nestify/server/util/config';
+import { RabbitService } from "./rabbit.service";
 
-const logger = new Logger('RabbitMQ');
+const logger = new Logger("RabbitMQ");
 
 @Global()
 @Module({
@@ -15,21 +15,21 @@ const logger = new Logger('RabbitMQ');
       useFactory: (configService: ConfigService<Config, true>) => ({
         exchanges: [
           {
-            name: configService.get('rabbitmq.exchange', { infer: true }),
-            type: 'topic',
+            name: configService.get("rabbitmq.exchange", { infer: true }),
+            type: "topic",
           },
         ],
-        uri: configService.get('rabbitmq.url', { infer: true }),
+        uri: configService.get("rabbitmq.url", { infer: true }),
         connectionInitOptions: { wait: false },
         logger: logger,
         channels: {
-          'channel-1': {
-            prefetchCount: +configService.get('rabbitmq.prefetchCount', {
+          "channel-1": {
+            prefetchCount: +configService.get("rabbitmq.prefetchCount", {
               infer: true,
             }),
             default: true,
           },
-          'channel-2': {
+          "channel-2": {
             prefetchCount: 2,
           },
         },

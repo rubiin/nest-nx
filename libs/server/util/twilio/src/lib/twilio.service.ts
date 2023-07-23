@@ -1,13 +1,13 @@
-import { Inject, Injectable, Logger } from '@nestjs/common';
-import { catchError, from, Observable, retry, tap, throwError } from 'rxjs';
-import twilio from 'twilio';
+import { Inject, Injectable, Logger } from "@nestjs/common";
+import { catchError, from, Observable, retry, tap, throwError } from "rxjs";
+import twilio from "twilio";
 import {
   MessageInstance,
   MessageListInstanceCreateOptions,
-} from 'twilio/lib/rest/api/v2010/account/message';
+} from "twilio/lib/rest/api/v2010/account/message";
 
-import { MODULE_OPTIONS_TOKEN } from './twilio.module-definition';
-import { TwilioModuleOptions } from './twilio.options';
+import { MODULE_OPTIONS_TOKEN } from "./twilio.module-definition";
+import { TwilioModuleOptions } from "./twilio.options";
 
 @Injectable()
 export class TwilioService {

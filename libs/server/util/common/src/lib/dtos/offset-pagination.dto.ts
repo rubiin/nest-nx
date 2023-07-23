@@ -1,9 +1,9 @@
-import { ApiHideProperty } from '@nestjs/swagger';
-import { Allow } from 'class-validator';
+import { ApiHideProperty } from "@nestjs/swagger";
+import { Allow } from "class-validator";
 
-import { PaginationDto } from './pagination.dto';
-import { PaginationType, QueryOrder } from './../@types';
-import { IsNumberField, IsEnumField, IsStringField } from '../decorators';
+import { IsEnumField, IsNumberField, IsStringField } from "../decorators";
+import { PaginationType, QueryOrder } from "./../@types";
+import { PaginationDto } from "./pagination.dto";
 
 export class OffsetPaginationDto extends PaginationDto {
   @ApiHideProperty()
@@ -32,7 +32,7 @@ export class OffsetPaginationDto extends PaginationDto {
    * Sorting criteria
    */
   @IsStringField({ required: false, maxLength: 50 })
-  readonly sort = 'createdAt';
+  readonly sort = "createdAt";
 
   get offset(): number {
     return (this.page - 1) * this.limit;

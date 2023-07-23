@@ -1,6 +1,6 @@
-import { Server, TemplateEngine } from '@nestify/server/util/common';
-import type { EtaConfig } from 'eta/dist/types/config';
-import type { Options as PugOptions } from 'pug';
+import { Server, TemplateEngine } from "@nestify/server/util/common";
+import type { EtaConfig } from "eta/dist/types/config";
+import type { Options as PugOptions } from "pug";
 
 export interface MailModuleOptions {
   host?: string;

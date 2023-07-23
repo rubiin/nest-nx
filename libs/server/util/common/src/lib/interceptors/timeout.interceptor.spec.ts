@@ -1,16 +1,16 @@
-import { mockContext, mockNext } from '@mocks';
+import { mockContext, mockNext } from "@mocks";
 
-import { TimeoutInterceptor } from './timeout.interceptor';
+import { TimeoutInterceptor } from "./timeout.interceptor";
 
-describe('TimeoutInterceptor', () => {
+describe("TimeoutInterceptor", () => {
   let interceptor: TimeoutInterceptor;
 
   beforeEach(() => {
     interceptor = new TimeoutInterceptor();
   });
 
-  describe('intercept', () => {
-    it('should pass', () => {
+  describe("intercept", () => {
+    it("should pass", () => {
       interceptor.intercept(mockContext, mockNext).subscribe((result) => {
         expect(result).toEqual({});
       });

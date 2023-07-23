@@ -1,4 +1,5 @@
-import { I18nTranslations as I18nTranslationTypes } from '@nestify/server/util/i18n';
+import { I18nTranslations as I18nTranslationTypes } from "@nestify/server/util/i18n";
+
 import {User} from "./@types";
 
 
@@ -18,14 +19,14 @@ declare global {
       APP_PREFIX: string;
       APP_NAME: string;
       NODE_ENV:
-        | 'dev'
-        | 'development'
-        | 'stage'
-        | 'staging'
-        | 'test'
-        | 'testing'
-        | 'prod'
-        | 'production';
+        | "dev"
+        | "development"
+        | "stage"
+        | "staging"
+        | "test"
+        | "testing"
+        | "prod"
+        | "production";
       API_URL: string;
       CLIENT_URL: string;
       SWAGGER_USER: string;

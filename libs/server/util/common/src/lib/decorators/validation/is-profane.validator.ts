@@ -1,17 +1,18 @@
-import { HelperService } from '../../helpers';
 import {
   registerDecorator,
   ValidationArguments,
   ValidationOptions,
   ValidatorConstraint,
   ValidatorConstraintInterface,
-} from 'class-validator';
-import unprofane from 'unprofane';
+} from "class-validator";
+import unprofane from "unprofane";
+
+import { HelperService } from "../../helpers";
 
 @ValidatorConstraint({ async: true })
 class IsProfaneConstraint implements ValidatorConstraintInterface {
   async validate(value: string | Array<string>) {
-    const isProfane = new unprofane({ lang: 'all' });
+    const isProfane = new unprofane({ lang: "all" });
 
     if (HelperService.isArray(value)) {
       return value.some((v) => isProfane.check(v));

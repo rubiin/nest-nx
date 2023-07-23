@@ -3,15 +3,16 @@ import {
   ForbiddenException,
   Injectable,
   UnauthorizedException,
-} from '@nestjs/common';
-import { Reflector } from '@nestjs/core';
-import { AuthGuard } from '@nestjs/passport';
-import { JsonWebTokenError, TokenExpiredError } from 'jsonwebtoken';
-import { I18nContext } from 'nestjs-i18n';
-import { IS_PUBLIC_KEY_META } from '../constant';
+} from "@nestjs/common";
+import { Reflector } from "@nestjs/core";
+import { AuthGuard } from "@nestjs/passport";
+import { JsonWebTokenError, TokenExpiredError } from "jsonwebtoken";
+import { I18nContext } from "nestjs-i18n";
+
+import { IS_PUBLIC_KEY_META } from "../constant";
 
 @Injectable()
-export class JwtAuthGuard extends AuthGuard('jwt') {
+export class JwtAuthGuard extends AuthGuard("jwt") {
   constructor(private readonly reflector: Reflector) {
     super();
   }
@@ -33,14 +34,14 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     if (error || info || !user) {
       if (info instanceof TokenExpiredError) {
         throw new ForbiddenException(
-          I18nContext.current<I18nTranslations>()!.t('exception.token', {
-            args: { error: 'expired' },
+          I18nContext.current<I18nTranslations>()!.t("exception.token", {
+            args: { error: "expired" },
           })
         );
       } else if (info instanceof JsonWebTokenError) {
         throw new UnauthorizedException(
-          I18nContext.current<I18nTranslations>()!.t('exception.token', {
-            args: { error: 'malformed' },
+          I18nContext.current<I18nTranslations>()!.t("exception.token", {
+            args: { error: "malformed" },
           })
         );
       } else {

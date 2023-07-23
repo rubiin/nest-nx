@@ -1,6 +1,7 @@
-import { IsBoolean, IsOptional } from 'class-validator';
-import { i18nValidationMessage } from 'nestjs-i18n';
-import { IsDateField, IsStringField, ToBoolean } from '../decorators';
+import { IsBoolean, IsOptional } from "class-validator";
+import { i18nValidationMessage } from "nestjs-i18n";
+
+import { IsDateField, IsStringField, ToBoolean } from "../decorators";
 
 export abstract class PaginationDto {
   /**
@@ -32,8 +33,8 @@ export abstract class PaginationDto {
   @IsOptional()
   @ToBoolean()
   @IsBoolean({
-    message: i18nValidationMessage('validation.isDataType', {
-      type: 'boolean',
+    message: i18nValidationMessage("validation.isDataType", {
+      type: "boolean",
     }),
   })
   withDeleted = false;

@@ -1,5 +1,6 @@
-import { SetMetadata } from '@nestjs/common';
-import { IGNORE_CACHING_META } from '../constant';
+import { SetMetadata } from "@nestjs/common";
+
+import { IGNORE_CACHING_META } from "../constant";
 
 /**
  * It sets a metadata key called "ignoreCaching" to true

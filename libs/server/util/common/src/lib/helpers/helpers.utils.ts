@@ -1,13 +1,14 @@
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
-import { argon2id, hash, Options as ArgonOptions, verify } from 'argon2';
-import { format, zonedTimeToUtc } from 'date-fns-tz';
-import { pick } from 'helper-fns';
-import { RedisOptions } from 'ioredis';
-import { from, Observable } from 'rxjs';
-import sharp from 'sharp';
-import { AuthenticationResponse, User } from './../@types';
+import { argon2id, hash, Options as ArgonOptions, verify } from "argon2";
+import { format, zonedTimeToUtc } from "date-fns-tz";
+import { pick } from "helper-fns";
+import { RedisOptions } from "ioredis";
+import { from, Observable } from "rxjs";
+import sharp from "sharp";
+
+import { AuthenticationResponse, User } from "./../@types";
 
 
 const argon2Options: ArgonOptions & { raw?: false } = {
@@ -28,7 +29,7 @@ export const HelperService = {
   ): AuthenticationResponse {
     return {
       user: {
-        ...pick(user, ['id', 'idx']),
+        ...pick(user, ["id", "idx"]),
       },
       accessToken: accessToken,
       ...(refreshToken ? { refresh_token: refreshToken } : {}),
@@ -43,30 +44,30 @@ export const HelperService = {
   },
 
   isDev(): boolean {
-    return process.env.NODE_ENV.startsWith('dev');
+    return process.env.NODE_ENV.startsWith("dev");
   },
 
   isProd(): boolean {
-    return process.env.NODE_ENV.startsWith('prod');
+    return process.env.NODE_ENV.startsWith("prod");
   },
 
   getAppRootDir() {
     let currentDirectory = __dirname;
 
-    while (!existsSync(join(currentDirectory, 'resources'))) {
-      currentDirectory = join(currentDirectory, '..');
+    while (!existsSync(join(currentDirectory, "resources"))) {
+      currentDirectory = join(currentDirectory, "..");
     }
 
-    return process.env.NODE_ENV === 'prod'
-      ? join(currentDirectory, 'dist')
+    return process.env.NODE_ENV === "prod"
+      ? join(currentDirectory, "dist")
       : currentDirectory;
   },
 
   formatSearch(search: string): string {
     return `%${search
       .trim()
-      .replaceAll('\n', ' ')
-      .replaceAll(/\s\s+/g, ' ')
+      .replaceAll("\n", " ")
+      .replaceAll(/\s\s+/g, " ")
       .toLowerCase()}%`;
   },
 
@@ -78,22 +79,22 @@ export const HelperService = {
     input: Buffer,
     config: { height: number; width: number }
   ): Observable<Buffer> {
-    return from(sharp(input).resize(config).toFormat('png').toBuffer());
+    return from(sharp(input).resize(config).toFormat("png").toBuffer());
   },
 
   /* The `getTimeInUtc` function takes a `Date` object or a string representation of a date as input and
 	returns a new `Date` object representing the same date and time in UTC timezone. */
   getTimeInUtc(date: Date | string): Date {
     const thatDate = date instanceof Date ? date : new Date(date);
-    const currentUtcTime = zonedTimeToUtc(thatDate, 'UTC');
+    const currentUtcTime = zonedTimeToUtc(thatDate, "UTC");
 
-    return new Date(format(currentUtcTime, 'yyyy-MM-dd HH:mm:ss'));
+    return new Date(format(currentUtcTime, "yyyy-MM-dd HH:mm:ss"));
   },
 
   redisUrlToOptions(url: string): RedisOptions {
-    if (url.includes('://:')) {
-      const array = url.split('://:')[1].split('@');
-      const secondArray = array[1].split(':');
+    if (url.includes("://:")) {
+      const array = url.split("://:")[1].split("@");
+      const secondArray = array[1].split(":");
 
       return {
         password: array[0],
@@ -102,8 +103,8 @@ export const HelperService = {
       };
     }
 
-    const connectionString = url.split('://')[1];
-    const array = connectionString.split(':');
+    const connectionString = url.split("://")[1];
+    const array = connectionString.split(":");
 
     return {
       host: array[0],

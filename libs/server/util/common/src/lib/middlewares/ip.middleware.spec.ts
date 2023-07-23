@@ -1,28 +1,28 @@
-import { mockRequest, mockResponse } from '@mocks';
-import * as realIp from '@supercharge/request-ip';
+import { mockRequest, mockResponse } from "@mocks";
+import * as realIp from "@supercharge/request-ip";
 
-import { RealIpMiddleware } from './ip.middleware';
+import { RealIpMiddleware } from "./ip.middleware";
 
-describe('RealIpMiddleware', () => {
+describe("RealIpMiddleware", () => {
   let middleware: RealIpMiddleware;
 
   beforeEach(() => {
     middleware = new RealIpMiddleware();
   });
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(middleware).toBeDefined();
   });
 
-  describe('use', () => {
-    it('should return real ip', () => {
-      jest.spyOn(realIp, 'getClientIp').mockReturnValue('192.168.1.1');
+  describe("use", () => {
+    it("should return real ip", () => {
+      jest.spyOn(realIp, "getClientIp").mockReturnValue("192.168.1.1");
 
       const mockNext = jest.fn();
 
       middleware.use(mockRequest, mockResponse, mockNext);
 
       expect(realIp.getClientIp).toBeCalled();
-      expect(mockRequest.realIp).toBe('192.168.1.1');
+      expect(mockRequest.realIp).toBe("192.168.1.1");
       expect(mockNext).toBeCalled();
     });
   });

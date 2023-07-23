@@ -1,13 +1,12 @@
+import { CacheService } from "@nestify/server/util/cache";
 import {
   CallHandler,
   ExecutionContext,
   Injectable,
   NestInterceptor,
-} from '@nestjs/common';
-import { CacheService } from '@nestify/server/util/cache';
-
-import { from, Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+} from "@nestjs/common";
+import { from, Observable, of } from "rxjs";
+import { tap } from "rxjs/operators";
 
 /**
  *
@@ -24,7 +23,7 @@ export class ClearCacheInterceptor implements NestInterceptor {
         const request = context.switchToHttp().getRequest();
 
         if (
-          request.method !== 'GET' &&
+          request.method !== "GET" &&
           response.statusCode >= 200 &&
           response.statusCode < 300
         ) {

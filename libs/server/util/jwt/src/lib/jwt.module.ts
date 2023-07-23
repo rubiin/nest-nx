@@ -1,7 +1,7 @@
 import { Config, NestConfigModule } from "@nestify/server/util/config";
-import { Global, Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { JwtModule } from '@nestjs/jwt';
+import { Global, Module } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+import { JwtModule } from "@nestjs/jwt";
 
 
 @Global()
@@ -11,10 +11,10 @@ import { JwtModule } from '@nestjs/jwt';
       imports: [NestConfigModule],
       useFactory: async (configService: ConfigService<Config, true>) => ({
         isGlobal: true,
-        secret: configService.get('jwt.secret', { infer: true }),
+        secret: configService.get("jwt.secret", { infer: true }),
         signOptions: {
-          expiresIn: configService.get('jwt.accessExpiry', { infer: true }),
-          algorithm: 'HS256',
+          expiresIn: configService.get("jwt.accessExpiry", { infer: true }),
+          algorithm: "HS256",
         },
       }),
       inject: [ConfigService],

@@ -1,7 +1,8 @@
-import { MinMaxLengthOptions } from '../../@types';
-import { applyDecorators } from '@nestjs/common';
-import { MaxLength, MinLength } from 'class-validator';
-import { i18nValidationMessage } from 'nestjs-i18n';
+import { applyDecorators } from "@nestjs/common";
+import { MaxLength, MinLength } from "class-validator";
+import { i18nValidationMessage } from "nestjs-i18n";
+
+import { MinMaxLengthOptions } from "../../@types";
 
 /**
  * It's a decorator that validates the length of a string to be between a minimum and maximum length
@@ -18,11 +19,11 @@ export const MinMaxLength = (options_?: MinMaxLengthOptions) => {
 
   return applyDecorators(
     MinLength(options.minLength, {
-      message: i18nValidationMessage<I18nTranslations>('validation.minLength'),
+      message: i18nValidationMessage<I18nTranslations>("validation.minLength"),
       each: options.each,
     }),
     MaxLength(options.maxLength, {
-      message: i18nValidationMessage<I18nTranslations>('validation.maxLength'),
+      message: i18nValidationMessage<I18nTranslations>("validation.maxLength"),
       each: options.each,
     })
   );

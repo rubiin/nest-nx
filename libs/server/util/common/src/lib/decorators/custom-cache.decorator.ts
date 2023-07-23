@@ -1,7 +1,7 @@
-import { CacheKeyInterceptor } from '../interceptors';
-import { applyDecorators, UseInterceptors } from '@nestjs/common';
+import { applyDecorators, UseInterceptors } from "@nestjs/common";
 
-import { NoCache } from './nocache.decorator';
+import { CacheKeyInterceptor } from "../interceptors";
+import { NoCache } from "./nocache.decorator";
 
 /**
  * @description use this to override the default cache interceptor.

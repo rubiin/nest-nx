@@ -1,5 +1,5 @@
-import { applyDecorators, Type } from '@nestjs/common';
-import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
+import { applyDecorators, Type } from "@nestjs/common";
+import { ApiBody, ApiOperation, ApiParam, ApiResponse } from "@nestjs/swagger";
 
 interface SwaggerResponseOptions<T, K> {
   operation: string;

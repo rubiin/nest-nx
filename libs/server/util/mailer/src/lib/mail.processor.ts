@@ -1,8 +1,9 @@
-import { MailPayload, RoutingKey } from '@nestify/server/util/common';
-import { RabbitSubscribe } from '@golevelup/nestjs-rabbitmq';
-import { MailerService } from './mailer.service';
-import { Injectable, Logger } from '@nestjs/common';
-import { from, map, tap } from 'rxjs';
+import { RabbitSubscribe } from "@golevelup/nestjs-rabbitmq";
+import { MailPayload, RoutingKey } from "@nestify/server/util/common";
+import { Injectable, Logger } from "@nestjs/common";
+import { from, map, tap } from "rxjs";
+
+import { MailerService } from "./mailer.service";
 
 @Injectable()
 export class MailProcessor {

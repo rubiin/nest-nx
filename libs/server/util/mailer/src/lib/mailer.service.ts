@@ -1,21 +1,21 @@
-import { resolve } from 'node:path';
+import { resolve } from "node:path";
 
-import * as aws from '@aws-sdk/client-ses';
-import { Server, TemplateEngine } from '@nestify/server/util/common';
-import { Inject, Injectable, Logger } from '@nestjs/common';
+import * as aws from "@aws-sdk/client-ses";
+import { Server, TemplateEngine } from "@nestify/server/util/common";
+import { Inject, Injectable, Logger } from "@nestjs/common";
 import {
   createTransport,
   SendMailOptions,
   SentMessageInfo,
   Transporter,
-} from 'nodemailer';
-import previewEmail from 'preview-email';
-import { from, retry, switchMap } from 'rxjs';
+} from "nodemailer";
+import previewEmail from "preview-email";
+import { from, retry, switchMap } from "rxjs";
 
-import { EtaAdapter, HandlebarsAdapter, PugAdapter } from './adapters';
-import { Adapter } from './adapters/abstract.adapter';
-import { MODULE_OPTIONS_TOKEN } from './mail.module-definition';
-import { MailModuleOptions } from './mailer.options';
+import { EtaAdapter, HandlebarsAdapter, PugAdapter } from "./adapters";
+import { Adapter } from "./adapters/abstract.adapter";
+import { MODULE_OPTIONS_TOKEN } from "./mail.module-definition";
+import { MailModuleOptions } from "./mailer.options";
 
 interface MailOptions extends Partial<SendMailOptions> {
   template: string;
@@ -56,7 +56,7 @@ export class MailerService {
         break;
       }
       default: {
-        throw new Error('Invalid template engine');
+        throw new Error("Invalid template engine");
       }
     }
 
@@ -64,7 +64,7 @@ export class MailerService {
 
     if (this.options.server === Server.SES) {
       const ses = new aws.SES({
-        apiVersion: '2010-12-01',
+        apiVersion: "2010-12-01",
         region: this.options.sesRegion,
         credentials: {
           accessKeyId: this.options.sesKey,

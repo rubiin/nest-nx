@@ -1,6 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
-import { v4 as uuidv4, validate } from 'uuid';
-import { REQUEST_ID_TOKEN_HEADER } from '../constant';
+import { NextFunction, Request, Response } from "express";
+import { v4 as uuidv4, validate } from "uuid";
+
+import { REQUEST_ID_TOKEN_HEADER } from "../constant";
 
 export const RequestIdMiddleware = (
   request: Request,

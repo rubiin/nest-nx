@@ -1,15 +1,15 @@
-import { registerAs } from '@nestjs/config';
-import Joi from 'joi';
+import { registerAs } from "@nestjs/config";
+import Joi from "joi";
 
 export const APP_ENVIRONMENTS = [
-  'dev',
-  'development',
-  'stage',
-  'staging',
-  'test',
-  'testing',
-  'prod',
-  'production',
+  "dev",
+  "development",
+  "stage",
+  "staging",
+  "test",
+  "testing",
+  "prod",
+  "production",
 ];
 
 export const VERSION_VALIDATION_MESSAGE =
@@ -24,7 +24,7 @@ export const appConfigValidationSchema = {
   APP_PORT: Joi.number().required(),
   API_URL: Joi.string().uri().required(),
   APP_PREFIX: Joi.string().required().pattern(/^v\d+/).required().messages({
-    'string.pattern.base': VERSION_VALIDATION_MESSAGE,
+    "string.pattern.base": VERSION_VALIDATION_MESSAGE,
   }),
   APP_NAME: Joi.string().required(),
   CLIENT_URL: Joi.string().uri().required(),
@@ -35,7 +35,7 @@ export const appConfigValidationSchema = {
 };
 
 // config
-export const app = registerAs('app', () => ({
+export const app = registerAs("app", () => ({
   port: process.env.APP_PORT,
   prefix: process.env.APP_PREFIX,
   env: process.env.NODE_ENV,
@@ -43,8 +43,8 @@ export const app = registerAs('app', () => ({
   name: process.env.APP_NAME,
   clientUrl: process.env.CLIENT_URL,
   allowedOrigins: process.env.ALLOWED_ORIGINS
-    ? process.env.ALLOWED_ORIGINS.split(',')
-    : '*',
+    ? process.env.ALLOWED_ORIGINS.split(",")
+    : "*",
   sentryDsn: process.env.SENTRY_DSN,
   swaggerUser: process.env.SWAGGER_USER,
   swaggerPass: process.env.SWAGGER_PASSWORD,

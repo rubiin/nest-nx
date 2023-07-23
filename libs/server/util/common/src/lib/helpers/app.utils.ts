@@ -1,25 +1,25 @@
+import { Config } from "@nestify/server/util/config";
 import {
   INestApplication,
   Logger,
   ValidationPipeOptions,
-} from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
-import { i18nValidationErrorFactory } from 'nestjs-i18n';
-import { getMiddleware } from 'swagger-stats';
+} from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+import { DocumentBuilder, OpenAPIObject, SwaggerModule } from "@nestjs/swagger";
+import { i18nValidationErrorFactory } from "nestjs-i18n";
+import { getMiddleware } from "swagger-stats";
 
-import { HelperService } from './helpers.utils';
 import {
   IS_PUBLIC_KEY_META,
   SWAGGER_API_CURRENT_VERSION,
   SWAGGER_API_ENDPOINT,
   SWAGGER_DESCRIPTION,
   SWAGGER_TITLE,
-} from '../constant';
-import { swaggerOptions } from '../swagger/swagger.plugin';
-import { Config } from '@nestify/server/util/config';
+} from "../constant";
+import { swaggerOptions } from "../swagger/swagger.plugin";
+import { HelperService } from "./helpers.utils";
 
-const logger = new Logger('App:Utils');
+const logger = new Logger("App:Utils");
 
 export const AppUtils = {
   validationPipeOptions(): ValidationPipeOptions {
@@ -35,20 +35,20 @@ export const AppUtils = {
   gracefulShutdown(app: INestApplication, code: string): void {
     setTimeout(() => process.exit(1), 5000);
     logger.verbose(`Signal received with code ${code} ⚡.`);
-    logger.log('❗Closing http server with grace.');
+    logger.log("❗Closing http server with grace.");
     app.close().then(() => {
-      logger.log('✅ Http server closed.');
+      logger.log("✅ Http server closed.");
       process.exit(0);
     });
   },
 
   killAppWithGrace(app: INestApplication): void {
-    process.on('SIGINT', async () => {
-      AppUtils.gracefulShutdown(app, 'SIGINT');
+    process.on("SIGINT", async () => {
+      AppUtils.gracefulShutdown(app, "SIGINT");
     });
 
-    process.on('SIGTERM', async () => {
-      AppUtils.gracefulShutdown(app, 'SIGTERM');
+    process.on("SIGTERM", async () => {
+      AppUtils.gracefulShutdown(app, "SIGTERM");
     });
   },
 
@@ -56,23 +56,23 @@ export const AppUtils = {
     app: INestApplication,
     configService: ConfigService<Config, true>
   ): void {
-    const userName = configService.get('app.swaggerUser', { infer: true });
-    const passWord = configService.get('app.swaggerPass', { infer: true });
-    const appName = configService.get('app.name', { infer: true });
+    const userName = configService.get("app.swaggerUser", { infer: true });
+    const passWord = configService.get("app.swaggerPass", { infer: true });
+    const appName = configService.get("app.name", { infer: true });
 
     const options = new DocumentBuilder()
       .setTitle(SWAGGER_TITLE)
       .addBearerAuth()
-      .setLicense('MIT', 'https://opensource.org/licenses/MIT')
+      .setLicense("MIT", "https://opensource.org/licenses/MIT")
       .setDescription(SWAGGER_DESCRIPTION)
       .setVersion(SWAGGER_API_CURRENT_VERSION)
       .addBearerAuth({
-        type: 'http',
-        scheme: 'Bearer',
-        bearerFormat: 'JWT',
-        name: 'JWT',
-        description: 'Enter JWT token',
-        in: 'header',
+        type: "http",
+        scheme: "Bearer",
+        bearerFormat: "JWT",
+        name: "JWT",
+        description: "Enter JWT token",
+        in: "header",
       })
       .build();
 
@@ -98,7 +98,7 @@ export const AppUtils = {
         swaggerSpec: document,
         authentication: true,
         hostname: appName,
-        uriPath: '/stats',
+        uriPath: "/stats",
         onAuthenticate: (_request: any, username: string, password: string) => {
           return username === userName && password === passWord;
         },

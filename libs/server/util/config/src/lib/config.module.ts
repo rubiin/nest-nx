@@ -1,6 +1,6 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import Joi from 'joi';
+import { Module } from "@nestjs/common";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import Joi from "joi";
 
 import {
   app,
@@ -22,7 +22,7 @@ import {
   redisConfigValidationSchema,
   throttle,
   throttleConfigValidationSchema,
-} from './configs';
+} from "./configs";
 
 @Module({
   imports: [

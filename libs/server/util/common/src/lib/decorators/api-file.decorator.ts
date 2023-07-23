@@ -1,18 +1,18 @@
-import { applyDecorators, UseInterceptors } from '@nestjs/common';
+import { applyDecorators, UseInterceptors } from "@nestjs/common";
 import {
   FileFieldsInterceptor,
   FileInterceptor,
   FilesInterceptor,
-} from '@nestjs/platform-express';
+} from "@nestjs/platform-express";
 import {
   MulterField,
   MulterOptions,
-} from '@nestjs/platform-express/multer/interfaces/multer-options.interface';
-import { ApiBody, ApiConsumes } from '@nestjs/swagger';
+} from "@nestjs/platform-express/multer/interfaces/multer-options.interface";
+import { ApiBody, ApiConsumes } from "@nestjs/swagger";
 import {
   ReferenceObject,
   SchemaObject,
-} from '@nestjs/swagger/dist/interfaces/open-api-spec.interface';
+} from "@nestjs/swagger/dist/interfaces/open-api-spec.interface";
 
 interface ApiFileOptions {
   fieldName?: string;
@@ -32,22 +32,22 @@ interface ApiFilesOptions extends ApiFileOptions {
  */
 export const ApiFile = (options_?: ApiFileOptions) => {
   const options: ApiFileOptions = {
-    fieldName: 'file',
+    fieldName: "file",
     required: false,
     ...options_,
   };
 
   return applyDecorators(
     UseInterceptors(FileInterceptor(options.fieldName, options.localOptions)),
-    ApiConsumes('multipart/form-data'),
+    ApiConsumes("multipart/form-data"),
     ApiBody({
       schema: {
-        type: 'object',
+        type: "object",
         required: options.required ? [options.fieldName] : [],
         properties: {
           [options.fieldName]: {
-            type: 'string',
-            format: 'binary',
+            type: "string",
+            format: "binary",
           },
         },
       },
@@ -63,7 +63,7 @@ export const ApiFile = (options_?: ApiFileOptions) => {
  */
 export const ApiFiles = (options_?: ApiFilesOptions) => {
   const options: ApiFilesOptions = {
-    fieldName: 'files',
+    fieldName: "files",
     required: false,
     maxCount: 10,
     ...options_,
@@ -77,17 +77,17 @@ export const ApiFiles = (options_?: ApiFilesOptions) => {
         options.localOptions
       )
     ),
-    ApiConsumes('multipart/form-data'),
+    ApiConsumes("multipart/form-data"),
     ApiBody({
       schema: {
-        type: 'object',
+        type: "object",
         required: options.required ? [options.fieldName] : [],
         properties: {
           [options.fieldName]: {
-            type: 'array',
+            type: "array",
             items: {
-              type: 'string',
-              format: 'binary',
+              type: "string",
+              format: "binary",
             },
           },
         },
@@ -112,16 +112,16 @@ export const ApiFileFields = (
     Object.assign(
       {},
       ...options.map((field) => {
-        return { [field.name]: { type: 'string', format: 'binary' } };
+        return { [field.name]: { type: "string", format: "binary" } };
       })
     );
 
   return applyDecorators(
     UseInterceptors(FileFieldsInterceptor(options, localOptions)),
-    ApiConsumes('multipart/form-data'),
+    ApiConsumes("multipart/form-data"),
     ApiBody({
       schema: {
-        type: 'object',
+        type: "object",
         properties: bodyProperties,
         required: options.filter((f) => f.required).map((f) => f.name),
       },

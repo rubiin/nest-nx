@@ -1,8 +1,8 @@
 
 import { Entity, ManyToOne, Property, Rel } from "@mikro-orm/core";
 
-import { Post, User } from "./index";
 import { BaseEntity } from "../base.entity";
+import { Post, User } from "./index";
 
 @Entity()
 export class Comment extends BaseEntity {

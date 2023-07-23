@@ -1,10 +1,10 @@
-import { createMock } from '@golevelup/ts-jest';
-import { mockCacheService, mockResponse } from '@mocks';
-import { Request } from 'express';
+import { createMock } from "@golevelup/ts-jest";
+import { mockCacheService, mockResponse } from "@mocks";
+import { Request } from "express";
 
-import { ClearCacheMiddleware } from './cache.middleware';
+import { ClearCacheMiddleware } from "./cache.middleware";
 
-describe('ClearCacheMiddleware', () => {
+describe("ClearCacheMiddleware", () => {
   let middleware: ClearCacheMiddleware;
 
   beforeEach(() => {
@@ -13,16 +13,16 @@ describe('ClearCacheMiddleware', () => {
   });
   const mockRequest = createMock<Request>({
     query: {
-      clearCache: 'true',
+      clearCache: "true",
     },
   });
 
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(middleware).toBeDefined();
   });
 
-  describe('use', () => {
-    it('should clear cache', async () => {
+  describe("use", () => {
+    it("should clear cache", async () => {
       mockCacheService.resetCache.mockReturnValue(Promise.resolve());
 
       const mockNext = jest.fn();

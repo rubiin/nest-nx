@@ -1,4 +1,4 @@
-import { Type } from 'class-transformer';
+import { Type } from "class-transformer";
 import {
   ArrayNotEmpty,
   IsArray,
@@ -8,12 +8,12 @@ import {
   IsString,
   Max,
   Min,
-} from 'class-validator';
-import { enumToString } from 'helper-fns';
-import { i18nValidationMessage } from 'nestjs-i18n';
+} from "class-validator";
+import { enumToString } from "helper-fns";
+import { i18nValidationMessage } from "nestjs-i18n";
 
-import { Sanitize, Trim } from './transform.decorator';
-import { MinMaxLength } from './min-max-length.decorator';
+import { MinMaxLength } from "./min-max-length.decorator";
+import { Sanitize, Trim } from "./transform.decorator";
 
 export class ValidatorFieldBuilder {
   private decoratorsToApply: PropertyDecorator[];
@@ -24,10 +24,10 @@ export class ValidatorFieldBuilder {
     this.decoratorsToApply.push(
       Type(() => Number),
       Min(this.options.min, {
-        message: i18nValidationMessage<I18nTranslations>('validation.min'),
+        message: i18nValidationMessage<I18nTranslations>("validation.min"),
       }),
       Max(this.options.max, {
-        message: i18nValidationMessage<I18nTranslations>('validation.max'),
+        message: i18nValidationMessage<I18nTranslations>("validation.max"),
       })
     );
 
@@ -38,9 +38,9 @@ export class ValidatorFieldBuilder {
     this.decoratorsToApply.push(
       IsString({
         message: i18nValidationMessage<I18nTranslations>(
-          'validation.isDataType',
+          "validation.isDataType",
           {
-            type: 'string',
+            type: "string",
           }
         ),
         each: this.options.each,
@@ -92,7 +92,7 @@ export class ValidatorFieldBuilder {
     if (this.options.required) {
       this.decoratorsToApply.push(
         IsNotEmpty({
-          message: i18nValidationMessage('validation.isNotEmpty'),
+          message: i18nValidationMessage("validation.isNotEmpty"),
           each: this.options.each,
         })
       );
@@ -107,7 +107,7 @@ export class ValidatorFieldBuilder {
     if (this.options.required && this.options.each) {
       this.decoratorsToApply.push(
         ArrayNotEmpty({
-          message: i18nValidationMessage('validation.isNotEmpty'),
+          message: i18nValidationMessage("validation.isNotEmpty"),
         })
       );
     }
@@ -115,8 +115,8 @@ export class ValidatorFieldBuilder {
     if (this.options.each) {
       this.decoratorsToApply.push(
         IsArray({
-          message: i18nValidationMessage('validation.isDataType', {
-            type: 'array',
+          message: i18nValidationMessage("validation.isDataType", {
+            type: "array",
           }),
         })
       );

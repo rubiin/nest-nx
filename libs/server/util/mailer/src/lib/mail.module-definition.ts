@@ -1,10 +1,10 @@
-import { ConfigurableModuleBuilder } from '@nestjs/common';
+import { ConfigurableModuleBuilder } from "@nestjs/common";
 
-import { MailModuleOptions } from './mailer.options';
+import { MailModuleOptions } from "./mailer.options";
 
 export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
   new ConfigurableModuleBuilder<MailModuleOptions>({
-    moduleName: 'MailModule',
+    moduleName: "MailModule",
   })
     .setExtras(
       {
@@ -15,5 +15,5 @@ export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
         global: extras.isGlobal,
       })
     )
-    .setClassMethodName('forRoot')
+    .setClassMethodName("forRoot")
     .build();

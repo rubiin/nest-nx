@@ -1,5 +1,5 @@
-import { registerAs } from '@nestjs/config';
-import Joi from 'joi';
+import { registerAs } from "@nestjs/config";
+import Joi from "joi";
 
 export const rabbitmqConfigValidationSchema = {
   RABBITMQ_URI: Joi.string().required(),
@@ -8,7 +8,7 @@ export const rabbitmqConfigValidationSchema = {
   RABBITMQ_DEFAULT_PREFETCH: Joi.number().required(),
 };
 
-export const rabbitmq = registerAs('rabbitmq', () => ({
+export const rabbitmq = registerAs("rabbitmq", () => ({
   url: process.env.RABBITMQ_URI,
   exchange: process.env.RABBITMQ_EXCHANGE,
   queue: process.env.RABBITMQ_QUEUE,

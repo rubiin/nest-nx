@@ -1,10 +1,10 @@
-import { createMock } from '@golevelup/ts-jest';
-import { mockRequest } from '@mocks';
-import { CallHandler, ExecutionContext } from '@nestjs/common';
+import { createMock } from "@golevelup/ts-jest";
+import { mockRequest } from "@mocks";
+import { CallHandler, ExecutionContext } from "@nestjs/common";
 
-import { RequestSanitizerInterceptor } from './request-sanitizer.interceptor';
+import { RequestSanitizerInterceptor } from "./request-sanitizer.interceptor";
 
-describe('RequestSanitizerInterceptor', () => {
+describe("RequestSanitizerInterceptor", () => {
   let interceptor: RequestSanitizerInterceptor;
 
   // create the mock CallHandler for the interceptor
@@ -21,21 +21,21 @@ describe('RequestSanitizerInterceptor', () => {
   beforeEach(() => {
     interceptor = new RequestSanitizerInterceptor();
   });
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(interceptor).toBeDefined();
   });
 
-  it('should clean request', () => {
+  it("should clean request", () => {
     interceptor.intercept(mockContext, mockNext).subscribe((_result) => {
-      expect(mockRequest.body.test).toEqual('test');
-      expect(mockRequest.query.test).toEqual('test');
-      expect(mockRequest.params.test).toEqual('test');
+      expect(mockRequest.body.test).toEqual("test");
+      expect(mockRequest.query.test).toEqual("test");
+      expect(mockRequest.params.test).toEqual("test");
 
-      expect(mockRequest.body.xss).toEqual('<option></option>');
-      expect(mockRequest.params.xss).toEqual('<option></option>');
-      expect(mockRequest.query.xss).toEqual('<option></option>');
+      expect(mockRequest.body.xss).toEqual("<option></option>");
+      expect(mockRequest.params.xss).toEqual("<option></option>");
+      expect(mockRequest.query.xss).toEqual("<option></option>");
       expect(mockRequest.body.password).toEqual(
-        '<option><iframe></select><b><script>alert(1)</script>'
+        "<option><iframe></select><b><script>alert(1)</script>"
       );
     });
   });

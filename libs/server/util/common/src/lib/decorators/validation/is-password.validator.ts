@@ -4,8 +4,9 @@ import {
   ValidationOptions,
   ValidatorConstraint,
   ValidatorConstraintInterface,
-} from 'class-validator';
-import { PASSWORD_REGEX } from '../../constant';
+} from "class-validator";
+
+import { PASSWORD_REGEX } from "../../constant";
 
 /**
  *

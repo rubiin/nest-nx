@@ -4,7 +4,7 @@ import {
   ParseUUIDPipe,
   PipeTransform,
   Type,
-} from '@nestjs/common';
+} from "@nestjs/common";
 
 /**
  * It's a decorator that takes a property name and a list of pipes, and returns a decorator that takes
@@ -16,7 +16,7 @@ import {
 
 class CustomException extends Error {
   message =
-    'UUID must be a valid UUID format (e.g. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)';
+    "UUID must be a valid UUID format (e.g. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)";
   statusCode = HttpStatus.BAD_REQUEST;
 }
 
@@ -28,7 +28,7 @@ export const UUIDParam = (
 ): ParameterDecorator => {
   return Param(
     property,
-    new ParseUUIDPipe({ version: '4', exceptionFactory }),
+    new ParseUUIDPipe({ version: "4", exceptionFactory }),
     ...pipes
   );
 };

@@ -1,14 +1,15 @@
-import {
-  CursorPaginationResponse,
-  OffsetPaginationResponse,
-} from './../@types';
-import { applyDecorators, Type } from '@nestjs/common';
+import { applyDecorators, Type } from "@nestjs/common";
 import {
   ApiExtraModels,
   ApiOkResponse,
   ApiOperation,
   getSchemaPath,
-} from '@nestjs/swagger';
+} from "@nestjs/swagger";
+
+import {
+  CursorPaginationResponse,
+  OffsetPaginationResponse,
+} from "./../@types";
 
 export const ApiPaginatedResponse = <TModel extends Type>(model: TModel) => {
   return applyDecorators(
