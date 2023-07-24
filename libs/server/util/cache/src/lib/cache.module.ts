@@ -24,7 +24,7 @@ import { CacheService } from "./cache.service";
 
         return {
           store: store as unknown as CacheStore,
-          ttl: configService.get("redis.ttl", { infer: true }), // 3 minutes (milliseconds)
+          ttl: configService.get("redis.ttl", { infer: true }),
         };
       },
       inject: [ConfigService],
