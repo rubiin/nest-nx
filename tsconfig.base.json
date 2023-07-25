@@ -12,14 +12,35 @@
     ],
     "baseUrl": ".",
     "types": [
-      "./libs/server/util/common/src/lib/global.d.ts",
+      "./libs/server/util/common/src/lib/global.d.ts"
     ],
     "paths": {
+      "@nestify/server/auth": [
+        "libs/server/auth/src/index.ts"
+      ],
+      "@nestify/server/category": [
+        "libs/server/category/src/index.ts"
+      ],
+      "@nestify/server/post": [
+        "libs/server/post/src/index.ts"
+      ],
+      "@nestify/server/profile": [
+        "libs/server/profile/src/index.ts"
+      ],
+      "@nestify/server/tag": [
+        "libs/server/tag/src/index.ts"
+      ],
+      "@nestify/server/token": [
+        "libs/server/token/src/index.ts"
+      ],
+      "@nestify/server/twofa": [
+        "libs/server/twofa/src/index.ts"
+      ],
+      "@nestify/server/user": [
+        "libs/server/user/src/index.ts"
+      ],
       "@nestify/server/util/cache": [
         "libs/server/util/cache/src/index.ts"
-      ],
-      "@nestify/server/util/entities": [
-        "libs/server/util/common/src/lib/@types/classes/entities/index.ts"
       ],
       "@nestify/server/util/cloudinary": [
         "libs/server/util/cloudinary/src/index.ts"
@@ -29,6 +50,9 @@
       ],
       "@nestify/server/util/config": [
         "libs/server/util/config/src/index.ts"
+      ],
+      "@nestify/server/util/entities": [
+        "libs/server/util/common/src/lib/@types/classes/entities/index.ts"
       ],
       "@nestify/server/util/http": [
         "libs/server/util/http/src/index.ts"
