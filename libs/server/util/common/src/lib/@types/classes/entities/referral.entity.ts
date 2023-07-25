@@ -1,5 +1,3 @@
-
-
 import { Entity, Enum, Index, ManyToOne, Property, Rel } from "@mikro-orm/core";
 
 import { ReferralStatus } from "../../enums";

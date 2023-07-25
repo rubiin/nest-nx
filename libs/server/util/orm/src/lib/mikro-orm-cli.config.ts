@@ -2,7 +2,23 @@ import { LoadStrategy, Options } from "@mikro-orm/core";
 import { defineConfig } from "@mikro-orm/postgresql";
 import { TsMorphMetadataProvider } from "@mikro-orm/reflection";
 import { SqlHighlighter } from "@mikro-orm/sql-highlighter";
-import { BaseRepository,Category,Comment,Conversation,Message,NewsLetter,OtpLog,PointRedemptionLog,Post,Protocol,Referral,RefreshToken,Subscriber,Tag,User } from "@nestify/server/util/common";
+import {
+	BaseRepository,
+	Category,
+	Comment,
+	Conversation,
+	Message,
+	NewsLetter,
+	OtpLog,
+	PointRedemptionLog,
+	Post,
+	Protocol,
+	Referral,
+	RefreshToken,
+	Subscriber,
+	Tag,
+	User,
+} from "@nestify/server/util/common";
 import { Logger, NotFoundException } from "@nestjs/common";
 import { config as environmentConfig } from "dotenv";
 import dotEnvExpand from "dotenv-expand";
@@ -28,7 +44,22 @@ dotEnvExpand.expand(environment);
 logger.log(`🛠️ Using env ${process.cwd()}/env/.env.${process.env.NODE_ENV}\n`);
 
 export const baseOptions = {
-	entities: [User,Post,Comment,Category,Conversation,Message,NewsLetter,OtpLog,PointRedemptionLog,Protocol,Referral,RefreshToken,Subscriber,Tag],
+	entities: [
+		User,
+		Post,
+		Comment,
+		Category,
+		Conversation,
+		Message,
+		NewsLetter,
+		OtpLog,
+		PointRedemptionLog,
+		Protocol,
+		Referral,
+		RefreshToken,
+		Subscriber,
+		Tag,
+	],
 	findOneOrFailHandler: (entityName: string, key: any) => {
 		return new NotFoundException(`${entityName} not found for ${key}`);
 	},

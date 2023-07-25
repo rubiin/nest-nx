@@ -1,0 +1,41 @@
+{
+	"name": "server-util-nest-framework-interceptors",
+	"$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/server/util/nest-framework/interceptors/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nx/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/server/util/nest-framework/interceptors",
+				"tsConfig": "libs/server/util/nest-framework/interceptors/tsconfig.lib.json",
+				"packageJson": "libs/server/util/nest-framework/interceptors/package.json",
+				"main": "libs/server/util/nest-framework/interceptors/src/index.ts",
+				"assets": ["libs/server/util/nest-framework/interceptors/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@nx/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/server/util/nest-framework/interceptors/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "libs/server/util/nest-framework/interceptors/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	},
+	"tags": ["scope:backend", "scope:lib"]
+}

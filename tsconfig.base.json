@@ -1,99 +1,68 @@
 {
-  "extends": "@rubiin/tsconfig",
-  "compilerOptions": {
-    "rootDir": ".",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2021",
-    "module": "esnext",
-    "lib": [
-      "es2021",
-      "dom"
-    ],
-    "baseUrl": ".",
-    "types": [
-      "./libs/server/util/common/src/lib/global.d.ts"
-    ],
-    "paths": {
-      "@nestify/server/auth": [
-        "libs/server/auth/src/index.ts"
-      ],
-      "@nestify/server/category": [
-        "libs/server/category/src/index.ts"
-      ],
-      "@nestify/server/post": [
-        "libs/server/post/src/index.ts"
-      ],
-      "@nestify/server/profile": [
-        "libs/server/profile/src/index.ts"
-      ],
-      "@nestify/server/tag": [
-        "libs/server/tag/src/index.ts"
-      ],
-      "@nestify/server/token": [
-        "libs/server/token/src/index.ts"
-      ],
-      "@nestify/server/twofa": [
-        "libs/server/twofa/src/index.ts"
-      ],
-      "@nestify/server/user": [
-        "libs/server/user/src/index.ts"
-      ],
-      "@nestify/server/util/cache": [
-        "libs/server/util/cache/src/index.ts"
-      ],
-      "@nestify/server/util/cloudinary": [
-        "libs/server/util/cloudinary/src/index.ts"
-      ],
-      "@nestify/server/util/common": [
-        "libs/server/util/common/src/index.ts"
-      ],
-      "@nestify/server/util/config": [
-        "libs/server/util/config/src/index.ts"
-      ],
-      "@nestify/server/util/entities": [
-        "libs/server/util/common/src/lib/@types/classes/entities/index.ts"
-      ],
-      "@nestify/server/util/http": [
-        "libs/server/util/http/src/index.ts"
-      ],
-      "@nestify/server/util/i18n": [
-        "libs/server/util/i18n/src/index.ts"
-      ],
-      "@nestify/server/util/jwt": [
-        "libs/server/util/jwt/src/index.ts"
-      ],
-      "@nestify/server/util/mailer": [
-        "libs/server/util/mailer/src/index.ts"
-      ],
-      "@nestify/server/util/minio": [
-        "libs/server/util/minio/src/index.ts"
-      ],
-      "@nestify/server/util/orm": [
-        "libs/server/util/orm/src/index.ts"
-      ],
-      "@nestify/server/util/pino": [
-        "libs/server/util/pino/src/index.ts"
-      ],
-      "@nestify/server/util/rabbitmq": [
-        "libs/server/util/rabbitmq/src/index.ts"
-      ],
-      "@nestify/server/util/sentry": [
-        "libs/server/util/sentry/src/index.ts"
-      ],
-      "@nestify/server/util/stripe": [
-        "libs/server/util/stripe/src/index.ts"
-      ],
-      "@nestify/server/util/throttler": [
-        "libs/server/util/throttler/src/index.ts"
-      ],
-      "@nestify/server/util/twilio": [
-        "libs/server/util/twilio/src/index.ts"
-      ]
-    }
-  },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+	"extends": "@rubiin/tsconfig",
+	"compilerOptions": {
+		"rootDir": ".",
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"target": "es2021",
+		"module": "esnext",
+		"preserveSymlinks": true,
+		"lib": ["es2021", "dom"],
+		"baseUrl": ".",
+		"types": ["./libs/server/util/common/src/lib/global.d.ts"],
+		"paths": {
+			"@nestify/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+			"@nestify/server/auth": ["libs/server/auth/src/index.ts"],
+			"@nestify/server/post": ["libs/server/post/src/index.ts"],
+			"@nestify/server/profile": ["libs/server/profile/src/index.ts"],
+			"@nestify/server/token": ["libs/server/token/src/index.ts"],
+			"@nestify/server/twofa": ["libs/server/twofa/src/index.ts"],
+			"@nestify/server/user": ["libs/server/user/src/index.ts"],
+			"@nestify/server/util/cache": ["libs/server/util/cache/src/index.ts"],
+			"@nestify/server/util/cloudinary": ["libs/server/util/cloudinary/src/index.ts"],
+			"@nestify/server/util/common": ["libs/server/util/common/src/index.ts"],
+			"@nestify/server/util/config": ["libs/server/util/config/src/index.ts"],
+			"@nestify/server/util/crud": ["libs/server/util/crud/src/index.ts"],
+			"@nestify/server/util/entities": [
+				"libs/server/util/common/src/lib/@types/classes/entities/index.ts"
+			],
+			"@nestify/server/util/http": ["libs/server/util/http/src/index.ts"],
+			"@nestify/server/util/i18n": ["libs/server/util/i18n/src/index.ts"],
+			"@nestify/server/util/jwt": ["libs/server/util/jwt/src/index.ts"],
+			"@nestify/server/util/mailer": ["libs/server/util/mailer/src/index.ts"],
+			"@nestify/server/util/minio": ["libs/server/util/minio/src/index.ts"],
+			"@nestify/server/util/nest-framework/constant": [
+				"libs/server/util/nest-framework/constant/src/index.ts"
+			],
+			"@nestify/server/util/nest-framework/decorators": [
+				"libs/server/util/nest-framework/decorators/src/index.ts"
+			],
+			"@nestify/server/util/nest-framework/filters": [
+				"libs/server/util/nest-framework/filters/src/index.ts"
+			],
+			"@nestify/server/util/nest-framework/helpers": [
+				"libs/server/util/nest-framework/helpers/src/index.ts"
+			],
+			"@nestify/server/util/nest-framework/interceptors": [
+				"libs/server/util/nest-framework/interceptors/src/index.ts"
+			],
+			"@nestify/server/util/nest-framework/middlewares": [
+				"libs/server/util/nest-framework/middlewares/src/index.ts"
+			],
+			"@nestify/server/util/nest-framework/pipes": [
+				"libs/server/util/nest-framework/pipes/src/index.ts"
+			],
+			"@nestify/server/util/nest-framework/validators": [
+				"libs/server/util/nest-framework/validators/src/index.ts"
+			],
+			"@nestify/server/util/orm": ["libs/server/util/orm/src/index.ts"],
+			"@nestify/server/util/pino": ["libs/server/util/pino/src/index.ts"],
+			"@nestify/server/util/rabbitmq": ["libs/server/util/rabbitmq/src/index.ts"],
+			"@nestify/server/util/sentry": ["libs/server/util/sentry/src/index.ts"],
+			"@nestify/server/util/stripe": ["libs/server/util/stripe/src/index.ts"],
+			"@nestify/server/util/throttler": ["libs/server/util/throttler/src/index.ts"],
+			"@nestify/server/util/twilio": ["libs/server/util/twilio/src/index.ts"]
+		}
+	},
+	"exclude": ["node_modules", "tmp"]
 }

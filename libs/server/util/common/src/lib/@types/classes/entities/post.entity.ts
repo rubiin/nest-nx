@@ -1,5 +1,3 @@
-
-
 import {
 	BeforeCreate,
 	BeforeUpdate,

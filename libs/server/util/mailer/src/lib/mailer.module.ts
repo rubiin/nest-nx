@@ -5,18 +5,15 @@ import { MailProcessor } from "./mail.processor";
 import { MailerService } from "./mailer.service";
 
 @Module({
-  providers: [MailerService, MailProcessor],
-  exports: [MailerService, MailProcessor],
+	providers: [MailerService, MailProcessor],
+	exports: [MailerService, MailProcessor],
 })
-export class MailModule
-  extends ConfigurableModuleClass
-  implements OnModuleInit
-{
-  constructor(private readonly mailService: MailerService) {
-    super();
-  }
+export class MailModule extends ConfigurableModuleClass implements OnModuleInit {
+	constructor(private readonly mailService: MailerService) {
+		super();
+	}
 
-  async onModuleInit() {
-    await this.mailService.checkConnection();
-  }
+	async onModuleInit() {
+		await this.mailService.checkConnection();
+	}
 }

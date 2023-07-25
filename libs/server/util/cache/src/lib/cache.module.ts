@@ -6,31 +6,30 @@ import { redisStore } from "cache-manager-redis-yet";
 
 import { CacheService } from "./cache.service";
 
-
 @Module({
-  imports: [
-    CacheModule.registerAsync<any>({
-      imports: [NestConfigModule],
-      isGlobal: true,
-      useFactory: async (configService: ConfigService<Config, true>) => {
-        const store = await redisStore({
-          url: configService.get("redis.url", { infer: true }),
-          database: 0,
-          isolationPoolOptions: {
-            min: 1,
-            max: 10,
-          },
-        });
+	imports: [
+		CacheModule.registerAsync<any>({
+			imports: [NestConfigModule],
+			isGlobal: true,
+			useFactory: async (configService: ConfigService<Config, true>) => {
+				const store = await redisStore({
+					url: configService.get("redis.url", { infer: true }),
+					database: 0,
+					isolationPoolOptions: {
+						min: 1,
+						max: 10,
+					},
+				});
 
-        return {
-          store: store as unknown as CacheStore,
-          ttl: configService.get("redis.ttl", { infer: true }),
-        };
-      },
-      inject: [ConfigService],
-    }),
-  ],
-  exports: [CacheModule, CacheService],
-  providers: [CacheService],
+				return {
+					store: store as unknown as CacheStore,
+					ttl: configService.get("redis.ttl", { infer: true }),
+				};
+			},
+			inject: [ConfigService],
+		}),
+	],
+	exports: [CacheModule, CacheService],
+	providers: [CacheService],
 })
 export class NestCacheModule {}

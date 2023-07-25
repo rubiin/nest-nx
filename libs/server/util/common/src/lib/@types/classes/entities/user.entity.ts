@@ -1,4 +1,3 @@
-
 import {
 	BeforeCreate,
 	BeforeUpdate,
@@ -14,11 +13,11 @@ import {
 	Property,
 	wrap,
 } from "@mikro-orm/core";
+import { HelperService } from "@nestify/server/util/nest-framework/helpers";
 
-import { HelperService } from "../../../helpers";
 import { Roles } from "../../enums";
 import { BaseEntity } from "../base.entity";
-import { Conversation,Post } from ".";
+import { Conversation, Post } from ".";
 
 @Embeddable()
 export class Social {

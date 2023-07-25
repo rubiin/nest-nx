@@ -1,5 +1,5 @@
 {
-  "name": "@nestify/server/user",
-  "version": "0.0.1",
-  "type": "commonjs"
+	"name": "@nestify/server/user",
+	"version": "0.0.1",
+	"type": "commonjs"
 }

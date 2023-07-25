@@ -22,8 +22,20 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+								"sourceTag": "scope:shared",
+								"onlyDependOnLibsWithTags": ["scope:shared"]
+							},
+							{
+								"sourceTag": "scope:backend",
+								"onlyDependOnLibsWithTags": ["scope:shared", "scope:backend"]
+							},
+              {
+								"sourceTag": "tye:util",
+								"onlyDependOnLibsWithTags": ["tye:util"]
+							},
+							{
+								"sourceTag": "scope:frontend",
+								"onlyDependOnLibsWithTags": ["scope:shared", "scope:frontend"]
               }
             ]
           }

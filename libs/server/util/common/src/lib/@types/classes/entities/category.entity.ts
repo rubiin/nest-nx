@@ -1,4 +1,3 @@
-
 import { Collection, Entity, ManyToMany, Property } from "@mikro-orm/core";
 
 import { BaseEntity } from "../base.entity";

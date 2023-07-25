@@ -1,13 +1,26 @@
-
 import { MikroOrmModule } from "@mikro-orm/nestjs";
 import { defineConfig } from "@mikro-orm/postgresql";
-import {Category,Comment,Conversation,Message,NewsLetter,OtpLog,PointRedemptionLog,Post,Protocol,Referral,RefreshToken,Subscriber,Tag,User} from "@nestify/server/util/common";
+import {
+	Category,
+	Comment,
+	Conversation,
+	Message,
+	NewsLetter,
+	OtpLog,
+	PointRedemptionLog,
+	Post,
+	Protocol,
+	Referral,
+	RefreshToken,
+	Subscriber,
+	Tag,
+	User,
+} from "@nestify/server/util/common";
 import { Config } from "@nestify/server/util/config";
 import { Global, Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 
 import { baseOptions } from "./mikro-orm-cli.config";
-
 
 @Global()
 @Module({
@@ -26,7 +39,22 @@ import { baseOptions } from "./mikro-orm-cli.config";
 			inject: [ConfigService],
 		}),
 		MikroOrmModule.forFeature({
-		entities: [User,Post,Comment,Category,Conversation,Message,NewsLetter,OtpLog,PointRedemptionLog,Protocol,Referral,RefreshToken,Subscriber,Tag],
+			entities: [
+				User,
+				Post,
+				Comment,
+				Category,
+				Conversation,
+				Message,
+				NewsLetter,
+				OtpLog,
+				PointRedemptionLog,
+				Protocol,
+				Referral,
+				RefreshToken,
+				Subscriber,
+				Tag,
+			],
 		}),
 	],
 	exports: [MikroOrmModule],

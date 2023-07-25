@@ -1,0 +1,41 @@
+{
+	"name": "server-util-nest-framework--validators",
+	"$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/server/util/nest-framework/validators/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nx/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/server/util/nest-framework/validators",
+				"tsConfig": "libs/server/util/nest-framework/validators/tsconfig.lib.json",
+				"packageJson": "libs/server/util/nest-framework/validators/package.json",
+				"main": "libs/server/util/nest-framework/validators/src/index.ts",
+				"assets": ["libs/server/util/nest-framework/validators/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@nx/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/server/util/nest-framework/validators/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "libs/server/util/nest-framework/validators/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	},
+	"tags": ["type:util","scope:backend"]
+}

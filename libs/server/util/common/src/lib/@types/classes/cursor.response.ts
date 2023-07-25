@@ -4,38 +4,36 @@ import { IsArray } from "class-validator";
 import { PaginationAbstractResponse } from "../interfaces";
 
 export class CursorMeta {
-  /**
-   * @example AdVxY2F0ZWdvcnlfaWQ9MjMx
-   */
-  @ApiProperty()
-  nextCursor: string;
+	/**
+	 * @example AdVxY2F0ZWdvcnlfaWQ9MjMx
+	 */
+	@ApiProperty()
+	nextCursor: string;
 
-  /**
-   * @example false
-   */
-  @ApiProperty()
-  hasNextPage: boolean;
+	/**
+	 * @example false
+	 */
+	@ApiProperty()
+	hasNextPage: boolean;
 
-  /**
-   * @example true
-   */
-  @ApiProperty()
-  hasPreviousPage: boolean;
+	/**
+	 * @example true
+	 */
+	@ApiProperty()
+	hasPreviousPage: boolean;
 
-  /**
-   * @example "lorem ipsum"
-   */
-  @ApiProperty()
-  search?: string;
+	/**
+	 * @example "lorem ipsum"
+	 */
+	@ApiProperty()
+	search?: string;
 }
 
-export class CursorPaginationResponse<T>
-  implements PaginationAbstractResponse<T, CursorMeta>
-{
-  @IsArray()
-  @ApiProperty({ isArray: true })
-  readonly data: T[];
+export class CursorPaginationResponse<T> implements PaginationAbstractResponse<T, CursorMeta> {
+	@IsArray()
+	@ApiProperty({ isArray: true })
+	readonly data: T[];
 
-  @ApiProperty({ type: () => CursorMeta })
-  readonly meta: CursorMeta;
+	@ApiProperty({ type: () => CursorMeta })
+	readonly meta: CursorMeta;
 }
