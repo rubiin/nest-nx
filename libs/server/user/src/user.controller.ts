@@ -1,12 +1,12 @@
 import {
-	CursorPaginationDto,
 	File,
-	fileValidatorPipe,
 	PaginationResponse,
 	Roles,
 	User,
 } from "@nestify/server/util/common";
 import { ApiFile, ApiPaginatedResponse, GenericController, Public, SwaggerResponse, UUIDParam } from "@nestify/server/util/nest-framework/decorators";
+import { CursorPaginationDto } from "@nestify/server/util/nest-framework/dtos";
+import { fileValidatorPipe } from "@nestify/server/util/nest-framework/pipes";
 import { Body, Delete, Get, Post, Put, Query, UploadedFile } from "@nestjs/common";
 import { Observable } from "rxjs";
 

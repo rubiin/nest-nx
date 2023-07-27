@@ -37,6 +37,9 @@
 			"@nestify/server/util/nest-framework/decorators": [
 				"libs/server/util/nest-framework/decorators/src/index.ts"
 			],
+			"@nestify/server/util/nest-framework/dtos": [
+				"libs/server/util/nest-framework/dtos/src/index.ts"
+			],
 			"@nestify/server/util/nest-framework/filters": [
 				"libs/server/util/nest-framework/filters/src/index.ts"
 			],

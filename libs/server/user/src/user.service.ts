@@ -3,7 +3,6 @@ import { EntityManager } from "@mikro-orm/core";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import {
 	BaseRepository,
-	CursorPaginationDto,
 	CursorType,
 	DtoWithFile,
 	EmailSubject,
@@ -15,6 +14,7 @@ import {
 } from "@nestify/server/util/common";
 import { Config } from "@nestify/server/util/config";
 import { I18nTranslations } from "@nestify/server/util/i18n";
+import { CursorPaginationDto } from "@nestify/server/util/nest-framework/dtos";
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { createId } from "@paralleldrive/cuid2";

@@ -1,8 +1,8 @@
+import { PaginationType, QueryOrder } from "@nestify/server/util/common";
 import { IsEnumField, IsNumberField, IsStringField } from "@nestify/server/util/nest-framework/validators";
 import { ApiHideProperty } from "@nestjs/swagger";
 import { Allow } from "class-validator";
 
-import { PaginationType, QueryOrder } from "./../@types";
 import { PaginationDto } from "./pagination.dto";
 
 export class OffsetPaginationDto extends PaginationDto {

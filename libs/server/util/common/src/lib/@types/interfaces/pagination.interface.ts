@@ -1,7 +1,7 @@
 import { Dictionary } from "@mikro-orm/core";
 import { QueryBuilder } from "@mikro-orm/postgresql";
 
-import { CursorPaginationDto, OffsetPaginationDto } from "../../dtos";
+import { CursorPaginationDto, OffsetPaginationDto } from "../../../../../nest-framework/dtos/src/lib/dtos";
 import { CursorPaginationResponse, OffsetPaginationResponse } from "../classes";
 import { CursorType, QueryCursor, QueryOrder } from "../enums";
 

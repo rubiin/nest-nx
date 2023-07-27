@@ -1,9 +1,9 @@
+import { PaginationType } from "@nestify/server/util/common";
 import { validationI18nMessage } from "@nestify/server/util/i18n";
 import { IsNumberField, IsStringField } from "@nestify/server/util/nest-framework/validators";
 import { ApiHideProperty } from "@nestjs/swagger";
 import { Allow, IsBase64 } from "class-validator";
 
-import { PaginationType } from "./../@types";
 import { PaginationDto } from "./pagination.dto";
 
 // TODO: add filters

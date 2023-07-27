@@ -1,7 +1,7 @@
+import { OffsetPaginationDto } from "@nestify/server/util/nest-framework/dtos";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsArray } from "class-validator";
 
-import { OffsetPaginationDto } from "../../dtos";
 import { PaginationAbstractResponse } from "../interfaces";
 
 export class OffsetMeta {
