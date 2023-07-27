@@ -1,8 +1,7 @@
-import { I18nTranslations } from "@nestify/server/util/i18n";
+import { validationI18nMessage } from "@nestify/server/util/i18n";
 import { applyDecorators } from "@nestjs/common";
 import { ArrayNotEmpty, IsArray, IsEnum, IsNotEmpty, IsOptional } from "class-validator";
 import { enumToString } from "helper-fns";
-import { i18nValidationMessage } from "nestjs-i18n";
 
 import { DateFieldOptions as EnumFieldOptions } from "./is-date-field.validator";
 
@@ -30,7 +29,7 @@ export const IsEnumField = (entity: object, options_?: EnumFieldOptions) => {
 	if (options.required) {
 		decoratorsToApply.push(
 			IsNotEmpty({
-				message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty"),
+				message: validationI18nMessage("validation.isNotEmpty"),
 				each: options.each,
 			}),
 		);
@@ -38,7 +37,7 @@ export const IsEnumField = (entity: object, options_?: EnumFieldOptions) => {
 		if (options.each) {
 			decoratorsToApply.push(
 				ArrayNotEmpty({
-					message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty"),
+					message: validationI18nMessage("validation.isNotEmpty"),
 				}),
 			);
 		}
@@ -49,7 +48,7 @@ export const IsEnumField = (entity: object, options_?: EnumFieldOptions) => {
 	if (options.each) {
 		decoratorsToApply.push(
 			IsArray({
-				message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+				message: validationI18nMessage("validation.isDataType", {
 					type: "array",
 				}),
 			}),

@@ -1,17 +1,16 @@
 
 import { Roles, User } from "@nestify/server/util/common";
-import {I18nTranslations} from "@nestify/server/util/i18n";
+import { validationI18nMessage } from "@nestify/server/util/i18n";
 import { IsEmailField, IsEnumField, IsPassword, IsStringField, IsUnique, IsUsernameField } from "@nestify/server/util/nest-framework/validators";
 import { Type } from "class-transformer";
 import { IsNotEmpty, IsUrl, ValidateNested } from "class-validator";
-import { i18nValidationMessage } from "nestjs-i18n";
 
 export class SocialDto {
 	/**
 	 * Twitter url of user
 	 * @example https://twitter.com/rubiin
 	 */
-	@IsNotEmpty({ message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty") })
+	@IsNotEmpty({ message: validationI18nMessage("validation.isNotEmpty") })
 	@IsUrl()
 	twitter?: string;
 
@@ -19,7 +18,7 @@ export class SocialDto {
 	 * Facebook url of user
 	 * @example https://facebook.com/rubiin
 	 */
-	@IsNotEmpty({ message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty") })
+	@IsNotEmpty({ message: validationI18nMessage("validation.isNotEmpty") })
 	@IsUrl()
 	facebook?: string;
 
@@ -27,7 +26,7 @@ export class SocialDto {
 	 * Linkedin url of user
 	 * @example https://linkedin.com/rubiin
 	 */
-	@IsNotEmpty({ message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty") })
+	@IsNotEmpty({ message: validationI18nMessage("validation.isNotEmpty") })
 	@IsUrl()
 	linkedin?: string;
 }
@@ -80,7 +79,7 @@ export class CreateUserDto {
 	 */
 
 	@IsStringField({ minLength: 8, maxLength: 50 })
-	@IsPassword({ message: i18nValidationMessage<I18nTranslations>("validation.isPassword") })
+	@IsPassword({ message: validationI18nMessage("validation.isPassword") })
 	password!: string;
 
 	/**

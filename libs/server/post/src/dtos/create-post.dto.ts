@@ -1,8 +1,7 @@
 import { PostStateEnum } from "@nestify/server/util/common";
-import { I18nTranslations } from "@nestify/server/util/i18n";
+import { validationI18nMessage } from "@nestify/server/util/i18n";
 import { IsEnumField, IsStringField, IsUUIDField, ToBoolean } from "@nestify/server/util/nest-framework/validators";
 import { IsBoolean } from "class-validator";
-import { i18nValidationMessage } from "nestjs-i18n";
 
 export class CreatePostDto {
 	/**
@@ -59,7 +58,7 @@ export class CreatePostDto {
 	 */
 	@ToBoolean()
 	@IsBoolean({
-		message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+		message: validationI18nMessage("validation.isDataType", {
 			type: "boolean",
 		}),
 	})

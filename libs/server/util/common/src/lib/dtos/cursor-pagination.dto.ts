@@ -1,13 +1,13 @@
-import { IsNumberField,IsStringField } from "@nestify/server/util/nest-framework/validators";
+import { validationI18nMessage } from "@nestify/server/util/i18n";
+import { IsNumberField, IsStringField } from "@nestify/server/util/nest-framework/validators";
 import { ApiHideProperty } from "@nestjs/swagger";
 import { Allow, IsBase64 } from "class-validator";
-import { i18nValidationMessage } from "nestjs-i18n";
 
 import { PaginationType } from "./../@types";
 import { PaginationDto } from "./pagination.dto";
 
 // TODO: add filters
-
+4
 export class CursorPaginationDto extends PaginationDto {
 	@ApiHideProperty()
 	@Allow()
@@ -18,7 +18,7 @@ export class CursorPaginationDto extends PaginationDto {
 	 */
 	@IsStringField({ required: false })
 	@IsBase64({
-		message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+		message: validationI18nMessage("validation.isDataType", {
 			type: "base64",
 		}),
 	})

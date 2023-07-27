@@ -1,4 +1,4 @@
-import { I18nTranslations } from "@nestify/server/util/i18n";
+import { validationI18nMessage } from "@nestify/server/util/i18n";
 import { applyDecorators } from "@nestjs/common";
 import { Type } from "class-transformer";
 import {
@@ -12,7 +12,6 @@ import {
 	Max,
 	Min,
 } from "class-validator";
-import { i18nValidationMessage } from "nestjs-i18n";
 
 import { BaseArrayValidator, BaseValidator } from "../interfaces";
 
@@ -44,11 +43,11 @@ export const IsNumberField = (options_?: NumberFieldOptions) => {
 	const decoratorsToApply = [
 		Type(() => Number),
 		Min(options.min, {
-			message: i18nValidationMessage<I18nTranslations>("validation.min"),
+			message: validationI18nMessage("validation.min"),
 			each: options.each,
 		}),
 		Max(options.max, {
-			message: i18nValidationMessage<I18nTranslations>("validation.max"),
+			message: validationI18nMessage("validation.max"),
 			each: options.each,
 		}),
 	];
@@ -56,7 +55,7 @@ export const IsNumberField = (options_?: NumberFieldOptions) => {
 	if (options.int) {
 		decoratorsToApply.push(
 			IsInt({
-				message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+				message: validationI18nMessage("validation.isDataType", {
 					type: "integer number",
 				}),
 				each: options.each,
@@ -67,7 +66,7 @@ export const IsNumberField = (options_?: NumberFieldOptions) => {
 			IsNumber(
 				{},
 				{
-					message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+					message: validationI18nMessage("validation.isDataType", {
 						type: "number",
 					}),
 					each: options.each,
@@ -79,7 +78,7 @@ export const IsNumberField = (options_?: NumberFieldOptions) => {
 	if (options.positive) {
 		decoratorsToApply.push(
 			IsPositive({
-				message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+				message: validationI18nMessage("validation.isDataType", {
 					type: "positive number",
 				}),
 				each: options.each,
@@ -90,7 +89,7 @@ export const IsNumberField = (options_?: NumberFieldOptions) => {
 	if (options.required) {
 		decoratorsToApply.push(
 			IsNotEmpty({
-				message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty"),
+				message: validationI18nMessage("validation.isNotEmpty"),
 				each: options.each,
 			}),
 		);
@@ -98,7 +97,7 @@ export const IsNumberField = (options_?: NumberFieldOptions) => {
 		if (options.each) {
 			decoratorsToApply.push(
 				ArrayNotEmpty({
-					message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty"),
+					message: validationI18nMessage("validation.isNotEmpty"),
 				}),
 			);
 		}
@@ -109,7 +108,7 @@ export const IsNumberField = (options_?: NumberFieldOptions) => {
 	if (options.each) {
 		decoratorsToApply.push(
 			IsArray({
-				message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+				message: validationI18nMessage("validation.isDataType", {
 					type: "array",
 				}),
 			}),

@@ -1,7 +1,6 @@
-import { I18nTranslations } from "@nestify/server/util/i18n";
+import { validationI18nMessage } from "@nestify/server/util/i18n";
 import { applyDecorators } from "@nestjs/common";
 import { MaxLength, MinLength } from "class-validator";
-import { i18nValidationMessage } from "nestjs-i18n";
 
 import { StringFieldOptions } from "./is-string-field.decorator";
 
@@ -22,11 +21,11 @@ export const MinMaxLength = (options_?: MinMaxLengthOptions) => {
 
 	return applyDecorators(
 		MinLength(options.minLength, {
-			message: i18nValidationMessage<I18nTranslations>("validation.minLength"),
+			message: validationI18nMessage("validation.minLength"),
 			each: options.each,
 		}),
 		MaxLength(options.maxLength, {
-			message: i18nValidationMessage<I18nTranslations>("validation.maxLength"),
+			message: validationI18nMessage("validation.maxLength"),
 			each: options.each,
 		}),
 	);

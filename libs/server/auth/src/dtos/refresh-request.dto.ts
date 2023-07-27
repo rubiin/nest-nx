@@ -1,6 +1,5 @@
-import { I18nTranslations } from "@nestify/server/util/i18n";
+import { validationI18nMessage } from "@nestify/server/util/i18n";
 import { IsJWT, IsNotEmpty } from "class-validator";
-import { i18nValidationMessage } from "nestjs-i18n";
 
 export class RefreshTokenDto {
 	/**
@@ -8,9 +7,9 @@ export class RefreshTokenDto {
 	 * @example "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
 	 */
 
-	@IsNotEmpty({ message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty") })
+	@IsNotEmpty({ message: validationI18nMessage("validation.isNotEmpty") })
 	@IsJWT({
-		message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+		message: validationI18nMessage("validation.isDataType", {
 			type: "jwt",
 		}),
 	})

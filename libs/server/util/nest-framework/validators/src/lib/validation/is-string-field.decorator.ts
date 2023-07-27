@@ -1,4 +1,4 @@
-import { I18nTranslations } from "@nestify/server/util/i18n";
+import { validationI18nMessage } from "@nestify/server/util/i18n";
 import { applyDecorators } from "@nestjs/common";
 import {
 	ArrayMaxSize,
@@ -9,9 +9,8 @@ import {
 	IsOptional,
 	IsString,
 } from "class-validator";
-import { i18nValidationMessage } from "nestjs-i18n";
 
-import { BaseArrayValidator,BaseValidator } from "../interfaces";
+import { BaseArrayValidator, BaseValidator } from "../interfaces";
 import { MinMaxLength } from "./min-max-length.decorator";
 import { Sanitize, Trim } from "./transform.decorator";
 
@@ -42,7 +41,7 @@ export const IsStringField = (options_?: StringFieldOptions) => {
 	};
 	const decoratorsToApply = [
 		IsString({
-			message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+			message: validationI18nMessage("validation.isDataType", {
 				type: "string",
 			}),
 			each: options.each,
@@ -65,7 +64,7 @@ export const IsStringField = (options_?: StringFieldOptions) => {
 	if (options.required) {
 		decoratorsToApply.push(
 			IsNotEmpty({
-				message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty"),
+				message: validationI18nMessage("validation.isNotEmpty"),
 				each: options.each,
 			}),
 		);
@@ -73,7 +72,7 @@ export const IsStringField = (options_?: StringFieldOptions) => {
 		if (options.each) {
 			decoratorsToApply.push(
 				ArrayNotEmpty({
-					message: i18nValidationMessage<I18nTranslations>("validation.isNotEmpty"),
+					message: validationI18nMessage("validation.isNotEmpty"),
 				}),
 			);
 		}
@@ -84,7 +83,7 @@ export const IsStringField = (options_?: StringFieldOptions) => {
 	if (options.each) {
 		decoratorsToApply.push(
 			IsArray({
-				message: i18nValidationMessage<I18nTranslations>("validation.isDataType", {
+				message: validationI18nMessage("validation.isDataType", {
 					type: "array",
 				}),
 			}),
