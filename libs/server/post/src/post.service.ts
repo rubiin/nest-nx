@@ -1,11 +1,10 @@
 import { AutoPath } from "@mikro-orm/core/typings";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { EntityManager } from "@mikro-orm/postgresql";
-import { BaseRepository,Category, Comment, CursorPaginationDto, CursorType, PaginationResponse, Post, QueryOrder, Tag, User, } from "@nestify/server/util/common";
-import { I18nTranslations } from "@nestify/server/util/i18n";
+import { translate } from "@nestify/server/util/i18n";
+import { BaseRepository, Category, Comment, CursorPaginationDto, CursorType, PaginationResponse, Post, QueryOrder, Tag, User, } from "@nestify/server/util/types";
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { omit } from "helper-fns";
-import { I18nContext} from "nestjs-i18n";
 import { forkJoin, from, map, mergeMap, Observable, of, switchMap, throwError, zip } from "rxjs";
 
 import { CreateCommentDto, CreatePostDto, EditPostDto } from "./dtos";
@@ -68,7 +67,7 @@ export class PostService {
 					return throwError(
 						() =>
 							new NotFoundException(
-								I18nContext.current<I18nTranslations>()!.t(
+								translate(
 									"exception.itemDoesNotExist",
 									{
 										args: { item: "Post" },

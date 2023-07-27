@@ -1,7 +1,7 @@
 import { resolve } from "node:path";
 
 import * as aws from "@aws-sdk/client-ses";
-import { Server, TemplateEngine } from "@nestify/server/util/common";
+import { Server, TemplateEngine } from "@nestify/server/util/types";
 import { Inject, Injectable, Logger } from "@nestjs/common";
 import { createTransport, SendMailOptions, SentMessageInfo, Transporter } from "nodemailer";
 import previewEmail from "preview-email";

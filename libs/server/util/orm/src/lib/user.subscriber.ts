@@ -1,6 +1,6 @@
 import { EntityName, EventArgs, EventSubscriber } from "@mikro-orm/core";
-import { User } from "@nestify/server/util/common";
 import { HelperService } from "@nestify/server/util/nest-framework/helpers";
+import { User } from "@nestify/server/util/types";
 import { Injectable } from "@nestjs/common";
 
 /* It's a class that implements the EventSubscriber interface, and it's responsible for hashing the

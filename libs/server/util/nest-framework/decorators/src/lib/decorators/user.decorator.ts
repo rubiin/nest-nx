@@ -1,4 +1,4 @@
-import { User } from "@nestify/server/util/common";
+import { User } from "@nestify/server/util/types";
 import { createParamDecorator, ExecutionContext } from "@nestjs/common";
 
 

@@ -1,4 +1,4 @@
-import { FileSize, FileType, FileValidator } from "@nestify/server/util/common";
+import { FileSize, FileType, FileValidator } from "@nestify/server/util/types";
 import { HttpStatus, ParseFilePipeBuilder } from "@nestjs/common";
 
 /**

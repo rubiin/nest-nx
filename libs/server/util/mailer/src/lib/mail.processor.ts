@@ -1,5 +1,5 @@
 import { RabbitSubscribe } from "@golevelup/nestjs-rabbitmq";
-import { MailPayload, RoutingKey } from "@nestify/server/util/common";
+import { MailPayload, RoutingKey } from "@nestify/server/util/types";
 import { Injectable, Logger } from "@nestjs/common";
 import { from, map, tap } from "rxjs";
 

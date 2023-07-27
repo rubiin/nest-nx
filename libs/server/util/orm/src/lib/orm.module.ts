@@ -1,5 +1,6 @@
 import { MikroOrmModule } from "@mikro-orm/nestjs";
 import { defineConfig } from "@mikro-orm/postgresql";
+import { Config } from "@nestify/server/util/config";
 import {
 	Category,
 	Comment,
@@ -14,9 +15,8 @@ import {
 	RefreshToken,
 	Subscriber,
 	Tag,
-	User,
-} from "@nestify/server/util/common";
-import { Config } from "@nestify/server/util/config";
+	User
+} from "@nestify/server/util/types";
 import { Global, Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 

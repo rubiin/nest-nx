@@ -1,5 +1,5 @@
-import { JwtAuthGuard } from "@nestify/server/util/common";
 import { API_UNAUTHORIZED_RESPONSE } from "@nestify/server/util/nest-framework/constant";
+import { JwtAuthGuard } from "@nestify/server/util/nest-framework/guards";
 import { applyDecorators, CanActivate, Type, UseGuards } from "@nestjs/common";
 import { ApiBearerAuth, ApiUnauthorizedResponse } from "@nestjs/swagger";
 

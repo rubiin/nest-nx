@@ -1,8 +1,11 @@
 import { AmqpConnection } from "@golevelup/nestjs-rabbitmq";
 import { EntityManager } from "@mikro-orm/core";
 import { InjectRepository } from "@mikro-orm/nestjs";
+import { Config } from "@nestify/server/util/config";
+import { translate } from "@nestify/server/util/i18n";
 import {
 	BaseRepository,
+	CursorPaginationDto,
 	CursorType,
 	DtoWithFile,
 	EmailSubject,
@@ -11,16 +14,12 @@ import {
 	QueryOrder,
 	RoutingKey,
 	User,
-} from "@nestify/server/util/common";
-import { Config } from "@nestify/server/util/config";
-import { I18nTranslations } from "@nestify/server/util/i18n";
-import { CursorPaginationDto } from "@nestify/server/util/nest-framework/dtos";
+} from "@nestify/server/util/types";
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { createId } from "@paralleldrive/cuid2";
 import { capitalize, slugify } from "helper-fns";
 import { CloudinaryService, IFile } from "nestjs-cloudinary";
-import { I18nContext } from "nestjs-i18n";
 import { from, map, mergeMap, Observable, of, switchMap, throwError } from "rxjs";
 
 import { CreateUserDto, EditUserDto } from "./dtos";
@@ -80,7 +79,7 @@ export class UserService {
 					return throwError(
 						() =>
 							new NotFoundException(
-								I18nContext.current<I18nTranslations>()!.t(
+								translate(
 									"exception.itemDoesNotExist",
 									{
 										args: { item: "User" },

@@ -18,7 +18,7 @@ import {
 	Subscriber,
 	Tag,
 	User,
-} from "@nestify/server/util/common";
+} from "@nestify/server/util/types";
 import { Logger, NotFoundException } from "@nestjs/common";
 import { config as environmentConfig } from "dotenv";
 import dotEnvExpand from "dotenv-expand";

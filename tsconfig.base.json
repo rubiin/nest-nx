@@ -9,7 +9,6 @@
 		"preserveSymlinks": true,
 		"lib": ["es2021", "dom"],
 		"baseUrl": ".",
-		"types": ["./libs/server/util/common/src/lib/global.d.ts"],
 		"paths": {
 			"@nestify/api-interfaces": ["libs/api-interfaces/src/index.ts"],
 			"@nestify/server/auth": ["libs/server/auth/src/index.ts"],
@@ -20,7 +19,6 @@
 			"@nestify/server/user": ["libs/server/user/src/index.ts"],
 			"@nestify/server/util/cache": ["libs/server/util/cache/src/index.ts"],
 			"@nestify/server/util/cloudinary": ["libs/server/util/cloudinary/src/index.ts"],
-			"@nestify/server/util/common": ["libs/server/util/common/src/index.ts"],
 			"@nestify/server/util/config": ["libs/server/util/config/src/index.ts"],
 			"@nestify/server/util/crud": ["libs/server/util/crud/src/index.ts"],
 			"@nestify/server/util/entities": [
@@ -37,11 +35,11 @@
 			"@nestify/server/util/nest-framework/decorators": [
 				"libs/server/util/nest-framework/decorators/src/index.ts"
 			],
-			"@nestify/server/util/nest-framework/dtos": [
-				"libs/server/util/nest-framework/dtos/src/index.ts"
-			],
 			"@nestify/server/util/nest-framework/filters": [
 				"libs/server/util/nest-framework/filters/src/index.ts"
+			],
+			"@nestify/server/util/nest-framework/guards": [
+				"libs/server/util/nest-framework/guards/src/index.ts"
 			],
 			"@nestify/server/util/nest-framework/helpers": [
 				"libs/server/util/nest-framework/helpers/src/index.ts"
@@ -64,7 +62,8 @@
 			"@nestify/server/util/sentry": ["libs/server/util/sentry/src/index.ts"],
 			"@nestify/server/util/stripe": ["libs/server/util/stripe/src/index.ts"],
 			"@nestify/server/util/throttler": ["libs/server/util/throttler/src/index.ts"],
-			"@nestify/server/util/twilio": ["libs/server/util/twilio/src/index.ts"]
+			"@nestify/server/util/twilio": ["libs/server/util/twilio/src/index.ts"],
+			"@nestify/server/util/types": ["libs/server/util/types/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

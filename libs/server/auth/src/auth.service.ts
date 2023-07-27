@@ -3,37 +3,36 @@ import { InjectRepository } from "@mikro-orm/nestjs";
 import { EntityManager } from "@mikro-orm/postgresql";
 import { AuthenticationResponse } from "@nestify/api-interfaces";
 import { TokensService } from "@nestify/server/token";
-import {
-	BaseRepository,
-	EmailSubject,
-	EmailTemplate,
-	OtpLog,
-	Protocol,
-	User,
-} from "@nestify/server/util/common";
 import { Config } from "@nestify/server/util/config";
-import { I18nTranslations } from "@nestify/server/util/i18n";
+import { translate } from "@nestify/server/util/i18n";
 import { MailerService } from "@nestify/server/util/mailer";
 import { HelperService } from "@nestify/server/util/nest-framework/helpers";
 import {
-	BadRequestException,
-	ForbiddenException,
-	Injectable,
-	NotFoundException,
+  BaseRepository,
+  EmailSubject,
+  EmailTemplate,
+  OtpLog,
+  Protocol,
+  User,
+} from "@nestify/server/util/types";
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
 } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { init } from "@paralleldrive/cuid2";
 import { isAfter } from "date-fns";
 import { capitalize, omit } from "helper-fns";
-import { I18nContext } from "nestjs-i18n";
 import { from, map, mergeMap, Observable, of, switchMap, throwError, zip } from "rxjs";
 
 import {
-	ChangePasswordDto,
-	OtpVerifyDto,
-	ResetPasswordDto,
-	SendOtpDto,
-	UserLoginDto,
+  ChangePasswordDto,
+  OtpVerifyDto,
+  ResetPasswordDto,
+  SendOtpDto,
+  UserLoginDto,
 } from "./dtos";
 
 @Injectable()
@@ -71,7 +70,7 @@ export class AuthService {
 					return throwError(
 						() =>
 							new ForbiddenException(
-								I18nContext.current<I18nTranslations>()!.t(
+								translate(
 									"exception.itemDoesNotExist",
 									{
 										args: { item: "Account" },
@@ -85,7 +84,7 @@ export class AuthService {
 					return throwError(
 						() =>
 							new ForbiddenException(
-								I18nContext.current<I18nTranslations>()!.t(
+								translate(
 									"exception.inactiveUser",
 								),
 							),
@@ -102,7 +101,7 @@ export class AuthService {
 								return throwError(
 									() =>
 										new BadRequestException(
-											I18nContext.current<I18nTranslations>()!.t(
+											translate(
 												"exception.invalidCredentials",
 											),
 										),
@@ -129,7 +128,7 @@ export class AuthService {
 					return throwError(
 						() =>
 							new BadRequestException(
-								I18nContext.current<I18nTranslations>()!.t(
+								translate(
 									"exception.invalidCredentials",
 								),
 							),
@@ -202,7 +201,7 @@ export class AuthService {
 					return throwError(
 						() =>
 							new NotFoundException(
-								I18nContext.current<I18nTranslations>()!.t(
+								translate(
 									"exception.itemDoesNotExist",
 									{
 										args: { item: "Account" },
@@ -298,7 +297,7 @@ export class AuthService {
 					return throwError(
 						() =>
 							new NotFoundException(
-								I18nContext.current<I18nTranslations>()!.t(
+								translate(
 									"exception.itemDoesNotExist",
 									{
 										args: { item: "Otp" },
@@ -314,7 +313,7 @@ export class AuthService {
 					return throwError(
 						() =>
 							new BadRequestException(
-								I18nContext.current<I18nTranslations>()!.t(
+								translate(
 									"exception.itemExpired",
 									{
 										args: { item: "Otp" },
@@ -367,7 +366,7 @@ export class AuthService {
 							return throwError(
 								() =>
 									new BadRequestException(
-										I18nContext.current<I18nTranslations>()!.t(
+										translate(
 											"exception.invalidCredentials",
 										),
 									),

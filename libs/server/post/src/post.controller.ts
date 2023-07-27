@@ -1,12 +1,12 @@
 
+import { ApiPaginatedResponse, GenericController, LoggedInUser, SwaggerResponse, UUIDParam } from "@nestify/server/util/nest-framework/decorators";
 import {
   Comment,
   CursorPaginationDto,
   PaginationResponse,
   Post as PostEntity,
   User,
-} from "@nestify/server/util/common";
-import { ApiPaginatedResponse, GenericController, LoggedInUser, SwaggerResponse, UUIDParam } from "@nestify/server/util/nest-framework/decorators";
+} from "@nestify/server/util/types";
 import { Body, Delete, Get, Param, Post, Put, Query } from "@nestjs/common";
 import { Observable } from "rxjs";
 

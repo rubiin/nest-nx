@@ -1,6 +1,6 @@
 import path from "node:path";
 
-import { File } from "@nestify/server/util/common";
+import { File } from "@nestify/server/util/types";
 import { Injectable, PipeTransform } from "@nestjs/common";
 import sharp from "sharp";
 

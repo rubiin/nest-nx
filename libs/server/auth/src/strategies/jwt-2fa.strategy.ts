@@ -1,5 +1,5 @@
-import { JwtPayload } from "@nestify/server/util/common";
 import { Config } from "@nestify/server/util/config";
+import { JwtPayload } from "@nestify/server/util/types";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { PassportStrategy } from "@nestjs/passport";

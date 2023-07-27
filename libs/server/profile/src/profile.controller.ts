@@ -1,8 +1,8 @@
+import { ApplyCustomCache, GenericController, LoggedInUser,SwaggerResponse } from "@nestify/server/util/nest-framework/decorators";
 import {
 	ProfileData,
 	User,
-} from "@nestify/server/util/common";
-import { ApplyCustomCache, GenericController, LoggedInUser,SwaggerResponse } from "@nestify/server/util/nest-framework/decorators";
+} from "@nestify/server/util/types";
 import { Delete, Get, Param, Post } from "@nestjs/common";
 import { Observable } from "rxjs";
 

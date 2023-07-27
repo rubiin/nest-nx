@@ -1,12 +1,11 @@
 import { EntityRepository } from "@mikro-orm/core";
 import { InjectRepository } from "@mikro-orm/nestjs";
-import { JwtPayload, RefreshToken, User } from "@nestify/server/util/common";
-import { I18nTranslations } from "@nestify/server/util/i18n";
+import { translate } from "@nestify/server/util/i18n";
+import { JwtPayload, RefreshToken, User } from "@nestify/server/util/types";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService, JwtSignOptions } from "@nestjs/jwt";
 import { pick } from "helper-fns";
 import { TokenExpiredError } from "jsonwebtoken";
-import { I18nContext } from "nestjs-i18n";
 import { catchError, from, map, mergeMap, Observable, of, switchMap, throwError } from "rxjs";
 
 import { RefreshTokensRepository } from "./refresh-tokens.repository";
@@ -77,7 +76,7 @@ export class TokensService {
 							return throwError(
 								() =>
 									new UnauthorizedException(
-										I18nContext.current<I18nTranslations>()!.t(
+										translate(
 											"exception.refreshToken",
 											{
 												args: { error: "not found" },
@@ -91,7 +90,7 @@ export class TokensService {
 							return throwError(
 								() =>
 									new UnauthorizedException(
-										I18nContext.current<I18nTranslations>()!.t(
+										translate(
 											"exception.refreshToken",
 											{
 												args: { error: "revoked" },
@@ -107,7 +106,7 @@ export class TokensService {
 									return throwError(
 										() =>
 											new UnauthorizedException(
-												I18nContext.current<I18nTranslations>()!.t(
+												translate(
 													"exception.refreshToken",
 													{
 														args: { error: "malformed" },
@@ -154,12 +153,12 @@ export class TokensService {
 			catchError(error_ => {
 				throw error_ instanceof TokenExpiredError
 					? new UnauthorizedException(
-							I18nContext.current<I18nTranslations>()!.t("exception.refreshToken", {
+							translate("exception.refreshToken", {
 								args: { error: "expired" },
 							}),
 					  )
 					: new UnauthorizedException(
-							I18nContext.current<I18nTranslations>()!.t("exception.refreshToken", {
+							translate("exception.refreshToken", {
 								args: { error: "malformed" },
 							}),
 					  );
@@ -193,7 +192,7 @@ export class TokensService {
 			return throwError(
 				() =>
 					new UnauthorizedException(
-						I18nContext.current<I18nTranslations>()!.t("exception.refreshToken", {
+						translate("exception.refreshToken", {
 							args: { error: "malformed" },
 						}),
 					),
@@ -220,7 +219,7 @@ export class TokensService {
 			return throwError(
 				() =>
 					new UnauthorizedException(
-						I18nContext.current<I18nTranslations>()!.t("exception.refreshToken", {
+						translate("exception.refreshToken", {
 							args: { error: "malformed" },
 						}),
 					),
@@ -247,7 +246,7 @@ export class TokensService {
 			return throwError(
 				() =>
 					new UnauthorizedException(
-						I18nContext.current<I18nTranslations>()!.t("exception.refreshToken", {
+						translate("exception.refreshToken", {
 							args: { error: "malformed" },
 						}),
 					),
