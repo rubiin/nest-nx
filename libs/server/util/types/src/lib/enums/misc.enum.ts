@@ -26,16 +26,6 @@ export enum PostStateEnum {
 	PUBLISHED = "PUBLISHED",
 }
 
-export const enum Server {
-	SES = "SES",
-	SMTP = "SMTP",
-}
-
-export const enum TemplateEngine {
-	ETA = "ETA",
-	PUG = "PUG",
-	HBS = "HBS",
-}
 
 export const FileType: Record<keyof typeof FileSize, RegExp> = {
 	IMAGE: new RegExp(/(jpg|jpeg|png|gif|svg)$/i),
@@ -43,6 +33,23 @@ export const FileType: Record<keyof typeof FileSize, RegExp> = {
 };
 
 // database enums
+
+
+export enum ReferralStatus {
+	PENDING = "PENDING",
+	COMPLETED = "COMPLETED",
+}
+
+export const enum RoutingKey {
+	SEND_MAIL = "send-mail",
+	SEND_NEWSLETTER = "send-newsletter",
+}
+
+export const enum PaginationType {
+	OFFSET = "OFFSET",
+	CURSOR = "CURSOR",
+}
+
 
 export const enum CursorType {
 	DATE = "DATE",
@@ -58,19 +65,4 @@ export const enum QueryCursor {
 export enum QueryOrder {
 	ASC = "ASC",
 	DESC = "DESC",
-}
-
-export enum ReferralStatus {
-	PENDING = "PENDING",
-	COMPLETED = "COMPLETED",
-}
-
-export const enum RoutingKey {
-	SEND_MAIL = "send-mail",
-	SEND_NEWSLETTER = "send-newsletter",
-}
-
-export const enum PaginationType {
-	OFFSET = "OFFSET",
-	CURSOR = "CURSOR",
 }

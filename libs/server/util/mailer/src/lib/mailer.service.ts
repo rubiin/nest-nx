@@ -1,7 +1,6 @@
 import { resolve } from "node:path";
 
 import * as aws from "@aws-sdk/client-ses";
-import { Server, TemplateEngine } from "@nestify/server/util/types";
 import { Inject, Injectable, Logger } from "@nestjs/common";
 import { createTransport, SendMailOptions, SentMessageInfo, Transporter } from "nodemailer";
 import previewEmail from "preview-email";
@@ -11,6 +10,7 @@ import { EtaAdapter, HandlebarsAdapter, PugAdapter } from "./adapters";
 import { Adapter } from "./adapters/abstract.adapter";
 import { MODULE_OPTIONS_TOKEN } from "./mail.module-definition";
 import { MailModuleOptions } from "./mailer.options";
+import { Server, TemplateEngine } from "./types";
 
 interface MailOptions extends Partial<SendMailOptions> {
 	template: string;
@@ -45,9 +45,7 @@ export class MailerService {
 				break;
 			}
 			case TemplateEngine.HBS: {
-				this.adapter = new HandlebarsAdapter({
-					...this.options.templateEngine.options,
-				});
+				this.adapter = new HandlebarsAdapter(this.options.templateEngine.options);
 				break;
 			}
 			default: {

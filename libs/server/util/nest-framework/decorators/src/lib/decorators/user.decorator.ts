@@ -1,7 +1,6 @@
 import { User } from "@nestify/server/util/types";
 import { createParamDecorator, ExecutionContext } from "@nestjs/common";
 
-
 /* A decorator that will be used to get the user from the request. */
 export const LoggedInUser = createParamDecorator((data: keyof User, context: ExecutionContext) => {
 	let request = context.switchToHttp().getRequest();

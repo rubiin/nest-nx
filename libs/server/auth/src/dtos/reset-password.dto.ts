@@ -1,6 +1,9 @@
-
 import { validationI18nMessage } from "@nestify/server/util/i18n";
-import { IsEqualTo, IsPassword, IsStringField } from "@nestify/server/util/nest-framework/validators";
+import {
+	IsEqualTo,
+	IsPassword,
+	IsStringField,
+} from "@nestify/server/util/nest-framework/validators";
 import { PickType } from "@nestjs/swagger";
 import { IsNotEmpty } from "class-validator";
 

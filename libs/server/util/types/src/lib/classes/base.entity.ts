@@ -1,10 +1,8 @@
 import { randomUUID } from "node:crypto";
 
 import { PrimaryKey, Property } from "@mikro-orm/core";
-import {HelperService} from "@nestify/server/util/nest-framework/helpers";
+import { HelperService } from "@nestify/server/util/nest-framework/helpers";
 import { ApiHideProperty } from "@nestjs/swagger";
-
-
 
 /**
  * Base entity class for mikroorm models, that all other entities of the same type should extend.

@@ -19,15 +19,14 @@ import {
 	ValidatorConstraint,
 	ValidatorConstraintInterface,
 } from "class-validator";
-4
+4;
 
 import { MinMaxLength } from "./min-max-length.decorator";
 
 @ValidatorConstraint({ async: true })
 class IsUsernameConstraint implements ValidatorConstraintInterface {
 	async validate(value: string, _argument: ValidationArguments) {
-  const USERNAME_REGEX = /^(?![\d._-])[\w-.]+$/;
-
+		const USERNAME_REGEX = /^(?![\d._-])[\w-.]+$/;
 
 		return USERNAME_REGEX.test(value);
 	}

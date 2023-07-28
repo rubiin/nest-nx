@@ -48,12 +48,9 @@ export class ProfileService {
 					return throwError(
 						() =>
 							new NotFoundException(
-								translate(
-									"exception.itemDoesNotExist",
-									{
-										args: { item: "Profile" },
-									},
-								),
+								translate("exception.itemDoesNotExist", {
+									args: { item: "Profile" },
+								}),
 							),
 					);
 				}
@@ -76,10 +73,7 @@ export class ProfileService {
 	follow(loggedInUser: User, usernameToFollow: string): Observable<ProfileData> {
 		if (!usernameToFollow) {
 			return throwError(
-				() =>
-					new BadRequestException(
-						translate("exception.usernameRequired"),
-					),
+				() => new BadRequestException(translate("exception.usernameRequired")),
 			);
 		}
 
@@ -87,12 +81,7 @@ export class ProfileService {
 			switchMap(followingUser => {
 				if (loggedInUser.username === usernameToFollow) {
 					return throwError(
-						() =>
-							new BadRequestException(
-								translate(
-									"exception.followerFollowingSame",
-								),
-							),
+						() => new BadRequestException(translate("exception.followerFollowingSame")),
 					);
 				}
 
@@ -121,10 +110,7 @@ export class ProfileService {
 	unFollow(loggedInUser: User, username: string): Observable<ProfileData> {
 		if (!username) {
 			return throwError(
-				() =>
-					new BadRequestException(
-						translate("exception.usernameRequired"),
-					),
+				() => new BadRequestException(translate("exception.usernameRequired")),
 			);
 		}
 
@@ -134,12 +120,7 @@ export class ProfileService {
 
 				if (followingUser.id === loggedInUser.id) {
 					return throwError(
-						() =>
-							new BadRequestException(
-								translate(
-									"exception.followerFollowingSame",
-								),
-							),
+						() => new BadRequestException(translate("exception.followerFollowingSame")),
 					);
 				}
 

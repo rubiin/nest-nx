@@ -1,7 +1,14 @@
-import { ApiFile, ApiPaginatedResponse, GenericController, Public, SwaggerResponse, UUIDParam } from "@nestify/server/util/nest-framework/decorators";
+import {
+	ApiFile,
+	ApiPaginatedResponse,
+	GenericController,
+	Public,
+	SwaggerResponse,
+	UUIDParam,
+} from "@nestify/server/util/nest-framework/decorators";
 import { fileValidatorPipe } from "@nestify/server/util/nest-framework/pipes";
 import {
-  CursorPaginationDto,
+	CursorPaginationDto,
 	File,
 	PaginationResponse,
 	Roles,

@@ -1,7 +1,11 @@
 import { AuthenticationResponse } from "@nestify/api-interfaces";
 import { AuthService } from "@nestify/server/auth";
-import { Auth,GenericController, LoggedInUser } from "@nestify/server/util/nest-framework/decorators";
-import {User } from "@nestify/server/util/types";
+import {
+	Auth,
+	GenericController,
+	LoggedInUser,
+} from "@nestify/server/util/nest-framework/decorators";
+import { User } from "@nestify/server/util/types";
 import { Body, Post, Res, UnauthorizedException, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { ApiBearerAuth } from "@nestjs/swagger";

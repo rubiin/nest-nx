@@ -1,6 +1,5 @@
 import { IsStringField } from "@nestify/server/util/nest-framework/validators";
 
-
 export class TwofaDto {
 	/**
 	 * The code to verify

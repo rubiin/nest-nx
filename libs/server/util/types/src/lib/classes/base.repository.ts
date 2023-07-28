@@ -9,7 +9,7 @@ import {
 } from "@mikro-orm/core";
 import { EntityRepository } from "@mikro-orm/postgresql";
 import { translate } from "@nestify/server/util/i18n";
-import {HelperService} from "@nestify/server/util/nest-framework/helpers";
+import { HelperService } from "@nestify/server/util/nest-framework/helpers";
 import { BadRequestException, NotFoundException } from "@nestjs/common";
 import { from, map, Observable, of, switchMap, throwError } from "rxjs";
 
@@ -120,12 +120,9 @@ export class BaseRepository<T extends BaseEntity> extends EntityRepository<T> {
 					return throwError(
 						() =>
 							new NotFoundException(
-								translate(
-									"exception.itemDoesNotExist",
-									{
-										args: { item: this.getEntityName() },
-									},
-								),
+								translate("exception.itemDoesNotExist", {
+									args: { item: this.getEntityName() },
+								}),
 							),
 					);
 				}
@@ -148,12 +145,9 @@ export class BaseRepository<T extends BaseEntity> extends EntityRepository<T> {
 					return throwError(
 						() =>
 							new NotFoundException(
-								translate(
-									"exception.itemDoesNotExist",
-									{
-										args: { item: this.getEntityName() },
-									},
-								),
+								translate("exception.itemDoesNotExist", {
+									args: { item: this.getEntityName() },
+								}),
 							),
 					);
 				}
@@ -176,12 +170,9 @@ export class BaseRepository<T extends BaseEntity> extends EntityRepository<T> {
 					return throwError(
 						() =>
 							new NotFoundException(
-								translate(
-									"exception.itemDoesNotExist",
-									{
-										args: { item: this.getEntityName() },
-									},
-								),
+								translate("exception.itemDoesNotExist", {
+									args: { item: this.getEntityName() },
+								}),
 							),
 					);
 				}
@@ -220,9 +211,7 @@ export class BaseRepository<T extends BaseEntity> extends EntityRepository<T> {
 				const millisUnix = Number.parseInt(string, 10);
 
 				if (Number.isNaN(millisUnix))
-					throw new BadRequestException(
-						translate("exception.cursorInvalidDate"),
-					);
+					throw new BadRequestException(translate("exception.cursorInvalidDate"));
 
 				return new Date(millisUnix);
 			}
@@ -230,9 +219,7 @@ export class BaseRepository<T extends BaseEntity> extends EntityRepository<T> {
 				const number = Number.parseInt(string, 10);
 
 				if (Number.isNaN(number))
-					throw new BadRequestException(
-						translate("exception.cursorInvalidNumber"),
-					);
+					throw new BadRequestException(translate("exception.cursorInvalidNumber"));
 
 				return number;
 			}

@@ -1,16 +1,14 @@
 import { translate } from "@nestify/server/util/i18n";
 import { IS_PUBLIC_KEY_META } from "@nestify/server/util/nest-framework/constant";
 import {
-  ExecutionContext,
-  ForbiddenException,
-  Injectable,
-  UnauthorizedException,
+	ExecutionContext,
+	ForbiddenException,
+	Injectable,
+	UnauthorizedException,
 } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
 import { AuthGuard } from "@nestjs/passport";
 import { JsonWebTokenError, TokenExpiredError } from "jsonwebtoken";
-
-
 
 @Injectable()
 export class JwtAuthGuard extends AuthGuard("jwt") {

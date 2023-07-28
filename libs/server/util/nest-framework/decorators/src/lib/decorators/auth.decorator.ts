@@ -3,7 +3,6 @@ import { JwtAuthGuard } from "@nestify/server/util/nest-framework/guards";
 import { applyDecorators, CanActivate, Type, UseGuards } from "@nestjs/common";
 import { ApiBearerAuth, ApiUnauthorizedResponse } from "@nestjs/swagger";
 
-
 interface AuthGuard {
 	guards?: Type<CanActivate>[];
 	unauthorizedResponse?: string;

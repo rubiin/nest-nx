@@ -1,7 +1,10 @@
-import { IsDateField, IsStringField, ToBoolean } from "@nestify/server/util/nest-framework/validators";
+import {
+	IsDateField,
+	IsStringField,
+	ToBoolean,
+} from "@nestify/server/util/nest-framework/validators";
 import { IsBoolean, IsOptional } from "class-validator";
 import { i18nValidationMessage } from "nestjs-i18n";
-
 
 export abstract class PaginationDto {
 	/**

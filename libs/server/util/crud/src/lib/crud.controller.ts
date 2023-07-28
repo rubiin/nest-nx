@@ -1,5 +1,9 @@
 import { EntityData, RequiredEntityData } from "@mikro-orm/core";
-import { ApiPaginatedResponse, LoggedInUser,SwaggerResponse } from "@nestify/server/util/nest-framework/decorators";
+import {
+	ApiPaginatedResponse,
+	LoggedInUser,
+	SwaggerResponse,
+} from "@nestify/server/util/nest-framework/decorators";
 import { AppUtils } from "@nestify/server/util/nest-framework/helpers";
 import {
 	BaseEntity,

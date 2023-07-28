@@ -1,7 +1,5 @@
 import { EmailTemplate } from "../enums";
 
-
-
 export interface MailPayload {
 	template: string;
 	replacements?: Record<string, string>;

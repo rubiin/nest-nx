@@ -12,8 +12,12 @@
 		"paths": {
 			"@nestify/api-interfaces": ["libs/api-interfaces/src/index.ts"],
 			"@nestify/server/auth": ["libs/server/auth/src/index.ts"],
+			"@nestify/server/category": ["libs/server/category/src/index.ts"],
+			"@nestify/server/health": ["libs/server/health/src/index.ts"],
 			"@nestify/server/post": ["libs/server/post/src/index.ts"],
 			"@nestify/server/profile": ["libs/server/profile/src/index.ts"],
+			"@nestify/server/root": ["libs/server/root/src/index.ts"],
+			"@nestify/server/tags": ["libs/server/tags/src/index.ts"],
 			"@nestify/server/token": ["libs/server/token/src/index.ts"],
 			"@nestify/server/twofa": ["libs/server/twofa/src/index.ts"],
 			"@nestify/server/user": ["libs/server/user/src/index.ts"],

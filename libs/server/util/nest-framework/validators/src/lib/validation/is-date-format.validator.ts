@@ -7,8 +7,6 @@ import {
 } from "class-validator";
 import { isMatch } from "date-fns";
 
-
-
 /* It validates that a date is in a given format */
 
 @ValidatorConstraint({ async: true })

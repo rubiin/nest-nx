@@ -1,6 +1,12 @@
-
 import { validationI18nMessage } from "@nestify/server/util/i18n";
-import { IsEmailField, IsEnumField, IsPassword, IsStringField, IsUnique, IsUsernameField } from "@nestify/server/util/nest-framework/validators";
+import {
+	IsEmailField,
+	IsEnumField,
+	IsPassword,
+	IsStringField,
+	IsUnique,
+	IsUsernameField,
+} from "@nestify/server/util/nest-framework/validators";
 import { Roles, User } from "@nestify/server/util/types";
 import { Type } from "class-transformer";
 import { IsNotEmpty, IsUrl, ValidateNested } from "class-validator";

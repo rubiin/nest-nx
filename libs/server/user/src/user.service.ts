@@ -79,12 +79,9 @@ export class UserService {
 					return throwError(
 						() =>
 							new NotFoundException(
-								translate(
-									"exception.itemDoesNotExist",
-									{
-										args: { item: "User" },
-									},
-								),
+								translate("exception.itemDoesNotExist", {
+									args: { item: "User" },
+								}),
 							),
 					);
 				}

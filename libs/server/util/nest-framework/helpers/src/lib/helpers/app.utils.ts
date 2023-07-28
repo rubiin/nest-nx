@@ -1,5 +1,11 @@
 import { Config } from "@nestify/server/util/config";
-import { IS_PUBLIC_KEY_META, SWAGGER_API_CURRENT_VERSION, SWAGGER_API_ENDPOINT,SWAGGER_DESCRIPTION, SWAGGER_TITLE } from "@nestify/server/util/nest-framework/constant";
+import {
+	IS_PUBLIC_KEY_META,
+	SWAGGER_API_CURRENT_VERSION,
+	SWAGGER_API_ENDPOINT,
+	SWAGGER_DESCRIPTION,
+	SWAGGER_TITLE,
+} from "@nestify/server/util/nest-framework/constant";
 import { INestApplication, Logger, ValidationPipeOptions } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { DocumentBuilder, OpenAPIObject, SwaggerModule } from "@nestjs/swagger";

@@ -40,12 +40,12 @@
 		"sharedGlobals": []
 	},
 	"generators": {
-    "@nx/nest": {
-      "buildable": true,
-      "simpleName": true,
-      "directory": "server",
-      "unitTestRunner": "none"
-    },
+		"@nx/nest": {
+			"buildable": true,
+			"simpleName": true,
+			"directory": "server",
+			"unitTestRunner": "none"
+		},
 		"@nx/react": {
 			"application": {
 				"style": "scss",

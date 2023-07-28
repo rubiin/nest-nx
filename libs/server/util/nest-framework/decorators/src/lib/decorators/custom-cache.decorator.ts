@@ -1,7 +1,5 @@
-import { applyDecorators, UseInterceptors } from "@nestjs/common";
-;
-
 import { CacheKeyInterceptor } from "@nestify/server/util/nest-framework/interceptors";
+import { applyDecorators, UseInterceptors } from "@nestjs/common";
 
 import { NoCache } from "./nocache.decorator";
 

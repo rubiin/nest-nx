@@ -1,8 +1,6 @@
 import { HelperService } from "@nestify/server/util/nest-framework/helpers";
 import { ThreadWorker } from "poolifier";
 
-
-
 const enum ThreadFunctions {
 	HashString = "hashString",
 }

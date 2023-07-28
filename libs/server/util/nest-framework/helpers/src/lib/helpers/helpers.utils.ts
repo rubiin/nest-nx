@@ -21,7 +21,7 @@ export const HelperService = {
 		return Array.isArray(value);
 	},
 	buildPayloadResponse(
-		user: any,// TODO: Replace with User type
+		user: any, // TODO: Replace with User type
 		accessToken: string,
 		refreshToken?: string,
 	): AuthenticationResponse {

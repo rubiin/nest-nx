@@ -1,4 +1,8 @@
-import { IsEnumField, IsNumberField, IsStringField } from "@nestify/server/util/nest-framework/validators";
+import {
+	IsEnumField,
+	IsNumberField,
+	IsStringField,
+} from "@nestify/server/util/nest-framework/validators";
 import { ApiHideProperty } from "@nestjs/swagger";
 import { Allow } from "class-validator";
 

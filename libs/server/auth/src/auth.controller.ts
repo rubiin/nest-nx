@@ -1,11 +1,12 @@
 import { AuthenticationResponse } from "@nestify/api-interfaces";
 import { TokensService } from "@nestify/server/token";
-import { Auth, GenericController, LoggedInUser,SwaggerResponse } from "@nestify/server/util/nest-framework/decorators";
 import {
-	OauthResponse,
-	OtpLog,
-	User,
-} from "@nestify/server/util/types";
+	Auth,
+	GenericController,
+	LoggedInUser,
+	SwaggerResponse,
+} from "@nestify/server/util/nest-framework/decorators";
+import { OauthResponse, OtpLog, User } from "@nestify/server/util/types";
 import {
 	Body,
 	DefaultValuePipe,

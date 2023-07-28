@@ -1,15 +1,15 @@
 import { EntityData, RequiredEntityData } from "@mikro-orm/core";
 import { translate } from "@nestify/server/util/i18n";
 import {
-  BaseEntity,
-  BaseRepository,
-  Crud,
-  CursorType,
-  PaginationRequest,
-  PaginationResponse,
-  PaginationType,
-  QueryOrder,
-  User,
+	BaseEntity,
+	BaseRepository,
+	Crud,
+	CursorType,
+	PaginationRequest,
+	PaginationResponse,
+	PaginationType,
+	QueryOrder,
+	User,
 } from "@nestify/server/util/types";
 import { NotFoundException } from "@nestjs/common";
 import { from, map, mergeMap, Observable, of, switchMap, throwError } from "rxjs";
@@ -93,12 +93,9 @@ export abstract class BaseService<
 					return throwError(
 						() =>
 							new NotFoundException(
-								translate(
-									"exception.itemDoesNotExist",
-									{
-										args: { item: this.repository.getEntityName() },
-									},
-								),
+								translate("exception.itemDoesNotExist", {
+									args: { item: this.repository.getEntityName() },
+								}),
 							),
 					);
 				}

@@ -4,7 +4,6 @@ import { MulterOptions } from "@nestjs/platform-express/multer/interfaces/multer
 import { Request } from "express";
 import { memoryStorage } from "multer";
 
-
 export const ImageMulterOption: MulterOptions = {
 	limits: {
 		fileSize: FileSize.IMAGE, // 5 MB

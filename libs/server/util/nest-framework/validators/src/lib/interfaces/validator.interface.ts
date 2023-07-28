@@ -8,4 +8,3 @@ export interface BaseArrayValidator {
 	arrayMinSize?: number;
 	each?: boolean;
 }
-

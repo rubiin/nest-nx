@@ -1,5 +1,10 @@
 import { validationI18nMessage } from "@nestify/server/util/i18n";
-import { IsEnumField, IsStringField, IsUUIDField, ToBoolean } from "@nestify/server/util/nest-framework/validators";
+import {
+	IsEnumField,
+	IsStringField,
+	IsUUIDField,
+	ToBoolean,
+} from "@nestify/server/util/nest-framework/validators";
 import { PostStateEnum } from "@nestify/server/util/types";
 import { IsBoolean } from "class-validator";
 

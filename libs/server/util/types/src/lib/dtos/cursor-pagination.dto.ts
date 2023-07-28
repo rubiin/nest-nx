@@ -6,7 +6,7 @@ import { Allow, IsBase64 } from "class-validator";
 import { PaginationType } from "../enums";
 import { PaginationDto } from "./pagination.dto";
 
-4
+4;
 export class CursorPaginationDto extends PaginationDto {
 	@ApiHideProperty()
 	@Allow()

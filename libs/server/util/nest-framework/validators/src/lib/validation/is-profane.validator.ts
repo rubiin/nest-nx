@@ -7,7 +7,6 @@ import {
 } from "class-validator";
 import unprofane from "unprofane";
 
-
 @ValidatorConstraint({ async: true })
 class IsProfaneConstraint implements ValidatorConstraintInterface {
 	async validate(value: string | Array<string>) {

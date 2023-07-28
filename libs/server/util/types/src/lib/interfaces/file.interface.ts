@@ -31,7 +31,6 @@ export interface File {
 	buffer: Buffer;
 }
 
-
 export interface FileValidator {
 	fileType?: RegExp | string;
 	fileSize?: number;

@@ -6,3 +6,4 @@ export * from "./mail.processor";
 export * from "./mailer.module";
 export * from "./mailer.options";
 export * from "./mailer.service";
+export * from "./nest-mail.module";

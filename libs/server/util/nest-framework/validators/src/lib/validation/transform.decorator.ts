@@ -1,7 +1,6 @@
 import { Transform } from "class-transformer";
 import DOMPurify from "isomorphic-dompurify";
 
-
 /**
  * It trims the value of a property and replaces multiple spaces with a single space
  * @returns A function that takes a parameter and returns a value.
