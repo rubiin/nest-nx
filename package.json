@@ -5,8 +5,12 @@
   "scripts": {
     "build": "nx build -t",
     "build:all": "nx run-many -t build --all",
+    "build:libs":"nx run-many -t build --projects=tag:type:lib --parallel=3",
+    "build:features":"nx run-many -t build --projects=tag:type:feature --parallel=3",
     "lint": "nx lint -t",
     "lint:all": "nx run-many -t lint --all --fix --cache",
+    "lint:libs":"nx run-many -t lint --cache --projects=tag:type:lib --parallel=3",
+    "lint:features":"nx run-many -t lint --cache --projects=tag:type:feature --parallel=3",
     "format": "npm run format:write -t",
     "format:write": "nx format:write --libs-and-apps",
     "format:check": "nx format:check --libs-and-apps",

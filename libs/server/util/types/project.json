@@ -37,5 +37,5 @@
 			}
 		}
 	},
-	"tags": ["scope:backend"]
+	"tags": ["scope:backend","type:lib"]
 }
