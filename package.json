@@ -32,7 +32,10 @@
     "graph": "nx graph",
     "help": "nx help",
     "orm": "npx mikro-orm",
-    "serve": "NODE_ENV=dev nx serve server"
+    "serve:backend": "nx serve server",
+    "serve:client": "nx serve client",
+    "serve:all": "nx run-many -t serve --all"
+
   },
   "private": true,
   "dependencies": {

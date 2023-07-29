@@ -3,23 +3,23 @@ import { InjectRepository } from "@mikro-orm/nestjs";
 import { EntityManager } from "@mikro-orm/postgresql";
 import { AuthenticationResponse } from "@nestify/api-interfaces";
 import { TokensService } from "@nestify/server/token";
-import { InjectConfig } from "@nestify/server/util/config";
+import { Config } from "@nestify/server/util/config";
 import { translate } from "@nestify/server/util/i18n";
 import { MailerService } from "@nestify/server/util/mailer";
 import { HelperService } from "@nestify/server/util/nest-framework/helpers";
 import {
-	BaseRepository,
-	EmailSubject,
-	EmailTemplate,
-	OtpLog,
-	Protocol,
-	User,
+  BaseRepository,
+  EmailSubject,
+  EmailTemplate,
+  OtpLog,
+  Protocol,
+  User,
 } from "@nestify/server/util/types";
 import {
-	BadRequestException,
-	ForbiddenException,
-	Injectable,
-	NotFoundException,
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
 } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { init } from "@paralleldrive/cuid2";
@@ -28,11 +28,11 @@ import { capitalize, omit } from "helper-fns";
 import { from, map, mergeMap, Observable, of, switchMap, throwError, zip } from "rxjs";
 
 import {
-	ChangePasswordDto,
-	OtpVerifyDto,
-	ResetPasswordDto,
-	SendOtpDto,
-	UserLoginDto,
+  ChangePasswordDto,
+  OtpVerifyDto,
+  ResetPasswordDto,
+  SendOtpDto,
+  UserLoginDto,
 } from "./dtos";
 
 @Injectable()
@@ -45,7 +45,7 @@ export class AuthService {
 		@InjectRepository(OtpLog)
 		private readonly otpRepository: BaseRepository<OtpLog>,
 		private readonly tokenService: TokensService,
-		@InjectConfig() private readonly configService: ConfigService,
+		private readonly configService: ConfigService<Config,true>,
 		private readonly mailService: MailerService,
 		private readonly em: EntityManager,
 	) {}
