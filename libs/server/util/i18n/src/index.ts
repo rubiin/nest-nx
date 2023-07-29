@@ -2,4 +2,4 @@
 
 export * from "./generated";
 export * from "./i18n.module";
-export * from "./translate";
+export * from "./generated/translate";

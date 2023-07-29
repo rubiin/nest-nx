@@ -31,7 +31,8 @@
     "workspace-generator": "nx workspace-generator",
     "graph": "nx graph",
     "help": "nx help",
-    "orm": "npx mikro-orm"
+    "orm": "npx mikro-orm",
+    "serve": "NODE_ENV=dev nx serve server"
   },
   "private": true,
   "dependencies": {
@@ -225,7 +226,7 @@
     "useTsNode": true,
     "tsConfigPath": "./libs/server/util/orm/tsconfig.json",
     "configPaths": [
-      "./libs/server/util/orm/src/lib/mikro-orm-cli.config.ts"
+      "./libs/server/util/orm/src/mikro-orm-cli.config.ts"
     ]
   }
 }
