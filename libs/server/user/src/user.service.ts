@@ -3,15 +3,12 @@ import { EntityManager } from "@mikro-orm/core";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { Config } from "@nestify/server/util/config";
 import { translate } from "@nestify/server/util/i18n";
+import { CursorPaginationDto, CursorType,PaginationResponse , QueryOrder} from "@nestify/server/util/nest-framework/pagination";
 import {
 	BaseRepository,
-	CursorPaginationDto,
-	CursorType,
 	DtoWithFile,
 	EmailSubject,
 	EmailTemplate,
-	PaginationResponse,
-	QueryOrder,
 	RoutingKey,
 	User,
 } from "@nestify/server/util/types";

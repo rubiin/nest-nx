@@ -2,15 +2,12 @@ import { AutoPath } from "@mikro-orm/core/typings";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { EntityManager } from "@mikro-orm/postgresql";
 import { translate } from "@nestify/server/util/i18n";
+import { CursorPaginationDto, CursorType,PaginationResponse , QueryOrder} from "@nestify/server/util/nest-framework/pagination";
 import {
 	BaseRepository,
 	Category,
 	Comment,
-	CursorPaginationDto,
-	CursorType,
-	PaginationResponse,
 	Post,
-	QueryOrder,
 	Tag,
 	User,
 } from "@nestify/server/util/types";

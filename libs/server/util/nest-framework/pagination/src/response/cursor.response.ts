@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsArray } from "class-validator";
 
-import { PaginationAbstractResponse } from "..";
+import { PaginationAbstractResponse } from "../interface";
 
 export class CursorMeta {
 	/**

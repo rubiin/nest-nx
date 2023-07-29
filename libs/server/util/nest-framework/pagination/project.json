@@ -1,0 +1,41 @@
+{
+	"name": "server-util-nest-framework-pagination",
+	"$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/server/util/nest-framework/pagination/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nx/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/server/util/nest-framework/pagination",
+				"tsConfig": "libs/server/util/nest-framework/pagination/tsconfig.lib.json",
+				"packageJson": "libs/server/util/nest-framework/pagination/package.json",
+				"main": "libs/server/util/nest-framework/pagination/src/index.ts",
+				"assets": ["libs/server/util/nest-framework/pagination/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@nx/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/server/util/nest-framework/pagination/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "libs/server/util/nest-framework/pagination/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	},
+	"tags": ["scope:backend", "type:lib"]
+}

@@ -1,4 +1,4 @@
-import { CursorPaginationResponse, OffsetPaginationResponse } from "@nestify/server/util/types";
+import { CursorPaginationResponse, OffsetPaginationResponse } from "@nestify/server/util/nest-framework/pagination";
 import { applyDecorators, Type } from "@nestjs/common";
 import { ApiExtraModels, ApiOkResponse, ApiOperation, getSchemaPath } from "@nestjs/swagger";
 

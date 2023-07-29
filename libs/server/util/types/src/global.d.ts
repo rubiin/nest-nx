@@ -83,6 +83,4 @@ declare global {
 			THROTTLE_TTL: number;
 		}
 	}
-
-	export type I18nTranslations = I18nTranslationTypes;
 }

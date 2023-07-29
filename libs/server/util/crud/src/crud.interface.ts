@@ -1,12 +1,9 @@
 import { EntityData, RequiredEntityData } from "@mikro-orm/core";
+import { PaginationResponse } from "@nestify/server/util/nest-framework/pagination";
+import { PaginationRequest as TPaginationRequest} from "@nestify/server/util/nest-framework/pagination";
+import { BaseEntity ,User } from "@nestify/server/util/types";
 import { Observable } from "rxjs";
 
-import { BaseEntity } from "../classes/base.entity";
-import { User } from "../entities";
-import {
-	PaginationRequest as TPaginationRequest,
-	PaginationResponse,
-} from "./pagination.interface";
 
 /**
  * common interface that enforces common methods for controller and service

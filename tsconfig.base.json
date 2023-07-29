@@ -9,6 +9,7 @@
 		"preserveSymlinks": true,
 		"lib": ["es2021", "dom"],
 		"baseUrl": ".",
+    "types": ["./libs/util/types/src/lib/global.d.ts"],
 		"paths": {
 			"@nestify/api-interfaces": ["libs/api-interfaces/src/index.ts"],
 			"@nestify/server/auth": ["libs/server/auth/src/index.ts"],
@@ -53,6 +54,9 @@
 			],
 			"@nestify/server/util/nest-framework/middlewares": [
 				"libs/server/util/nest-framework/middlewares/src/index.ts"
+			],
+			"@nestify/server/util/nest-framework/pagination": [
+				"libs/server/util/nest-framework/pagination/src/index.ts"
 			],
 			"@nestify/server/util/nest-framework/pipes": [
 				"libs/server/util/nest-framework/pipes/src/index.ts"

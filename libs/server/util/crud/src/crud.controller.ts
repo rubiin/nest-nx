@@ -5,11 +5,9 @@ import {
 	SwaggerResponse,
 } from "@nestify/server/util/nest-framework/decorators";
 import { AppUtils } from "@nestify/server/util/nest-framework/helpers";
+import { PaginationRequest, PaginationResponse } from "@nestify/server/util/nest-framework/pagination";
 import {
 	BaseEntity,
-	Crud,
-	PaginationRequest,
-	PaginationResponse,
 	User,
 } from "@nestify/server/util/types";
 import {
@@ -28,6 +26,7 @@ import {
 } from "@nestjs/common";
 import { Observable } from "rxjs";
 
+import { Crud } from "./crud.interface";
 import { BaseService } from "./crud.service";
 
 @Injectable()

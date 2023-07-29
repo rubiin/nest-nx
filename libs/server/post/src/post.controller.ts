@@ -5,10 +5,9 @@ import {
 	SwaggerResponse,
 	UUIDParam,
 } from "@nestify/server/util/nest-framework/decorators";
+import { CursorPaginationDto, PaginationResponse } from "@nestify/server/util/nest-framework/pagination";
 import {
 	Comment,
-	CursorPaginationDto,
-	PaginationResponse,
 	Post as PostEntity,
 	User,
 } from "@nestify/server/util/types";

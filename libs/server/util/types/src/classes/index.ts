@@ -2,5 +2,3 @@
 
 export * from "./base.entity";
 export * from "./base.repository";
-export * from "./cursor.response";
-export * from "./offset.response";

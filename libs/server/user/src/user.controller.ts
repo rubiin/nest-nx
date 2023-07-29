@@ -6,11 +6,10 @@ import {
 	SwaggerResponse,
 	UUIDParam,
 } from "@nestify/server/util/nest-framework/decorators";
+import { CursorPaginationDto, PaginationResponse } from "@nestify/server/util/nest-framework/pagination";
 import { fileValidatorPipe } from "@nestify/server/util/nest-framework/pipes";
 import {
-	CursorPaginationDto,
 	File,
-	PaginationResponse,
 	Roles,
 	User,
 } from "@nestify/server/util/types";

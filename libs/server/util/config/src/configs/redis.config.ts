@@ -8,5 +8,5 @@ export const redisConfigValidationSchema = {
 
 export const redis = registerAs("redis", () => ({
 	url: process.env.REDIS_URI,
-	ttl: +process.env.REDIS_TTL,
+	ttl: process.env.REDIS_TTL,
 }));

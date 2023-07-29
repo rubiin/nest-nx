@@ -1,18 +1,15 @@
 import { EntityData, RequiredEntityData } from "@mikro-orm/core";
 import { translate } from "@nestify/server/util/i18n";
+import { CursorType, PaginationRequest, PaginationResponse, PaginationType, QueryOrder } from "@nestify/server/util/nest-framework/pagination";
 import {
 	BaseEntity,
 	BaseRepository,
-	Crud,
-	CursorType,
-	PaginationRequest,
-	PaginationResponse,
-	PaginationType,
-	QueryOrder,
 	User,
 } from "@nestify/server/util/types";
 import { NotFoundException } from "@nestjs/common";
 import { from, map, mergeMap, Observable, of, switchMap, throwError } from "rxjs";
+
+import { Crud } from "./crud.interface";
 
 export abstract class BaseService<
 	Entity extends BaseEntity,
