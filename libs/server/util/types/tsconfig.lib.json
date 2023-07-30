@@ -6,6 +6,6 @@
 		"types": ["node"],
 		"target": "es2021"
 	},
-	"include": ["src/**/*.ts", "../nest-framework/pagination/src/pagination/interface", "../config/src/globals.d.ts"],
+	"include": ["src/**/*.ts"],
 	"exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
 }

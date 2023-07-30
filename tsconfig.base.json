@@ -9,7 +9,7 @@
 		"preserveSymlinks": true,
 		"lib": ["es2021", "dom"],
 		"baseUrl": ".",
-    "types": ["./libs/util/types/src/lib/global.d.ts"],
+		"types": ["./libs/util/types/src/lib/global.d.ts"],
 		"paths": {
 			"@nestify/api-interfaces": ["libs/api-interfaces/src/index.ts"],
 			"@nestify/server/auth": ["libs/server/auth/src/index.ts"],
