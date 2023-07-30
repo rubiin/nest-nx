@@ -1,6 +1,7 @@
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { Config } from "@nestify/server/util/config";
-import { BaseRepository, OauthResponse, User } from "@nestify/server/util/types";
+import { BaseRepository, User } from "@nestify/server/util/orm";
+import { OauthResponse } from "@nestify/server/util/types";
 import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { PassportStrategy } from "@nestjs/passport";

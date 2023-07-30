@@ -5,7 +5,7 @@ import {
 	IsUUIDField,
 	ToBoolean,
 } from "@nestify/server/util/nest-framework/validators";
-import { PostStateEnum } from "@nestify/server/util/types";
+import { PostStateEnum } from "@nestify/server/util/orm";
 import { IsBoolean } from "class-validator";
 
 export class CreatePostDto {

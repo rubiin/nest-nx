@@ -1,7 +1,8 @@
 import { EntityRepository } from "@mikro-orm/core";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { translate } from "@nestify/server/util/i18n";
-import { JwtPayload, RefreshToken, User } from "@nestify/server/util/types";
+import { RefreshToken, User } from "@nestify/server/util/orm";
+import { JwtPayload } from "@nestify/server/util/types";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService, JwtSignOptions } from "@nestjs/jwt";
 import { pick } from "helper-fns";

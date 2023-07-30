@@ -1,7 +1,7 @@
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { BaseService } from "@nestify/server/util/crud";
 import { CursorPaginationDto } from "@nestify/server/util/nest-framework/pagination";
-import { BaseRepository, Tag } from "@nestify/server/util/types";
+import { BaseRepository, Tag } from "@nestify/server/util/orm";
 import { Injectable } from "@nestjs/common";
 
 @Injectable()

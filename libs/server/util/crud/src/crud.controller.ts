@@ -9,7 +9,7 @@ import { PaginationRequest, PaginationResponse } from "@nestify/server/util/nest
 import {
 	BaseEntity,
 	User,
-} from "@nestify/server/util/types";
+} from "@nestify/server/util/orm";
 import {
 	ArgumentMetadata,
 	Body,

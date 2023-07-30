@@ -2,8 +2,12 @@ import { LoadStrategy, Options } from "@mikro-orm/core";
 import { defineConfig } from "@mikro-orm/postgresql";
 import { TsMorphMetadataProvider } from "@mikro-orm/reflection";
 import { SqlHighlighter } from "@mikro-orm/sql-highlighter";
+import { Logger, NotFoundException } from "@nestjs/common";
+import { config as environmentConfig } from "dotenv";
+import dotEnvExpand from "dotenv-expand";
+
+import { BaseRepository } from "./classes";
 import {
-	BaseRepository,
 	Category,
 	Comment,
 	Conversation,
@@ -18,10 +22,7 @@ import {
 	Subscriber,
 	Tag,
 	User,
-} from "@nestify/server/util/types";
-import { Logger, NotFoundException } from "@nestjs/common";
-import { config as environmentConfig } from "dotenv";
-import dotEnvExpand from "dotenv-expand";
+} from "./entities";
 
 /**
  *
@@ -58,7 +59,7 @@ export const baseOptions = {
 		Referral,
 		RefreshToken,
 		Subscriber,
-		Tag,
+		Tag
 	],
 	findOneOrFailHandler: (entityName: string, key: any) => {
 		return new NotFoundException(`${entityName} not found for ${key}`);
@@ -79,7 +80,7 @@ export const baseOptions = {
 		snapshot: true, // save snapshot when creating new migrations
 	},
 	seeder: {
-		path: "dist/common/database/seeders/", // path to the folder with seeders
+		path: "dist/common/database/seeders/", // path to the folder with seeders TODO: fix this
 		pathTs: "src/common/database/seeders/", // path to the folder with seeders
 		defaultSeeder: "DatabaseSeeder", // default seeder class name
 		glob: "!(*.d).{js,ts}", // how to match seeder files (all .js and .ts files, but not .d.ts)

@@ -6,11 +6,13 @@ import { translate } from "@nestify/server/util/i18n";
 import { CursorPaginationDto, CursorType,PaginationResponse , QueryOrder} from "@nestify/server/util/nest-framework/pagination";
 import {
 	BaseRepository,
+	User,
+} from "@nestify/server/util/orm";
+import {
 	DtoWithFile,
 	EmailSubject,
 	EmailTemplate,
 	RoutingKey,
-	User,
 } from "@nestify/server/util/types";
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";

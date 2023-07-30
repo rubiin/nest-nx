@@ -15,8 +15,14 @@ import {
 import { slugify } from "helper-fns";
 
 import { BaseEntity } from "../classes/base.entity";
-import { PostStateEnum } from "../enums";
 import { Category, Comment, Tag, User } from "./index";
+
+
+export enum PostStateEnum {
+	DRAFT = "DRAFT",
+	PUBLISHED = "PUBLISHED",
+}
+
 
 @Entity()
 export class Post extends BaseEntity {

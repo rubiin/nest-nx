@@ -5,7 +5,7 @@ import {
 	BaseEntity,
 	BaseRepository,
 	User,
-} from "@nestify/server/util/types";
+} from "@nestify/server/util/orm";
 import { NotFoundException } from "@nestjs/common";
 import { from, map, mergeMap, Observable, of, switchMap, throwError } from "rxjs";
 

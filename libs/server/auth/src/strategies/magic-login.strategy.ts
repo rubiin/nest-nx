@@ -1,7 +1,8 @@
 import { Loaded } from "@mikro-orm/core";
 import { Config } from "@nestify/server/util/config";
 import { MailerService } from "@nestify/server/util/mailer";
-import { EmailSubject, EmailTemplate, User } from "@nestify/server/util/types";
+import { User } from "@nestify/server/util/orm";
+import { EmailSubject, EmailTemplate } from "@nestify/server/util/types";
 import { Injectable, Logger, UnauthorizedException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { PassportStrategy } from "@nestjs/passport";

@@ -1,8 +1,15 @@
 import { Entity, Enum, Index, ManyToOne, Property, Rel } from "@mikro-orm/core";
 
 import { BaseEntity } from "../classes/base.entity";
-import { ReferralStatus } from "../enums";
 import { User } from "./user.entity";
+
+
+
+export enum ReferralStatus {
+	PENDING = "PENDING",
+	COMPLETED = "COMPLETED",
+}
+
 
 @Entity()
 export class Referral extends BaseEntity {

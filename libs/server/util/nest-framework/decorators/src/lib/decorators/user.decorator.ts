@@ -1,4 +1,4 @@
-import { User } from "@nestify/server/util/types";
+import { User } from "@nestify/server/util/orm";
 import { createParamDecorator, ExecutionContext } from "@nestjs/common";
 
 /* A decorator that will be used to get the user from the request. */

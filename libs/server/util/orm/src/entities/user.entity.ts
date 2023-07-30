@@ -16,8 +16,13 @@ import {
 import { HelperService } from "@nestify/server/util/nest-framework/helpers";
 
 import { BaseEntity } from "../classes/base.entity";
-import { Roles } from "../enums";
 import { Conversation, Post } from ".";
+
+export enum Roles {
+	ADMIN = "ADMIN",
+	AUTHOR = "AUTHOR",
+}
+
 
 @Embeddable()
 export class Social {

@@ -5,7 +5,7 @@ import {
 	GenericController,
 	LoggedInUser,
 } from "@nestify/server/util/nest-framework/decorators";
-import { User } from "@nestify/server/util/types";
+import { User } from "@nestify/server/util/orm";
 import { Body, Post, Res, UnauthorizedException, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { ApiBearerAuth } from "@nestjs/swagger";

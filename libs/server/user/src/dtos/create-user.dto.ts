@@ -7,7 +7,7 @@ import {
 	IsUnique,
 	IsUsernameField,
 } from "@nestify/server/util/nest-framework/validators";
-import { Roles, User } from "@nestify/server/util/types";
+import { Roles, User } from "@nestify/server/util/orm";
 import { Type } from "class-transformer";
 import { IsNotEmpty, IsUrl, ValidateNested } from "class-validator";
 

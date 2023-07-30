@@ -9,9 +9,11 @@ import {
 import { CursorPaginationDto, PaginationResponse } from "@nestify/server/util/nest-framework/pagination";
 import { fileValidatorPipe } from "@nestify/server/util/nest-framework/pipes";
 import {
-	File,
 	Roles,
 	User,
+} from "@nestify/server/util/orm";
+import {
+	File
 } from "@nestify/server/util/types";
 import { Body, Delete, Get, Post, Put, Query, UploadedFile } from "@nestjs/common";
 import { Observable } from "rxjs";

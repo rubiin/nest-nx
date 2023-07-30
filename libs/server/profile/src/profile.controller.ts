@@ -4,7 +4,8 @@ import {
 	LoggedInUser,
 	SwaggerResponse,
 } from "@nestify/server/util/nest-framework/decorators";
-import { ProfileData, User } from "@nestify/server/util/types";
+import { User } from "@nestify/server/util/orm";
+import { ProfileData } from "@nestify/server/util/types";
 import { Delete, Get, Param, Post } from "@nestjs/common";
 import { Observable } from "rxjs";
 

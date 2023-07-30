@@ -21,10 +21,6 @@ export enum FileSize {
 	DOC = 10 * BITS_TO_MB, // 10MB
 }
 
-export enum PostStateEnum {
-	DRAFT = "DRAFT",
-	PUBLISHED = "PUBLISHED",
-}
 
 
 export const FileType: Record<keyof typeof FileSize, RegExp> = {
@@ -34,11 +30,6 @@ export const FileType: Record<keyof typeof FileSize, RegExp> = {
 
 // database enums
 
-
-export enum ReferralStatus {
-	PENDING = "PENDING",
-	COMPLETED = "COMPLETED",
-}
 
 export const enum RoutingKey {
 	SEND_MAIL = "send-mail",

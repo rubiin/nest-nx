@@ -72,11 +72,7 @@
 			"options": {
 				"buildTarget": "client:build"
 			}
-		},
-		"docker-build": {
-			"dependsOn": ["build"],
-			"command": "docker build -f apps/client/Dockerfile . -t client"
 		}
 	},
-	"tags": ["scope:frontend"]
+	"tags": ["scope:frontend", "type:application"]
 }

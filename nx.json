@@ -41,24 +41,47 @@
 	},
 	"generators": {
 		"@nx/nest": {
-			"buildable": true,
-			"simpleName": true,
-			"directory": "server",
-			"unitTestRunner": "none"
+			"application": {
+				"tags": ["scope:backend", "type:application"]
+			},
+			"library": {
+				"buildable": true,
+				"simpleName": true,
+				"directory": "server",
+				"unitTestRunner": "none",
+				"strict": false,
+				"publishable": false,
+				"tags": ["scope:backend", "type:library"]
+			}
 		},
 		"@nx/react": {
 			"application": {
 				"style": "scss",
 				"linter": "eslint",
 				"bundler": "vite",
+				"compiler": "swc",
+				"pascalCaseFiles": true,
+				"export": true,
+				"tags": ["scope:frontend", "type:application"],
 				"babel": true
 			},
 			"component": {
-				"style": "scss"
+				"style": "scss",
+				"pascalCaseFiles": true,
+				"export": true
+			},
+			"hook": {
+				"pascalCaseFiles": true,
+				"export": true
 			},
 			"library": {
 				"style": "scss",
-				"linter": "eslint"
+				"linter": "eslint",
+				"publishable": true,
+				"pascalCaseFiles": true,
+				"export": true,
+				"bundler": "vite",
+				"compiler": "swc"
 			}
 		}
 	}

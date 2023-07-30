@@ -1,7 +1,3 @@
-export enum Roles {
-	ADMIN = "ADMIN",
-	AUTHOR = "AUTHOR",
-}
 
 export enum Action {
 	Manage = "manage",

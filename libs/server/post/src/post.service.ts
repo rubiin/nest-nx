@@ -10,7 +10,7 @@ import {
 	Post,
 	Tag,
 	User,
-} from "@nestify/server/util/types";
+} from "@nestify/server/util/orm";
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { omit } from "helper-fns";
 import { forkJoin, from, map, mergeMap, Observable, of, switchMap, throwError, zip } from "rxjs";

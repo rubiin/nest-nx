@@ -1,7 +1,7 @@
 import { EntityRepository } from "@mikro-orm/core";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { EntityManager } from "@mikro-orm/postgresql";
-import { RefreshToken, User } from "@nestify/server/util/types";
+import { RefreshToken, User } from "@nestify/server/util/orm";
 import { Injectable } from "@nestjs/common";
 import { from, map, Observable } from "rxjs";
 

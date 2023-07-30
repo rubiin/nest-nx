@@ -6,7 +6,8 @@ import {
 	LoggedInUser,
 	SwaggerResponse,
 } from "@nestify/server/util/nest-framework/decorators";
-import { OauthResponse, OtpLog, User } from "@nestify/server/util/types";
+import {OtpLog, User } from "@nestify/server/util/orm";
+import { OauthResponse } from "@nestify/server/util/types";
 import {
 	Body,
 	DefaultValuePipe,

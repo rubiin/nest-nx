@@ -9,12 +9,11 @@ import { MailerService } from "@nestify/server/util/mailer";
 import { HelperService } from "@nestify/server/util/nest-framework/helpers";
 import {
   BaseRepository,
-  EmailSubject,
-  EmailTemplate,
   OtpLog,
   Protocol,
   User,
-} from "@nestify/server/util/types";
+} from "@nestify/server/util/orm";
+import { EmailSubject,EmailTemplate } from "@nestify/server/util/types";
 import {
   BadRequestException,
   ForbiddenException,

@@ -2,7 +2,7 @@ import { InjectRepository } from "@mikro-orm/nestjs";
 import { EntityManager } from "@mikro-orm/postgresql";
 import { Config } from "@nestify/server/util/config";
 import { translate } from "@nestify/server/util/i18n";
-import { BaseRepository, User } from "@nestify/server/util/types";
+import { BaseRepository, User } from "@nestify/server/util/orm";
 import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { Response } from "express";

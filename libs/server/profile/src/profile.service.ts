@@ -2,7 +2,8 @@ import { AutoPath } from "@mikro-orm/core/typings";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { EntityManager } from "@mikro-orm/postgresql";
 import { translate } from "@nestify/server/util/i18n";
-import { BaseRepository, ProfileData, User } from "@nestify/server/util/types";
+import { BaseRepository, User } from "@nestify/server/util/orm";
+import { ProfileData } from "@nestify/server/util/types";
 import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 import { from, map, mergeMap, Observable, of, switchMap, throwError } from "rxjs";
 

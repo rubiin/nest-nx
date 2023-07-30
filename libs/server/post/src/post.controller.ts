@@ -10,7 +10,7 @@ import {
 	Comment,
 	Post as PostEntity,
 	User,
-} from "@nestify/server/util/types";
+} from "@nestify/server/util/orm";
 import { Body, Delete, Get, Param, Post, Put, Query } from "@nestjs/common";
 import { Observable } from "rxjs";
 

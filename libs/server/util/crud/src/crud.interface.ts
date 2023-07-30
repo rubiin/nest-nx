@@ -1,7 +1,7 @@
 import { EntityData, RequiredEntityData } from "@mikro-orm/core";
 import { PaginationResponse } from "@nestify/server/util/nest-framework/pagination";
 import { PaginationRequest as TPaginationRequest} from "@nestify/server/util/nest-framework/pagination";
-import { BaseEntity ,User } from "@nestify/server/util/types";
+import { BaseEntity ,User } from "@nestify/server/util/orm";
 import { Observable } from "rxjs";
 
 
