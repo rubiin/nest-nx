@@ -2,6 +2,7 @@
 
 export * from "./classes";
 export * from "./entities";
+export * from "./factories";
 export * from "./mikro-orm.encrypted";
 export * from "./mikro-orm-cli.config";
 export * from "./orm.module";
