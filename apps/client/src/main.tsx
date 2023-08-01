@@ -1,4 +1,5 @@
 import "unfonts.css";
+import "./i18n/config"
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StrictMode } from "react";
@@ -7,15 +8,16 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./app/App";
 
-const root = ReactDOM.createRoot(document.querySelector("#root") as HTMLElement);
 
 const queryClient = new QueryClient({
-	defaultOptions: {
-		queries: {
-			refetchOnWindowFocus: false,
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
 		},
 	},
 });
+
+const root = ReactDOM.createRoot(document.querySelector("#root") as HTMLElement);
 
 root.render(
 	<StrictMode>

@@ -1,12 +1,10 @@
 
 import { Link,Route, Routes } from "react-router-dom";
 
-import NxWelcome from "./nx-welcome";
 
 export function App() {
 	return (
 		<div>
-			<NxWelcome title="client" />
 
 			{/* START: routes */}
 			{/* These routes and navigation have been generated for you */}
