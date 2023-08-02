@@ -8,8 +8,9 @@ import {
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 
+import {ArticlesCardsGrid} from "../components/BlogList"
 import { NestifyThemes } from "../mantine";
-import { ApplicationContainer } from "./AppContainer";
+import AppContainer from "./appshell";
 
 
 function App() {
@@ -29,12 +30,12 @@ function App() {
           toggleColorScheme={toggleColorScheme}
         >
           <MantineProvider
-            theme={{ ...NestifyThemes.Blue, colorScheme: colorScheme }}
+            theme={{ ...NestifyThemes.Green, colorScheme: colorScheme }}
             withNormalizeCSS
             withGlobalStyles
           >
             <Global styles={{ body: { WebkitFontSmoothing: "auto" } }} />
-            <ApplicationContainer children={<div>Hello</div>}></ApplicationContainer>
+            <AppContainer children={<ArticlesCardsGrid/>}></AppContainer>
           </MantineProvider>
         </ColorSchemeProvider>
   );

@@ -42,6 +42,12 @@
     "useState": true,
     "useSyncExternalStore": true,
     "useTransition": true,
-    "useTranslation": true
+    "useTranslation": true,
+    "BlogPost": true,
+    "Footer": true,
+    "Header": true,
+    "FooterLinks": true,
+    "HeaderMegaMenu": true,
+    "ArticlesCardsGrid": true
   }
 }
