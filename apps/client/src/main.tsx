@@ -1,5 +1,5 @@
 import "unfonts.css";
-import "./i18n/config"
+import "./i18n/config";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StrictMode } from "react";
@@ -23,7 +23,7 @@ root.render(
 	<StrictMode>
 		<QueryClientProvider client={queryClient}>
 			<BrowserRouter>
-				<App />
+      <App/>
 			</BrowserRouter>
 		</QueryClientProvider>
 	</StrictMode>,
