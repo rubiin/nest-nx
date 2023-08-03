@@ -1,6 +1,6 @@
-import {Container, SimpleGrid } from "@mantine/core";
+import { Container, SimpleGrid } from "@mantine/core";
 
-import {ArticleCardFooterProps, BlogPost,} from "../components/BlogPost";
+import { ArticleCardFooterProps, BlogPost, } from "../components/BlogPost";
 
 
 
@@ -19,7 +19,6 @@ const data : ArticleCardFooterProps= {
 
   }
 }
-
 
 export function ArticlesCardsGrid() {
 

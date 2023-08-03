@@ -140,18 +140,18 @@ export function HeaderMegaMenu() {
   ));
 
   return (
-    <Box pb={120}>
+    <Box>
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: "100%" }}>
           <MantineLogo size={30} />
 
           <Group sx={{ height: "100%" }} spacing={0} className={classes.hiddenMobile}>
-            <a href="#" className={classes.link}>
+            <a href="www.google.com" className={classes.link}>
               Home
             </a>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
-                <a href="#" className={classes.link}>
+                <a href="www.google.com" className={classes.link}>
                   <Center inline>
                     <Box component="span" mr={5}>
                       Features
@@ -164,7 +164,7 @@ export function HeaderMegaMenu() {
               <HoverCard.Dropdown sx={{ overflow: "hidden" }}>
                 <Group position="apart" px="md">
                   <Text fw={500}>Features</Text>
-                  <Anchor href="#" fz="xs">
+                  <Anchor href="www.google.com" fz="xs">
                     View all
                   </Anchor>
                 </Group>
@@ -194,18 +194,17 @@ export function HeaderMegaMenu() {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="#" className={classes.link}>
+            <a href="www.google.com" className={classes.link}>
               Learn
             </a>
-            <a href="#" className={classes.link}>
+            <a href="www.google.com" className={classes.link}>
               Academy
             </a>
           </Group>
 
-          <Group className={classes.hiddenMobile}>
-            <Button variant="default">Log in</Button>
+          <div className={classes.hiddenMobile}>
             <Button>Sign up</Button>
-          </Group>
+          </div>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
         </Group>
@@ -223,7 +222,7 @@ export function HeaderMegaMenu() {
         <ScrollArea h={`calc(100vh - ${rem(60)})`} mx="-md">
           <Divider my="sm" color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"} />
 
-          <a href="#" className={classes.link}>
+          <a href="www.google.com" className={classes.link}>
             Home
           </a>
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
@@ -235,19 +234,18 @@ export function HeaderMegaMenu() {
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="#" className={classes.link}>
+          <a href="www.google.com" className={classes.link}>
             Learn
           </a>
-          <a href="#" className={classes.link}>
+          <a href="www.google.com" className={classes.link}>
             Academy
           </a>
 
           <Divider my="sm" color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"} />
 
-          <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
+          <div>
             <Button>Sign up</Button>
-          </Group>
+          </div>
         </ScrollArea>
       </Drawer>
     </Box>
