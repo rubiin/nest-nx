@@ -20,7 +20,7 @@ const logger = new Logger("RabbitMQ");
 					},
 				],
 				uri: configService.get("rabbitmq.url", { infer: true }),
-				connectionInitOptions: { wait: false },
+				connectionInitOptions: { wait: false, timeout: 9000 },
 				logger: logger,
 				channels: {
 					"channel-1": {

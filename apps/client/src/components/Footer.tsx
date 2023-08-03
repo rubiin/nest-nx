@@ -142,7 +142,7 @@ export function FooterLinks({ data }: FooterLinksProps) {
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2020 mantine.dev. All rights reserved.
+          © {new Date().getFullYear()} mantine.dev. All rights reserved.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>

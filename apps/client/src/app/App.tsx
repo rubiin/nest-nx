@@ -10,7 +10,7 @@ import { useLocalStorage } from "@mantine/hooks";
 
 import {ArticlesCardsGrid} from "../components/BlogList"
 import { NestifyThemes } from "../mantine";
-import AppContainer from "./appshell";
+import AppContainer from "./AppShell";
 
 
 function App() {

@@ -1,6 +1,6 @@
 import { Paper, Text } from "@mantine/core";
 
-import AppContainer from "../app/appshell";
+import AppContainer from "../app/AppShell";
 import BlogPost from "../components/BlogPost";
 
 

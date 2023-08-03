@@ -1,4 +1,4 @@
-import { AppShell, Container } from "@mantine/core";
+import { AppShell } from "@mantine/core";
 
 import {FooterLinks} from "../components/Footer";
 import {HeaderMegaMenu} from "../components/Header";
@@ -15,11 +15,10 @@ const data = [{
 
 const AppContainer = ({ children }) => {
   return (
-    <div>
-    <AppShell header={<HeaderMegaMenu />} footer={<FooterLinks data={data} />}>
-      <Container size="sm">{children}</Container>
+    <AppShell
+    header={<HeaderMegaMenu />} footer={<FooterLinks data={data} />}>
+      <main>{children}</main>
     </AppShell>
-    </div>
   );
 };
 
