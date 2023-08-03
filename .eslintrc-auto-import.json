@@ -48,6 +48,7 @@
     "Header": true,
     "FooterLinks": true,
     "HeaderMegaMenu": true,
-    "ArticlesCardsGrid": true
+    "ArticlesCardsGrid": true,
+    "EmailBanner": true
   }
 }

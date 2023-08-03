@@ -7,6 +7,7 @@ export {}
 declare global {
   const ArticlesCardsGrid: typeof import('./components/BlogList')['ArticlesCardsGrid']
   const BlogPost: typeof import('./components/BlogPost')['BlogPost']
+  const EmailBanner: typeof import('./components/Hero')['EmailBanner']
   const Footer: typeof import('./components/Footer')['default']
   const FooterLinks: typeof import('./components/Footer')['FooterLinks']
   const Header: typeof import('./components/Header')['default']

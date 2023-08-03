@@ -25,8 +25,8 @@ export function ArticlesCardsGrid() {
 
 
   return (
-      <Container fluid px="md">
-      <SimpleGrid cols={4} breakpoints={[{ maxWidth: "sm", cols: 1 },{ maxWidth: "md", cols: 2}, { maxWidth: "lg", cols: 3 }]} px="md">
+      <Container fluid px="md" py="xl">
+      <SimpleGrid cols={4} breakpoints={[{ maxWidth: "sm", cols: 1 },{ maxWidth: "md", cols: 2},{ maxWidth: "lg", cols: 3}]} px="md">
         {Array.from({length: 14}).map((_,key) => ( <BlogPost {...data} key={key}/>))}
       </SimpleGrid>
       </Container>
