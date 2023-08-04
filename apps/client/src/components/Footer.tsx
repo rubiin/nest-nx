@@ -1,6 +1,6 @@
 import { ActionIcon, Container, createStyles, Group, rem,Text } from "@mantine/core";
 import { MantineLogo } from "@mantine/ds";
-import {PiInstagramLogoLight, PiTwitterLogoLight,PiYoutubeLogoLight } from "react-icons/pi";
+import {IconBrandYoutube,IconBrandTwitter,IconBrandInstagram } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -147,13 +147,13 @@ export function FooterLinks({ data }: FooterLinksProps) {
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
           <ActionIcon size="lg">
-            <PiTwitterLogoLight size="1.05rem" />
+            <IconBrandTwitter size="1.05rem" />
           </ActionIcon>
           <ActionIcon size="lg">
-            <PiYoutubeLogoLight size="1.05rem"/>
+            <IconBrandYoutube size="1.05rem"/>
           </ActionIcon>
           <ActionIcon size="lg">
-            <PiInstagramLogoLight size="1.05rem"/>
+            <IconBrandInstagram size="1.05rem"/>
           </ActionIcon>
         </Group>
       </Container>

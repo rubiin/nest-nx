@@ -14,6 +14,7 @@ import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
 const useStyles = createStyles((theme) => ({
   card: {
     backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
+    overflow: "hidden",
   },
 
   title: {
@@ -53,7 +54,8 @@ export function BlogPost({
   return (
     <Card withBorder padding="lg" radius="md" className={classes.card}>
       <Card.Section mb="sm">
-        <Image src={image} alt={title} height={180} />
+        <Image src={image} alt={title} height={180}
+        />
       </Card.Section>
 
       <Badge>{category}</Badge>
@@ -79,13 +81,13 @@ export function BlogPost({
           </Text>
           <Group spacing={0}>
             <ActionIcon>
-              <IconHeart size="1.2rem" color={theme.colors.red[6]} stroke={1.5} />
+              <IconHeart size="1.2rem" color={theme.colors.red[6]} stroke={1.5}/>
             </ActionIcon>
             <ActionIcon>
               <IconBookmark size="1.2rem" color={theme.colors.yellow[6]} stroke={1.5} />
             </ActionIcon>
             <ActionIcon>
-              <IconShare size="1.2rem" color={theme.colors.blue[6]} stroke={1.5} />
+              <IconShare size="1.2rem" color={theme.colors.blue[6]} stroke={1.5}/>
             </ActionIcon>
           </Group>
         </Group>

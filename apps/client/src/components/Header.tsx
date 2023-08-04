@@ -20,7 +20,7 @@ import {
 } from "@mantine/core";
 import { MantineLogo } from "@mantine/ds";
 import { useDisclosure } from "@mantine/hooks";
-import {PiBookBold, PiChartPieBold, PiCodeBold, PiCoinBold, PiFingerprintBold, PiNotificationBold,PiTagChevron } from "react-icons/pi";
+import { IconBook, IconChartPie, IconChevronCompactDown, IconCode, IconCoin, IconFingerprint, IconNotification } from "@tabler/icons-react";
 
 
 const useStyles = createStyles((theme) => ({
@@ -85,32 +85,32 @@ const useStyles = createStyles((theme) => ({
 
 const mockdata = [
   {
-    icon: PiCodeBold,
+    icon: IconCode,
     title: "Open source",
     description: "This Pokémon’s cry is very loud and distracting",
   },
   {
-    icon: PiCoinBold,
+    icon: IconCoin,
     title: "Free for everyone",
     description: "The fluid of Smeargle’s tail secretions changes",
   },
   {
-    icon: PiBookBold,
+    icon: IconBook,
     title: "Documentation",
     description: "Yanma is capable of seeing 360 degrees without",
   },
   {
-    icon: PiFingerprintBold,
+    icon: IconFingerprint,
     title: "Security",
     description: "The shell’s rounded shape and the grooves on its.",
   },
   {
-    icon: PiChartPieBold,
+    icon: IconChartPie,
     title: "Analytics",
     description: "This Pokémon uses its flying ability to quickly chase",
   },
   {
-    icon: PiNotificationBold,
+    icon: IconNotification,
     title: "Notifications",
     description: "Combusken battles with the intensely hot flames it spews",
   },
@@ -156,7 +156,7 @@ export function HeaderMegaMenu() {
                     <Box component="span" mr={5}>
                       Features
                     </Box>
-                    <PiTagChevron size={16} color={theme.fn.primaryColor()} />
+                    <IconChevronCompactDown size={16} color={theme.fn.primaryColor()} />
                   </Center>
                 </a>
               </HoverCard.Target>
@@ -230,7 +230,7 @@ export function HeaderMegaMenu() {
               <Box component="span" mr={5}>
                 Features
               </Box>
-              <PiTagChevron size={16} color={theme.fn.primaryColor()} />
+              <IconChevronCompactDown size={16} color={theme.fn.primaryColor()} />
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>

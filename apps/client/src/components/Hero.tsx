@@ -19,6 +19,7 @@ const useStyles = createStyles((theme) => ({
 
   body: {
     paddingRight: `calc(${theme.spacing.xl} * 4)`,
+    paddingLeft: `calc(${theme.spacing.xl} * 4)`,
 
     [theme.fn.smallerThan("sm")]: {
       paddingRight: 0,
@@ -79,7 +80,7 @@ return (
           <Button className={classes.control}>Subscribe</Button>
         </div>
       </div>
-      <Image src="https://ui.mantine.dev/_next/static/media/image.969ed1dc.svg" className={classes.image} />
+      <Image  radius="md" src="https://ui.mantine.dev/_next/static/media/image.969ed1dc.svg" className={classes.image} />
     </div>
   );
 }
