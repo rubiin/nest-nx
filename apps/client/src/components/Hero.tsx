@@ -1,46 +1,46 @@
-import { createStyles, Text, Title, TextInput, Button, Image } from '@mantine/core';
+import { Button, createStyles, Image,Text, TextInput, Title } from "@mantine/core";
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: `5rem 2rem`,
-    [theme.fn.smallerThan('sm')]: {
-      flexDirection: 'column-reverse',
+    [theme.fn.smallerThan("sm")]: {
+      flexDirection: "column-reverse",
       padding: theme.spacing.xl,
     },
   },
 
   image: {
-    maxWidth: '40%',
-    [theme.fn.smallerThan('sm')]: {
-      maxWidth: '100%',
+    maxWidth: "40%",
+    [theme.fn.smallerThan("sm")]: {
+      maxWidth: "100%",
     },
   },
 
   body: {
     paddingRight: `calc(${theme.spacing.xl} * 4)`,
 
-    [theme.fn.smallerThan('sm')]: {
+    [theme.fn.smallerThan("sm")]: {
       paddingRight: 0,
       marginTop: theme.spacing.xl,
     },
   },
 
   title: {
-    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     lineHeight: 1,
     marginBottom: theme.spacing.md,
   },
 
   controls: {
-    display: 'flex',
+    display: "flex",
     marginTop: theme.spacing.xl,
   },
 
   inputWrapper: {
-    width: '100%',
-    flex: '1',
+    width: "100%",
+    flex: "1",
   },
 
   input: {
@@ -57,7 +57,9 @@ const useStyles = createStyles((theme) => ({
 
 export function EmailBanner() {
   const { classes } = useStyles();
-  return (
+
+  
+return (
     <div className={classes.wrapper}>
       <div className={classes.body}>
         <Title className={classes.title}>Wait a minute...</Title>

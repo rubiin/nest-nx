@@ -1,7 +1,7 @@
 import { MantineTheme, MantineThemeOverride, Tuple } from "@mantine/core";
 
 
-type ColorPaletteKey = 'Blue' | 'Purple' | 'Magenta' | 'Red' | 'Orange' | 'Yellow' | 'Green';
+type ColorPaletteKey = "Blue" | "Purple" | "Magenta" | "Red" | "Orange" | "Yellow" | "Green";
 
 type ColorPalette = Record<ColorPaletteKey,Record<string, Tuple<string, 10>>>;
 
@@ -106,7 +106,7 @@ export const nestifyColors: ColorPalette = {
   },
 }
 
-export let NestifyThemes: Record<keyof typeof nestifyColors, MantineThemeOverride> = {
+export const NestifyThemes: Record<keyof typeof nestifyColors, MantineThemeOverride> = {
   Blue: undefined,
   Purple: undefined,
   Magenta: undefined,
