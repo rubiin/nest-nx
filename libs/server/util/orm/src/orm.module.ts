@@ -27,6 +27,7 @@ import { baseOptions } from "./mikro-orm-cli.config";
 	imports: [
 		MikroOrmModule.forRootAsync({
 			imports: [ConfigModule],
+      inject: [ConfigService],
 			useFactory: (configService: ConfigService<Config, true>) =>
 				defineConfig({
 					...baseOptions,
@@ -36,7 +37,6 @@ import { baseOptions } from "./mikro-orm-cli.config";
 					user: configService.get("database.user", { infer: true }),
 					dbName: configService.get("database.dbName", { infer: true }),
 				}),
-			inject: [ConfigService],
 		}),
 		MikroOrmModule.forFeature({
 			entities: [

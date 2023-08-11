@@ -1,13 +1,14 @@
-import { Config, NestConfigModule } from "@nestify/server/util/config";
+import { Config } from "@nestify/server/util/config";
 import { Global, Module } from "@nestjs/common";
-import { ConfigService } from "@nestjs/config";
+import { ConfigModule, ConfigService } from "@nestjs/config";
 import { JwtModule } from "@nestjs/jwt";
 
 @Global()
 @Module({
 	imports: [
 		JwtModule.registerAsync({
-			imports: [NestConfigModule],
+      imports: [ConfigModule],
+      inject: [ConfigService],
 			useFactory: async (configService: ConfigService<Config, true>) => ({
 				isGlobal: true,
 				secret: configService.get("jwt.secret", { infer: true }),
@@ -16,7 +17,6 @@ import { JwtModule } from "@nestjs/jwt";
 					algorithm: "HS256",
 				},
 			}),
-			inject: [ConfigService],
 		}),
 	],
 	exports: [JwtModule],

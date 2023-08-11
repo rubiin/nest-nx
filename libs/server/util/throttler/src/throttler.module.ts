@@ -14,6 +14,7 @@ import { ThrottlerStorageRedisService } from "nestjs-throttler-storage-redis";
 				limit: config.get("throttle.limit", { infer: true }),
 				ignoreUserAgents: [/nestify/i],
 				storage: new ThrottlerStorageRedisService(config.get("redis.url", { infer: true })),
+        throttlers: []
 			}),
 		}),
 	],

@@ -43,7 +43,7 @@ export const mailConfigValidationSchema = {
 		is: "SMTP",
 		then: Joi.required(),
 	}),
-	MAIL_PORT: Joi.number().when("MAIL_SERVER", {
+	MAIL_PORT: Joi.number().port().when("MAIL_SERVER", {
 		is: "SMTP",
 		then: Joi.required(),
 	}),

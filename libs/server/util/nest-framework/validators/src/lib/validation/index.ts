@@ -16,4 +16,3 @@ export * from "./is-username.validator";
 export * from "./is-uuid.validator";
 export * from "./min-max-length.decorator";
 export * from "./transform.decorator";
-export * from "./validation-field.generator";

@@ -11,7 +11,7 @@ import { DateFieldOptions as EnumFieldOptions } from "./is-date-field.validator"
  * @param {EnumFieldOptions} [options_] - IsEnumFieldOptions
  * @returns A decorator function that takes in a target, propertyKey, and descriptor.
  */
-export const IsEnumField = (entity: object, options_?: EnumFieldOptions) => {
+export const IsEnumField = (entity: Record<string,any>, options_?: EnumFieldOptions) => {
 	const options: EnumFieldOptions = {
 		each: false,
 		required: true,

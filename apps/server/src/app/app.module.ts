@@ -15,42 +15,41 @@ import { APP_GUARD, APP_INTERCEPTOR } from "@nestjs/core";
 import { SentryInterceptor } from "@ntegral/nestjs-sentry";
 
 @Module({
-	imports: [AppRootModule, NestCacheModule],
-	providers: [
-		{
-			provide: APP_INTERCEPTOR,
-			useValue: new SentryInterceptor(),
-		},
-		{
-			provide: APP_GUARD,
-			useClass: CustomThrottlerGuard,
-		},
-		{
-			provide: APP_INTERCEPTOR,
-			useClass: HttpCacheInterceptor,
-		},
-		{
-			provide: APP_INTERCEPTOR,
-			useClass: ClearCacheInterceptor,
-		},
-	],
+  imports: [AppRootModule, NestCacheModule],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: SentryInterceptor,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: CustomThrottlerGuard,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: HttpCacheInterceptor,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ClearCacheInterceptor,
+    },
+  ],
 })
 export class AppModule implements NestModule {
-	configure(consumer: MiddlewareConsumer) {
-		applyRawBodyOnlyTo(consumer, {
-			method: RequestMethod.ALL,
-			path: "stripe/webhook",
-		});
-		consumer
-			.apply(RealIpMiddleware)
-			.forRoutes({
-				path: "*",
-				method: RequestMethod.ALL,
-			})
-			.apply(ClearCacheMiddleware)
-			.forRoutes({
-				path: "*",
-				method: RequestMethod.GET,
-			});
-	}
+  configure(consumer: MiddlewareConsumer) {
+    applyRawBodyOnlyTo(consumer, {
+      method: RequestMethod.ALL,
+      path: "stripe/webhook",
+    });
+    consumer
+      .apply(RealIpMiddleware, ClearCacheMiddleware)
+      .exclude(
+        { path: "stripe/webhook", method: RequestMethod.ALL },
+        { path: "doc", method: RequestMethod.ALL },
+      )
+      .forRoutes({
+        path: "*",
+        method: RequestMethod.ALL,
+      });
+  }
 }

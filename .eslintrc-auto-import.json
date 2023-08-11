@@ -1,5 +1,10 @@
 {
   "globals": {
+    "ArticlesCardsGrid": true,
+    "BlogPost": true,
+    "EmailBanner": true,
+    "FooterLinks": true,
+    "HeaderMegaMenu": true,
     "Link": true,
     "NavLink": true,
     "Navigate": true,
@@ -42,13 +47,6 @@
     "useState": true,
     "useSyncExternalStore": true,
     "useTransition": true,
-    "useTranslation": true,
-    "BlogPost": true,
-    "Footer": true,
-    "Header": true,
-    "FooterLinks": true,
-    "HeaderMegaMenu": true,
-    "ArticlesCardsGrid": true,
-    "EmailBanner": true
+    "useTranslation": true
   }
 }

@@ -80,7 +80,7 @@ export class Post extends BaseEntity {
 	async generateSlug(arguments_: EventArgs<this>) {
 		if (arguments_.changeSet?.payload?.title) {
 			this.slug =
-				slugify(this.title, { lowercase: true }) +
+				slugify(this.title) +
 				"-" +
 				Math.trunc(Math.random() * Math.pow(36, 6)).toString(36);
 		}
