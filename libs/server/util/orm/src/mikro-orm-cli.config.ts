@@ -92,8 +92,7 @@ export const baseOptions = {
 	loadStrategy: LoadStrategy.JOINED,
 	entityRepository: BaseRepository,
 	forceUtcTimezone: true,
-	allowGlobalContext: true,
-	registerRequestContext: false,
+	registerRequestContext: true,
 	pool: { min: 2, max: 10 },
 };
 

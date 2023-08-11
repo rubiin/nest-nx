@@ -48,7 +48,7 @@ const bootstrap = async () => {
 		bodyParser.json({ limit: "10mb" }),
 		bodyParser.urlencoded({ limit: "10mb", extended: true }),
 	);
-	app.use(helmet());
+
 	app.use(compression());
 	app.enableCors({
 		credentials: true,
@@ -70,6 +70,10 @@ const bootstrap = async () => {
 	app.useGlobalInterceptors(new LoggerErrorInterceptor());
 
 	app.setGlobalPrefix(globalPrefix);
+
+  if(HelperService.isProd()){
+    app.use(helmet());
+  }
 
 	// =========================================================
 	// configure socket
