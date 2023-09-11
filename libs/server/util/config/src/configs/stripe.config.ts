@@ -1,7 +1,7 @@
 import { registerAs } from "@nestjs/config";
 import Joi from "joi";
 
-export const strpeonfigValidationSchema = {
+export const stripeonfigValidationSchema = {
 	STRIPE_API_KEY: Joi.string().required(),
 	STRIPE_ACCOUNT: Joi.string().required(),
 	STRIPE_CONNECT: Joi.string().required(),

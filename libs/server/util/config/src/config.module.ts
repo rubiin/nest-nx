@@ -20,6 +20,8 @@ import {
 	rabbitmqConfigValidationSchema,
 	redis,
 	redisConfigValidationSchema,
+	sentry,
+	sentryConfigValidationSchema,
 	throttle,
 	throttleConfigValidationSchema,
 } from "./configs";
@@ -39,6 +41,7 @@ import {
 				googleOauth,
 				facebookOauth,
 				throttle,
+        sentry
 			],
 			cache: true,
 			isGlobal: true,
@@ -53,6 +56,7 @@ import {
 				...googleOauthConfigValidationSchema,
 				...facebookOauthConfigValidationSchema,
 				...throttleConfigValidationSchema,
+        ...sentryConfigValidationSchema
 			}),
 			// validationOptions: {
 			// 	abortEarly: true,

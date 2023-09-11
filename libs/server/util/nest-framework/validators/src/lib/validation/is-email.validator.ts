@@ -1,5 +1,6 @@
 import { validationI18nMessage } from "@nestify/server/util/i18n";
 import { applyDecorators } from "@nestjs/common";
+import { Transform } from "class-transformer";
 import { ArrayNotEmpty, IsArray, IsEmail, IsNotEmpty, IsOptional } from "class-validator";
 
 import { DateFieldOptions as EmailFieldOptions } from "./is-date-field.validator";
@@ -11,6 +12,7 @@ export const IsEmailField = (options_?: EmailFieldOptions) => {
 		...options_,
 	};
 	const decoratorsToApply = [
+    Transform(({ value }: { value: string }) => value.toLowerCase(), { toClassOnly: true }),
 		IsEmail(
 			{},
 			{

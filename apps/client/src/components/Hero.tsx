@@ -80,7 +80,7 @@ return (
           <Button className={classes.control}>Subscribe</Button>
         </div>
       </div>
-      <Image  radius="md" src="https://ui.mantine.dev/_next/static/media/image.969ed1dc.svg" className={classes.image} />
+      <Image radius="md" src="https://ui.mantine.dev/_next/static/media/image.969ed1dc.svg" className={classes.image} />
     </div>
   );
 }

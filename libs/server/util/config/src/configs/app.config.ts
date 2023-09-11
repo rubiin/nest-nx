@@ -29,8 +29,7 @@ export const appConfigValidationSchema = {
 	CLIENT_URL: Joi.string().uri().required(),
 	ALLOWED_HOSTS: Joi.string().optional(),
 	SWAGGER_USER: Joi.string().required(),
-	SWAGGER_PASSWORD: Joi.string().required(),
-	SENTRY_DSN: Joi.string().required(),
+	SWAGGER_PASSWORD: Joi.string().required()
 };
 
 // config
@@ -42,7 +41,6 @@ export const app = registerAs("app", () => ({
 	name: process.env.APP_NAME,
 	clientUrl: process.env.CLIENT_URL,
 	allowedOrigins: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : "*",
-	sentryDsn: process.env.SENTRY_DSN,
 	swaggerUser: process.env.SWAGGER_USER,
 	swaggerPass: process.env.SWAGGER_PASSWORD,
 }));

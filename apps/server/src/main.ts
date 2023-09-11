@@ -42,15 +42,14 @@ const bootstrap = async () => {
 	// security and middlewares
 	// ======================================================
 
-	app.enable("trust proxy");
-	app.set("etag", "strong");
-	app.use(
+	app.enable("trust proxy")
+  .set("etag", "strong")
+  .use(
 		bodyParser.json({ limit: "10mb" }),
 		bodyParser.urlencoded({ limit: "10mb", extended: true }),
-	);
-
-	app.use(compression());
-	app.enableCors({
+	)
+  .use(compression())
+  .enableCors({
 		credentials: true,
 		methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
 		maxAge: 3600,
@@ -63,13 +62,9 @@ const bootstrap = async () => {
 
 	const globalPrefix = configService.get("app.prefix", { infer: true });
 
-	app.useGlobalPipes(new ValidationPipe(AppUtils.validationPipeOptions()));
-
-	app.useGlobalFilters(new I18nValidationExceptionFilter({ detailedErrors: false }));
-
-	app.useGlobalInterceptors(new LoggerErrorInterceptor());
-
-	app.setGlobalPrefix(globalPrefix);
+	app.useGlobalPipes(new ValidationPipe(AppUtils.validationPipeOptions()))
+.useGlobalFilters(new I18nValidationExceptionFilter({ detailedErrors: false }))
+.useGlobalInterceptors(new LoggerErrorInterceptor()).setGlobalPrefix(globalPrefix)
 
   if(HelperService.isProd()){
     app.use(helmet());

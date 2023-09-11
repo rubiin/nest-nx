@@ -13,6 +13,7 @@ import {
 	stripe,
 	throttle,
 	twilio,
+  sentry
 } from "./configs";
 
 export interface Config {
@@ -28,4 +29,5 @@ export interface Config {
 	stripe: ConfigType<typeof stripe>;
 	facebookOauth: ConfigType<typeof facebookOauth>;
 	googleOauth: ConfigType<typeof googleOauth>;
+	sentry: ConfigType<typeof sentry>;
 }

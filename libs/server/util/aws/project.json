@@ -1,0 +1,36 @@
+{
+  "name": "server-util-aws",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/server/util/aws/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/server/util/aws",
+        "tsConfig": "libs/server/util/aws/tsconfig.lib.json",
+        "packageJson": "libs/server/util/aws/package.json",
+        "main": "libs/server/util/aws/src/index.ts",
+        "assets": [
+          "libs/server/util/aws/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/util/aws/**/*.ts",
+          "libs/server/util/aws/package.json"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:backend","type:library"]
+}

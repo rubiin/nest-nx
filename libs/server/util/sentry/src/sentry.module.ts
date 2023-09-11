@@ -9,9 +9,9 @@ import { SentryModule } from "@ntegral/nestjs-sentry";
       imports: [ConfigModule],
       inject: [ConfigService],
 			useFactory: async (configService: ConfigService<Config, true>) => ({
-				dsn: configService.get("app.sentryDsn", { infer: true }),
+				dsn: configService.get("sentry.sentryDsn", { infer: true }),
 				debug: true,
-				environment: "development",
+				environment: configService.get("sentry.environment", { infer: true }),
 				tracesSampleRate: 1,
 			}),
 		}),
