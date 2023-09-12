@@ -1,4 +1,4 @@
-import { Entity, Enum, Index, ManyToOne, Property, Rel } from "@mikro-orm/core";
+import { Entity, Enum, Index, ManyToOne, Property, Ref, Rel } from "@mikro-orm/core";
 
 import { BaseEntity } from "../classes/base.entity";
 import { User } from "./user.entity";
@@ -10,18 +10,19 @@ export enum ReferralStatus {
 	COMPLETED = "COMPLETED",
 }
 
-
 @Entity()
 export class Referral extends BaseEntity {
-	@Index()
-	@ManyToOne()
-	referrer: Rel<User>;
+  @ManyToOne({
+    index: true,
+  })
+referrer: Rel<Ref<User>>;
 
-	@Index()
-	@Property()
-	mobileNumber: string;
+  @Property({
+    index: true,
+  })
+mobileNumber: string;
 
-	@Index()
-	@Enum(() => ReferralStatus)
-	status = ReferralStatus.PENDING;
+  @Index()
+  @Enum(() => ReferralStatus)
+status = ReferralStatus.PENDING;
 }

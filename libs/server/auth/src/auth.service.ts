@@ -240,22 +240,24 @@ export class AuthService {
 	 */
 
 	resetPassword(resetPassword: ResetPasswordDto): Observable<User> {
-		const { password, otpCode } = resetPassword;
+    const { password, otpCode } = resetPassword;
 
-		return from(
-			this.otpRepository.findOne(
-				{
-					otpCode,
-				},
-				{ populate: ["user"] },
-			),
-		).pipe(
-			switchMap(details => {
-				this.userRepository.assign(details.user, { password });
+    return from(
+      this.otpRepository.findOne(
+        {
+          otpCode,
+        },
+        { populate: ["user"] },
+      ),
+    ).pipe(
+      switchMap((details) => {
+        const user = details.user.getEntity();
 
-				return from(this.em.flush()).pipe(map(() => details.user));
-			}),
-		);
+        this.userRepository.assign(user, { password });
+
+        return from(this.em.flush()).pipe(map(() => user));
+      }),
+    );
 	}
 
 	/**
@@ -266,57 +268,59 @@ export class AuthService {
 	 * @returns The `verifyOtp` function returns an Observable of type `User`.
 	 */
 	verifyOtp(otpDto: OtpVerifyDto): Observable<User> {
-		const { otpCode } = otpDto;
+	  const { otpCode } = otpDto;
 
-		return from(
-			this.otpRepository.findOne({
-				otpCode,
-			}),
-		).pipe(
-			switchMap(codeDetails => {
-				if (!codeDetails) {
-					return throwError(
-						() =>
-							new NotFoundException(
-								translate("exception.itemDoesNotExist", {
-									args: { item: "Otp" },
-								}),
-							),
-					);
-				}
+    return from(
+      this.otpRepository.findOne({
+        otpCode,
+      }, {
+        populate: ["user"],
+      }),
+    ).pipe(
+      switchMap((codeDetails) => {
+        if (!codeDetails) {
+          return throwError(
+            () =>
+              new NotFoundException(
+                translate("exception.itemDoesNotExist", {
+                  args: { item: "Otp" },
+                }),
+              ),
+          );
+        }
 
-				const isExpired = isAfter(new Date(), new Date(codeDetails.expiresIn));
+        const isExpired = isAfter(new Date(), new Date(codeDetails.expiresIn));
 
-				if (isExpired) {
-					return throwError(
-						() =>
-							new BadRequestException(
-								translate("exception.itemExpired", {
-									args: { item: "Otp" },
-								}),
-							),
-					);
-				}
-				this.otpRepository.assign(codeDetails, {
-					isUsed: true,
-				});
+        if (isExpired) {
+          return throwError(
+            () =>
+              new BadRequestException(
+                translate("exception.itemExpired", {
+                  args: { item: "Otp" },
+                }),
+              ),
+          );
+        }
+        this.otpRepository.assign(codeDetails, {
+          isUsed: true,
+        });
 
-				return from(
-					this.em.transactional(async em => {
-						await Promise.all([
-							em.nativeUpdate(
-								User,
-								{
-									id: codeDetails.user.id,
-								},
-								{ isVerified: true },
-							),
-							em.flush(),
-						]);
-					}),
-				).pipe(map(() => codeDetails.user));
-			}),
-		);
+        return from(
+          this.em.transactional(async (em) => {
+            await Promise.all([
+              em.nativeUpdate(
+                User,
+                {
+                  id: codeDetails.user.id,
+                },
+                { isVerified: true },
+              ),
+              em.flush(),
+            ]);
+          }),
+        ).pipe(map(() => codeDetails.user.getEntity()));
+      }),
+    );
 	}
 
 	/**

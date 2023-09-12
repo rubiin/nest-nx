@@ -1,3 +1,4 @@
+import { ref } from "@mikro-orm/core";
 import { AutoPath } from "@mikro-orm/core/typings";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { EntityManager } from "@mikro-orm/postgresql";
@@ -266,7 +267,7 @@ export class PostService {
 
 		return forkJoin([post$, user$]).pipe(
 			switchMap(([post, user]) => {
-				const comment = new Comment({ body: dto.body, author: user });
+				const comment = new Comment({ body: dto.body, author: ref(user) });
 
 				post.comments.add(comment);
 

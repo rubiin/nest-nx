@@ -1,33 +1,33 @@
-import { Entity, ManyToOne, Property, Rel } from "@mikro-orm/core";
+import { Entity, ManyToOne, Property, Ref, Rel } from "@mikro-orm/core";
 
 import { BaseEntity } from "../classes/base.entity";
-import { Conversation, User } from "./index";
+import { Conversation, Post } from "./index";
 
 @Entity()
 export class Message extends BaseEntity {
-	@Property()
-	body!: string;
+  @Property()
+  body!: string;
 
-	@ManyToOne({
-		eager: false,
-		index: true,
-	})
-	sender: Rel<User>;
+  @ManyToOne({
+    eager: false,
+    index: true,
+  })
+  sender: Rel<Ref<Post>>;
 
-	@ManyToOne({
-		eager: false,
-		index: true,
-	})
-	conversation!: Rel<Conversation>;
+  @ManyToOne({
+    eager: false,
+    index: true,
+  })
+  conversation!: Rel<Ref<Conversation>>;
 
-	@Property()
-	isRead? = false;
+  @Property()
+  isRead? = false;
 
-	@Property()
-	readAt?: Date;
+  @Property()
+  readAt?: Date;
 
-	constructor(partial?: Partial<Comment>) {
-		super();
-		Object.assign(this, partial);
-	}
+  constructor(partial?: Partial<Comment>) {
+    super();
+    Object.assign(this, partial);
+  }
 }
