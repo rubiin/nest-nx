@@ -112,7 +112,7 @@ export abstract class BaseService<
 			switchMap(item => {
 				this.repository.assign(item, dto);
 
-				return this.repository.softRemoveAndFlush(item).pipe(map(() => item));
+        return from(this.repository.getEntityManager().flush()).pipe(map(() => item));
 			}),
 		);
 	}

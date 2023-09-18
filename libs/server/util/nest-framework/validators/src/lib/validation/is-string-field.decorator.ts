@@ -8,6 +8,7 @@ import {
 	IsNotEmpty,
 	IsOptional,
 	IsString,
+  Matches,
 } from "class-validator";
 
 import { BaseArrayValidator, BaseValidator } from "../interfaces";
@@ -19,6 +20,7 @@ export interface StringFieldOptions extends BaseValidator, BaseArrayValidator {
 	maxLength?: number;
 	sanitize?: boolean;
 	trim?: boolean;
+  regex?: RegExp;
 }
 
 /**
@@ -56,6 +58,9 @@ export const IsStringField = (options_?: StringFieldOptions) => {
 	if (options.sanitize) {
 		decoratorsToApply.push(Sanitize());
 	}
+
+  if (options.regex)
+  decoratorsToApply.push(Matches(options.regex));
 
 	if (options.trim) {
 		decoratorsToApply.push(Trim());
