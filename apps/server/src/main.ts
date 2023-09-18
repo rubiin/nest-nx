@@ -1,115 +1,121 @@
 import "@total-typescript/ts-reset";
 
-import { Config } from "@nestify/server/util/config";
-import { AppUtils, HelperService } from "@nestify/server/util/nest-framework/helpers";
-import { createLogger } from "@nestify/server/util/pino";
+import bodyParser from "body-parser";
+import chalk from "chalk";
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
-import { ExpressAdapter, NestExpressApplication } from "@nestjs/platform-express";
-import bodyParser from "body-parser";
-import chalk from "chalk";
+import type { NestExpressApplication } from "@nestjs/platform-express";
+import { ExpressAdapter } from "@nestjs/platform-express";
 import { useContainer } from "class-validator";
 import compression from "compression";
 import helmet from "helmet";
 import { I18nValidationExceptionFilter } from "nestjs-i18n";
 import { LoggerErrorInterceptor } from "nestjs-pino";
-
-import { AppModule } from "./app/app.module";
 import { SocketIOAdapter } from "./socket-io.adapter";
+import { createLogger } from "@nestify/server/util/pino";
+import { AppUtils, HelperService } from "@nestify/server/util/nest-framework/helpers";
+import { AppModule } from "./app/app.module";
+import { Config } from "@nestify/server/util/config";
 
-declare const module: any;
+
+declare const module: { hot: { accept: () => void; dispose: (argument: () => Promise<void>) => void } };
+
+const logger = new Logger("Bootstrap");
 
 const bootstrap = async () => {
-	const app = await NestFactory.create<NestExpressApplication>(AppModule, new ExpressAdapter(), {
-		logger: await createLogger(),
-		snapshot: true,
-	});
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, new ExpressAdapter(), {
+    logger: await createLogger(),
+    snapshot: true,
+  });
 
-	const configService = app.get(ConfigService<Config, true>);
+  const configService = app.get(ConfigService<Config, true>);
 
-	const logger = new Logger("Bootstrap");
+  // =========================================================
+  // configure swagger
+  // =========================================================
 
-	// =========================================================
-	// configure swagger
-	// =========================================================
+  if (!HelperService.isProd())
+    AppUtils.setupSwagger(app, configService);
 
-	if (!HelperService.isProd()) {
-		AppUtils.setupSwagger(app, configService);
-	}
+  // ======================================================
+  // security and middlewares
+  // ======================================================
 
-	// ======================================================
-	// security and middlewares
-	// ======================================================
+  app.enable("trust proxy");
+  app.set("etag", "strong");
+  app.use(
+    bodyParser.json({ limit: "10mb" }),
+    bodyParser.urlencoded({ limit: "10mb", extended: true }),
+  );
 
-	app.enable("trust proxy")
-  .set("etag", "strong")
-  .use(
-		bodyParser.json({ limit: "10mb" }),
-		bodyParser.urlencoded({ limit: "10mb", extended: true }),
-	)
-  .use(compression())
-  .enableCors({
-		credentials: true,
-		methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-		maxAge: 3600,
-		origin: configService.get("app.allowedOrigins", { infer: true }),
-	});
-
-	// =====================================================
-	// configure global pipes, filters, interceptors
-	// =====================================================
-
-	const globalPrefix = configService.get("app.prefix", { infer: true });
-
-	app.useGlobalPipes(new ValidationPipe(AppUtils.validationPipeOptions()))
-.useGlobalFilters(new I18nValidationExceptionFilter({ detailedErrors: false }))
-.useGlobalInterceptors(new LoggerErrorInterceptor()).setGlobalPrefix(globalPrefix)
-
-  if(HelperService.isProd()){
+  if (!HelperService.isProd()) {
+    app.use(compression());
     app.use(helmet());
+    app.enableCors({
+      credentials: true,
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+      maxAge: 3600,
+      origin: configService.get("app.allowedOrigins", { infer: true }),
+    });
   }
 
-	// =========================================================
-	// configure socket
-	// =========================================================
+  // =====================================================
+  // configure global pipes, filters, interceptors
+  // =====================================================
 
-	const redisIoAdapter = new SocketIOAdapter(app, configService);
+  const globalPrefix = configService.get("app.prefix", { infer: true });
 
-	await redisIoAdapter.connectToRedis();
-	app.useWebSocketAdapter(redisIoAdapter);
+  app.useGlobalPipes(new ValidationPipe(AppUtils.validationPipeOptions()));
 
-	// =========================================================
-	// configure shutdown hooks
-	// =========================================================
+  app.useGlobalFilters(new I18nValidationExceptionFilter({ detailedErrors: false }));
 
-	app.enableShutdownHooks();
+  app.useGlobalInterceptors(new LoggerErrorInterceptor());
 
-	AppUtils.killAppWithGrace(app);
+  app.setGlobalPrefix(globalPrefix);
 
-	useContainer(app.select(AppModule), { fallbackOnErrors: true });
+  // =========================================================
+  // configure socket
+  // =========================================================
 
-	if (module.hot) {
-		module.hot.accept();
-		module.hot.dispose(() => app.close());
-	}
+  const redisIoAdapter = new SocketIOAdapter(app, configService);
 
-	const port = process.env.PORT ?? configService.get("app.port", { infer: true });
+  await redisIoAdapter.connectToRedis();
+  app.useWebSocketAdapter(redisIoAdapter);
 
-	await app.listen(port);
+  // =========================================================
+  // configure shutdown hooks
+  // =========================================================
 
-	logger.log(
-		`🚀 Application is running on: ${chalk.green(`http://localhost:${port}/${globalPrefix}`)}`,
-	);
-	logger.log(
-		`🚦 Accepting request only from: ${chalk.green(
-			`${configService.get("app.allowedOrigins", { infer: true })}`,
-		)}`,
-	);
+  app.enableShutdownHooks();
 
-	!HelperService.isProd() &&
-		logger.log(`📑 Swagger is running on: ${chalk.green(`http://localhost:${port}/doc`)}`);
-	logger.log(`Server is up. ${chalk.yellow(`+${Math.trunc(performance.now())}ms`)}`);
+  AppUtils.killAppWithGrace(app);
+
+  useContainer(app.select(AppModule), { fallbackOnErrors: true });
+
+  if (module.hot) {
+    module.hot.accept();
+    module.hot.dispose(() => app.close());
+  }
+
+  const port = process.env.PORT ?? configService.get("app.port", { infer: true });
+
+  await app.listen(port);
+
+  logger.log(
+        `🚀 Application is running on: ${chalk.green(`http://localhost:${port}/${globalPrefix}`)}`,
+  );
+  logger.log(
+        `🚦 Accepting request only from: ${chalk.green(
+            `${configService.get("app.allowedOrigins", { infer: true }).toString()}`,
+        )}`,
+  );
+
+  !HelperService.isProd()
+    && logger.log(`📑 Swagger is running on: ${chalk.green(`http://localhost:${port}/doc`)}`);
+  logger.log(`Server is up. ${chalk.yellow(`+${Math.trunc(performance.now())}ms`)}`);
 };
 
-(async () => await bootstrap())();
+(async () => await bootstrap())().catch((error) => {
+  logger.error(error);
+});
