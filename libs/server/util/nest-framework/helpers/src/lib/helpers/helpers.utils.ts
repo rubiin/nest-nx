@@ -56,10 +56,6 @@ export const HelperService = {
 		return process.env.NODE_ENV === "prod" ? join(currentDirectory, "dist") : currentDirectory;
 	},
 
-	formatSearch(search: string): string {
-		return `%${search.trim().replaceAll("\n", " ").replaceAll(/\s\s+/g, " ").toLowerCase()}%`;
-	},
-
 	hashString(userPassword: string): Promise<string> {
 		return hash(userPassword, argon2Options);
 	},

@@ -1,10 +1,15 @@
+import { validationI18nMessage } from "@nestify/server/util/i18n";
+import { applyDecorators } from "@nestjs/common";
 import {
+  IsNotEmpty,
 	registerDecorator,
 	ValidationArguments,
 	ValidationOptions,
 	ValidatorConstraint,
 	ValidatorConstraintInterface,
 } from "class-validator";
+
+import { MinMaxLength } from "./min-max-length.decorator";
 /**
  *
  * Rules used:
@@ -40,4 +45,18 @@ export const IsPassword = (validationOptions?: ValidationOptions): PropertyDecor
 			validator: IsPasswordConstraint,
 		});
 	};
+};
+
+
+export const IsPasswordField = (validationOptions?: ValidationOptions & { minLength?: number; maxLength?: number }) => {
+  return applyDecorators(
+    IsNotEmpty({
+      message: validationI18nMessage("validation.isNotEmpty"),
+    }),
+    MinMaxLength({
+      minLength: validationOptions.minLength ?? 8,
+      maxLength: validationOptions.maxLength ?? 40,
+    }),
+    IsPassword(validationOptions),
+  );
 };

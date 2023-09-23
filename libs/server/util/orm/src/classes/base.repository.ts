@@ -15,6 +15,7 @@ import { BadRequestException, NotFoundException } from "@nestjs/common";
 import { from, map, Observable, of, switchMap, throwError } from "rxjs";
 
 import { BaseEntity } from "./base.entity";
+import { formatSearch } from "helper-fns";
 
 export class BaseRepository<T extends BaseEntity> extends EntityRepository<T> {
 	private readonly encoding: BufferEncoding = "base64";
@@ -271,7 +272,7 @@ export class BaseRepository<T extends BaseEntity> extends EntityRepository<T> {
 		if (search) {
 			qb.andWhere({
 				[searchField]: {
-					$ilike: HelperService.formatSearch(search),
+					$ilike: formatSearch(search),
 				},
 			});
 		}
@@ -345,7 +346,7 @@ export class BaseRepository<T extends BaseEntity> extends EntityRepository<T> {
 		if (search && searchField) {
 			qb.andWhere({
 				[searchField]: {
-					$ilike: HelperService.formatSearch(search),
+					$ilike: formatSearch(search),
 				},
 			});
 		}

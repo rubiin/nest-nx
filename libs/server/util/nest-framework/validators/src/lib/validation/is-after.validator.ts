@@ -24,7 +24,7 @@ class IsAfterConstraint implements ValidatorConstraintInterface {
 	}
 }
 
-export const IsAfter = (
+export const IsAfterField = (
 	property: string,
 	validationOptions?: ValidationOptions,
 ): PropertyDecorator => {

@@ -1,11 +1,11 @@
 import { validationI18nMessage } from "@nestify/server/util/i18n";
 import {
-	IsEmailField,
-	IsEnumField,
-	IsPassword,
-	IsStringField,
-	IsUnique,
-	IsUsernameField,
+  IsEmailField,
+  IsEnumField,
+  IsPasswordField,
+  IsStringField,
+  IsUnique,
+  IsUsernameField
 } from "@nestify/server/util/nest-framework/validators";
 import { Roles, User } from "@nestify/server/util/orm";
 import { Type } from "class-transformer";
@@ -84,8 +84,7 @@ export class CreateUserDto {
 	 * @example SomePassword@123
 	 */
 
-	@IsStringField({ minLength: 8, maxLength: 50 })
-	@IsPassword({ message: validationI18nMessage("validation.isPassword") })
+	@IsPasswordField({ message: validationI18nMessage("validation.isPassword") })
 	password!: string;
 
 	/**

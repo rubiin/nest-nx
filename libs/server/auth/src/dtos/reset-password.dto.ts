@@ -1,7 +1,7 @@
 import { validationI18nMessage } from "@nestify/server/util/i18n";
 import {
-	IsEqualTo,
-	IsPassword,
+	IsEqualToField,
+	IsPasswordField,
 	IsStringField,
 } from "@nestify/server/util/nest-framework/validators";
 import { PickType } from "@nestjs/swagger";
@@ -22,8 +22,7 @@ export class ResetPasswordDto {
 	 * New password of user
 	 * @example SomeThingNew7^#%
 	 */
-	@IsStringField({ minLength: 8, maxLength: 50 })
-	@IsPassword({ message: validationI18nMessage("validation.isPassword") })
+	@IsPasswordField({ message: validationI18nMessage("validation.isPassword") })
 	password!: string;
 
 	/**
@@ -32,7 +31,7 @@ export class ResetPasswordDto {
 	 */
 
 	@IsNotEmpty({ message: validationI18nMessage("validation.isNotEmpty") })
-	@IsEqualTo("password")
+	@IsEqualToField("password")
 	confirmPassword!: string;
 }
 
