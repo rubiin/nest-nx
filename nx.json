@@ -21,7 +21,12 @@
 			"inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
 		},
 		"lint": {
-			"inputs": ["default", "{workspaceRoot}/.eslintrc.json", "{workspaceRoot}/.eslintignore"]
+			"inputs": [
+				"default",
+				"{workspaceRoot}/.eslintrc.json",
+				"{workspaceRoot}/.eslintignore",
+				"{workspaceRoot}/eslint.config.js"
+			]
 		},
 		"e2e": {
 			"inputs": ["default", "^production"]
@@ -35,7 +40,8 @@
 			"!{projectRoot}/tsconfig.spec.json",
 			"!{projectRoot}/jest.config.[jt]s",
 			"!{projectRoot}/src/test-setup.[jt]s",
-			"!{projectRoot}/.eslintrc.json"
+			"!{projectRoot}/.eslintrc.json",
+			"!{projectRoot}/eslint.config.js"
 		],
 		"sharedGlobals": []
 	},
